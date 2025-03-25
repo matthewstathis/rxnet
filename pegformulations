@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html lang="en">
+
 <table border="1" style="border-collapse: collapse; width: 100%; text-align: left; background-color: #333; color: #fff;">
   <caption style="font-size: 18px; font-weight: bold; color: #fff; margin-bottom: 8px;">PEG Formulations</caption>
 
@@ -43,3 +48,5 @@
     </tr>
   </tbody>
 </table>
+</html>
+
