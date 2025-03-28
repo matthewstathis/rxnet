@@ -12,43 +12,68 @@
             left: 10px;
             background-color: #148275;
             color: white;
-            padding: 10px 40px;
+            padding: 10px 20px;
             font-size: 16px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            margin-bottom: 30px; /* Adjust value as needed */
-
         }
 
         /* Hover effect */
         .home-button:hover {
             background-color: #0f6658;
         }
+
+        /* Wrapper to create space */
+        .content {
+            padding-top: 30px; /* Space between button and table */
+            text-align: center; /* Centers the button */
+            padding-bottom: 80px; /* Adds space at the bottom of the page */
+
+        }
+
+        /* Table styling */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        caption {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Home button linking to the homepage -->
-    <a href="https://matthewstathis.github.io/rxnet/" class="home-button">Home</a>
+    <div class="content">
+        <!-- Home button -->
+        <a href="https://matthewstathis.github.io/rxnet/" class="home-button">Home</a>
 
-</body>
-</html>
-
-
-
-<table border="1" style="border-collapse: collapse; width: 100%; text-align: left; margin-bottom: 20px;">
-  <caption style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">Store Supply Item Numbers</caption>
-  <thead>
-    <tr>
-      <th style="padding: 8px; background-color: #f2f2f2; ">Product</th>
-      <th style="padding: 8px; background-color: #f2f2f2; ">Item Number</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
+        <!-- Phone Numbers Table -->
+        <table>
+            <caption>Store Supply Item Numbers</caption>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Item Number</th>
+                </tr>
+            </thead>
+     <tr>
       <td style="padding: 8px;">1ml oral syringe</td>
       <td style="padding: 8px;">347174</td>
     </tr>
@@ -420,18 +445,14 @@
       <td style="padding: 8px;">Shoulder rest for phone</td>
       <td style="padding: 8px;">242576</td>
     </tr>
-  </tbody>
-</table>
+            </tbody>
+        </table>
 
-
-
-<table border="1" style="border-collapse: collapse; width: 100%; text-align: left; margin-bottom: 20px;">
-  <caption style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">Plastic Baggies from Cardinal</caption>
- <thead>
- <tr>
- <th style="padding: 8px; background-color: #f2f2f2; ">Bag Size</th>
- <th style="padding: 8px; background-color: #f2f2f2; ">Cardinal Item Number</th>
- </tr>
+         <!-- Mail Order Transfer Directory Table -->
+        <table>
+            <caption>Plastic Baggies From Cardinal</caption>
+            <thead>
+</tr>
  </thead>
  <tbody>
  <tr>
@@ -458,15 +479,19 @@
  <td style="padding: 8px;">6x10 inch</td>
  <td style="padding: 8px;">5733514</td>
  </tr>
- </tbody>
-</table>
+            </tbody>
+        </table>
 
-
-
-
-<table border="1" style="border-collapse: collapse; width: 100%; text-align: left; margin-bottom: 20px;">
-  <caption style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">Miscellaneous</caption>
- <thead>
+        <!-- Emails Table -->
+        <table>
+            <caption>Miscellaneous</caption>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>CIN/NDC</th>
+                </tr>
+            </thead>
+            <tbody>
  <tr>
  <th style="padding: 8px; background-color: #f2f2f2; ">Item</th>
  <th style="padding: 8px; background-color: #f2f2f2; ">CIN/NDC</th>
@@ -482,5 +507,9 @@
  <td style="padding: 8px;">One size fits most nitrile gloves</td>
  <td style="padding: 8px;">54374-1300-00 (CIN 5437413)</td>
  </tr>
- </tbody>
-</table>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
