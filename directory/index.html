@@ -7,9 +7,6 @@
     <style>
         /* Style for the Home button */
         .home-button {
-            position: absolute;
-            top: 10px;
-            left: 10px;
             background-color: #148275;
             color: white;
             padding: 10px 40px;
@@ -19,46 +16,60 @@
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            margin-bottom: 60px; /* Adjust value as needed */
-
         }
 
-
-        .content {
-    padding-top: 60px; /* Pushes everything down */
-}
         /* Hover effect */
         .home-button:hover {
             background-color: #0f6658;
+        }
+
+        /* Wrapper to create space */
+        .content {
+            padding-top: 80px; /* Space between button and table */
+            text-align: center; /* Centers the button */
+        }
+
+        /* Table styling */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        caption {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Home button linking to the homepage -->
-    <a href="https://matthewstathis.github.io/rxnet/" class="home-button">Home</a>
+    <div class="content">
+        <!-- Home button -->
+        <a href="https://matthewstathis.github.io/rxnet/" class="home-button">Home</a>
 
-</body>
-</html>
-                                                                                                                                                                     
-                                                                                                                                                                                                      
-                                                                                                                                                                                                                                       
-                                                                                                                                                                                                      
-                                                                                                                                                                     
-                                                                                                                                                                     
-
-
-<table border="1" style="border-collapse: collapse; width: 100%; text-align: left; margin-bottom: 20px;">
-  <caption style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">Phone Numbers</caption>
-
- <thead>
- <tr>
- <th style="padding: 8px; background-color: #f2f2f2; ">Name</th>
- <th style="padding: 8px; background-color: #f2f2f2; ">Phone Numbers</th>
- </tr>
- </thead>
- <tbody>
- <tr>
+        <!-- Phone Numbers Table -->
+        <table>
+            <caption>Phone Numbers</caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone Numbers</th>
+                </tr>
+            </thead>
+            <tbody>
+    <tr>
  <td style="padding: 8px;">Conference Call</td>
  <td style="padding: 8px;">860-785-4641 (access code: 720016163#)</td>
  </tr>
@@ -162,66 +173,76 @@
  <td style="padding: 8px;">Shortcut to call other stores</td>
  <td style="padding: 8px;">700-60X-XXXX (X-XXXX = 5 digit store number)</td>
  </tr>
- </tbody>
-</table>
+            </tbody>
+        </table>
 
-<table border="1" style="border-collapse: collapse; width: 100%; text-align: left; margin-bottom: 20px;">
-  <caption style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">Fax Numbers</caption>
-  <thead>
-    <tr>
-      <th style="padding: 8px; background-color: #f2f2f2; ">Pharmacy</th>
-      <th style="padding: 8px; background-color: #f2f2f2; ">Fax</th>
-    </tr>
- </thead>
- <tbody>
- <tr>
- <td style="padding: 8px;">Amanda Focht (DPC)</td>
- <td style="padding: 8px;">401-900-5173</td>
- </tr>
- <tr>
- <td style="padding: 8px;">Sonya Johnson</td>
- <td style="padding: 8px;">401-799-5907</td>
- </tr>
- <tr>
- <td style="padding: 8px;">Wellspan Good Sam ED (send med recs)</td>
- <td style="padding: 8px;">717-270-3790</td>
- </tr>
- <tr>
- <td style="padding: 8px;">Fax Records to Medicare for CGM Coverage</td>
- <td style="padding: 8px;">903-455-3797</td>
- </tr>
- </tbody>
-</table>
+        <!-- Mail Order Transfer Directory Table -->
+        <table>
+            <caption>Mail Order Transfer Directory</caption>
+            <thead>
+                <tr>
+                    <th>Pharmacy</th>
+                    <th>Phone</th>
+                    <th>Fax</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amanda Focht (DPC)</td>
+                    <td>401-900-5173</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Sonya Johnson</td>
+                    <td>401-799-5907</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Wellspan Good Sam ED</td>
+                    <td>717-270-3790</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Fax Records to Medicare for CGM Coverage</td>
+                    <td>903-455-3797</td>
+                    <td>N/A</td>
+                </tr>
+            </tbody>
+        </table>
 
-<table border="1" style="border-collapse: collapse; width: 100%; text-align: left">
-  <caption style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">Emails</caption>
- <thead>
- <tr>
- <th style="padding: 8px; background-color: #f2f2f2; ">Name</th>
- <th style="padding: 8px; background-color: #f2f2f2; ">Emails</th>
- </tr>
- </thead>
- <tbody>
- <tr>
- <td style="padding: 8px;">External Licensing and regulatory agency communications</td>
- <td style="padding: 8px;">StateReply@CVSHealth.com</td>
- </tr>
- <tr>
- <td style="padding: 8px;">Internal Pharmacy licenses (DEA, CLIA and State)</td>
- <td style="padding: 8px;">RXPermits@CVSHealth.com</td>
- </tr>
- <tr>
- <td style="padding: 8px;">Internal Non-Pharmacy Store Licensure Requests</td>
- <td style="padding: 8px;">FSpermits@cvshealth.com</td>
- </tr> 
- <tr>
- <td style="padding: 8px;">General COVID Testing Help</td>
- <td style="padding: 8px;">covidtesting@cvshealth.com</td>
- </tr>
- <tr>
- <td style="padding: 8px;">COVID Testing Supplies</td>
- <td style="padding: 8px;">covidppesupplies@cvshealth.com</td>
- </tr>
- </tbody>
-</table>
+        <!-- Emails Table -->
+        <table>
+            <caption>Emails</caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>External Licensing and Regulatory Communications</td>
+                    <td>StateReply@CVSHealth.com</td>
+                </tr>
+                <tr>
+                    <td>Internal Pharmacy Licenses</td>
+                    <td>RXPermits@CVSHealth.com</td>
+                </tr>
+                <tr>
+                    <td>Internal Non-Pharmacy Store Licensure Requests</td>
+                    <td>FSpermits@cvshealth.com</td>
+                </tr>
+                <tr>
+                    <td>General COVID Testing Help</td>
+                    <td>covidtesting@cvshealth.com</td>
+                </tr>
+                <tr>
+                    <td>COVID Testing Supplies</td>
+                    <td>covidppesupplies@cvshealth.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
+</body>
+</html>
