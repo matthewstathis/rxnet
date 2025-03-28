@@ -12,43 +12,68 @@
             left: 10px;
             background-color: #148275;
             color: white;
-            padding: 10px 40px;
+            padding: 10px 20px;
             font-size: 16px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            margin-bottom: 30px; /* Adjust value as needed */
-
         }
 
         /* Hover effect */
         .home-button:hover {
             background-color: #0f6658;
         }
+
+        /* Wrapper to create space */
+        .content {
+            padding-top: 30px; /* Space between button and table */
+            text-align: center; /* Centers the button */
+            padding-bottom: 80px; /* Adds space at the bottom of the page */
+
+        }
+
+        /* Table styling */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        caption {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Home button linking to the homepage -->
-    <a href="https://matthewstathis.github.io/rxnet/" class="home-button">Home</a>
+    <div class="content">
+        <!-- Home button -->
+        <a href="https://matthewstathis.github.io/rxnet/" class="home-button">Home</a>
 
-</body>
-</html>
-
-
-
-<table border="1" style="border-collapse: collapse; width: 100%; text-align: left; ">
-  <caption style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">Transfer Directory</caption>
-  <thead>
-    <tr>
-      <th style="padding: 8px; background-color: #f2f2f2; ">Pharmacy</th>
-      <th style="padding: 8px; background-color: #f2f2f2; ">Phone</th>
-      <th style="padding: 8px; background-color: #f2f2f2; ">Fax</th>
-    </tr>
-  </thead>
-  <tbody>
+        <!-- Phone Numbers Table -->
+        <table>
+            <caption>BD Pen Needles</caption>
+            <thead>
+                <tr>
+                    <th>Pharmacy</th>
+                    <th>Phone</th>
+                    <th>Fax</th>
+                </tr>
+            </thead>
     <tr>
       <td style="padding: 8px;">Rite Aid Cleona</td>
       <td style="padding: 8px;">717-228-2289</td>
@@ -136,5 +161,11 @@
       <td style="padding: 8px;">877-860-0982</td>
       <td style="padding: 8px;">877-326-6391</td>
     </tr>
-  </tbody>
-</table>
+
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>
