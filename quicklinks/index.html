@@ -439,6 +439,8 @@ const searchItems = [
                     link.href = item.url;
                     link.innerText = item.name;
                     link.className = "search-result";
+                    link.target = "_blank"; // Open in new tab
+                    link.rel = "noopener noreferrer"; // Security best practice
                     resultsDiv.appendChild(link);
                 });
             } else {
