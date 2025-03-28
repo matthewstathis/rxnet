@@ -285,7 +285,7 @@ const searchItems = [
         { name: "D22 Store Directory ", url: "https://matthewstathis.github.io/rxnet/districtdirectory" },
         { name: "PR QR Codes ", url: "https://matthewstathis.github.io/rxnet/prqrcodes.pdf" },
         { name: "ThinkLP ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://cvsthinklp.my.salesforce.com" },
-        { name: "AP Dashboard ", url: "https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_01631.pdf" },
+        { name: "AP Dashboard", url: "https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_XXXX.pdf" },
         { name: "Opl Excellence ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/2023_RX_AP_Operational_Excellence_Playbook_20230620135623197.pdf" },
         { name: "Operational Risk ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/myShrink_Responsibility_Operational_Risk_Guide_-_Feb_2023_20230223095053563.pdf" },
         { name: "High Risk Drugs ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/High_Risk_Drug_Profiles_-_Q4_FINAL_%28updated_Nov_2022%29_20230320171225743.pdf" },
@@ -496,45 +496,47 @@ const searchItems = [
 
 ];
 
-        function searchFunction() {
-            let input = document.getElementById("searchBox").value.toLowerCase();
-            let resultsDiv = document.getElementById("searchResults");
-            resultsDiv.innerHTML = ""; // Clear previous results
+function searchFunction() {
+    let input = document.getElementById("searchBox").value.toLowerCase();
+    let resultsDiv = document.getElementById("searchResults");
+    resultsDiv.innerHTML = ""; // Clear previous results
 
-            if (input.length === 0) {
-                resultsDiv.style.display = "none"; // Hide dropdown if input is empty
-                return;
-            }
+    if (input.length === 0) {
+        resultsDiv.style.display = "none"; // Hide dropdown if input is empty
+        return;
+    }
 
-            let matches = searchItems.filter(item => item.name.toLowerCase().includes(input));
+    let matches = searchItems.filter(item => item.name.toLowerCase().includes(input));
 
-            if (matches.length > 0) {
-                resultsDiv.style.display = "block"; // Show dropdown
-                matches.forEach(item => {
-                    let link = document.createElement("a");
-                    link.href = item.url;
-                    link.innerText = item.name;
-                    link.className = "search-result";
-                    link.target = "_blank"; // Open in new tab
-                    link.rel = "noopener noreferrer"; // Security best practice
-                    resultsDiv.appendChild(link);
-                });
+    if (matches.length > 0) {
+        resultsDiv.style.display = "block"; // Show dropdown
+        matches.forEach(item => {
+            let link = document.createElement("a");
+            link.innerText = item.name;
+            link.className = "search-result";
+
+            // Check if it's the dynamic URL option
+            if (item.url.includes("INFO_XXXX.pdf")) {
+                link.href = "#"; // Prevent default action
+                link.onclick = function() {
+                    let userInput = prompt("Enter the report identifier (XXXX):");
+                    if (userInput) {
+                        let completeURL = item.url.replace("XXXX", encodeURIComponent(userInput));
+                        window.open(completeURL, "_blank"); // Open in new tab
+                    }
+                };
             } else {
-                resultsDiv.style.display = "none"; // Hide if no matches
+                link.href = item.url;
+                link.target = "_blank"; // Open normal links in a new tab
             }
-        }
 
-        // Hide results if clicked outside
-        document.addEventListener("click", function(event) {
-            let searchBox = document.getElementById("searchBox");
-            let resultsDiv = document.getElementById("searchResults");
-
-            if (!searchBox.contains(event.target) && !resultsDiv.contains(event.target)) {
-                resultsDiv.style.display = "none";
-            }
+            resultsDiv.appendChild(link);
         });
-    </script>
-
+    } else {
+        resultsDiv.style.display = "none"; // Hide if no matches
+    }
+}
+</script>
 </body>
 </html>
 
@@ -946,7 +948,7 @@ function toggleDropdown(button) {
 
 
     function openDynamicURL() {
-    let userInput = prompt("Enter your 5 digit store number (XXXXX):");
+    let userInput = prompt("Enter your 5 digit store number:");
     if (userInput) {
         let completeURL = `https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_${encodeURIComponent(userInput)}.pdf`;
         window.open(completeURL, "_blank"); // Opens in a new tab
