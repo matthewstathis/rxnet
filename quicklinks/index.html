@@ -546,5 +546,16 @@ const searchItems = [
 
 
 </div>
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+    let buttons = document.querySelectorAll(".link-button");
+    buttons.forEach(button => {
+        button.setAttribute("target", "_blank");
+        button.setAttribute("rel", "noopener noreferrer"); // Security best practice
+    });
+});
+
+    
 </body>
 </html>
