@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,34 +7,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RxNet</title>
     <style>
-        /* Style for the Home button */
-        .home-button {
-            position: absolute;
-            top: 10px;
-            left: 10px;
+        /* Button styling */
+        .dynamic-link-button {
             background-color: #148275;
             color: white;
-            padding: 10px 40px;
+            padding: 10px 20px;
             font-size: 16px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            margin-bottom: 30px; /* Adjust value as needed */
-
+            margin: 10px;
         }
 
-        /* Hover effect */
-        .home-button:hover {
+        .dynamic-link-button:hover {
             background-color: #0f6658;
         }
     </style>
 </head>
 <body>
 
-    <!-- Home button linking to the homepage -->
+    <!-- Home button -->
     <a href="https://matthewstathis.github.io/rxnet/" class="home-button">Home</a>
+
+    <!-- New button for dynamic link -->
+    <button onclick="openDynamicURL()" class="dynamic-link-button">Open Custom Link</button>
+
+    <!-- Main Content -->
+    <h1>Welcome to RxNet</h1>
+    <p>Your quick access hub for pharmacy resources.</p>
+
+    <script>
+    function openDynamicURL() {
+        let userInput = prompt("Enter the identifier:");
+        if (userInput) {
+            let completeURL = `https://example.com/path/${encodeURIComponent(userInput)}`;
+            window.open(completeURL, "_blank"); // Opens in a new tab
+        }
+    }
+    </script>
 
 </body>
 </html>
