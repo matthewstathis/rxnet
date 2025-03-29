@@ -220,7 +220,7 @@ const searchItems = [
         { name: "JNLP ", url: "https://jnlplauncher.rxc.cvs.com:7289/RxConnectRxP/" },
         { name: "CoverMyMeds ", url: "https://portal.covermymeds.com/requests" },
         { name: "Citrix ", url: "https://appsmcsaml.corp.cvscaremark.com/" },
-        { name: "Command Center ", url: "https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=01631&port=30000" },
+        { name: "Command Center ", url: "https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000" },
         { name: "myDocs ", url: "https://storeresources.cvsapps.com/?user_ard=MTYzMQ==&employee_ID=MTA5Mzk5MQ==&user_firstname=TWF0dGhldw==&user_lastname=U3RhdGhpcw==&user_title=UGhhcm1hY2lzdA==" },
         { name: "Store Supplies ", url: "https://matthewstathis.github.io/rxnet/storesupplies" },
         { name: "Outlook ", url: "https://mail.cvshealth.com/" },
@@ -619,7 +619,9 @@ const searchItems = [
         <a href="https://mail.cvshealth.com/" target="_blank" rel="noopener noreferrer">Outlook</a>
         <a href="https://app.smartsense.co/" target="_blank" rel="noopener noreferrer">TempAlert</a>
         <a href="https://appsmcsaml.corp.cvscaremark.com/" target="_blank" rel="noopener noreferrer">Citrix</a>
-        <a href="https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=01631&port=30000" target="_blank" rel="noopener noreferrer">Command Center</a>
+<a href="#" onclick="openDynamicURL('https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000'); return false;">
+    Command Center
+</a>
         <a href="https://storeresources.cvsapps.com/?user_ard=MTYzMQ==&employee_ID=MTA5Mzk5MQ==&user_firstname=TWF0dGhldw==&user_lastname=U3RhdGhpcw==&user_title=UGhhcm1hY2lzdA==" target="_blank" rel="noopener noreferrer">myDocs</a>
         <a href="https://matthewstathis.github.io/rxnet/storesupplies">Store Supplies</a>
         <a href="https://www.cvs.com/epp/remote-payment" target="_blank" rel="noopener noreferrer">Card on File</a>
@@ -726,8 +728,9 @@ const searchItems = [
         <button onclick="toggleDropdown(this)" class="dropbtn">Asset Protection</button>
         <div class="dropdown-content">
         <a href="https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://cvsthinklp.my.salesforce.com" target="_blank" rel="noopener noreferrer">ThinkLP</a>
-        <a href="#" onclick="openDynamicURL()">AP Dashboard</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/2023_RX_AP_Operational_Excellence_Playbook_20230620135623197.pdf" target="_blank" rel="noopener noreferrer">Opl Excellence</a>
+<a href="#" onclick="openDynamicURL('https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_XXXX.pdf'); return false;">
+    AP Dashboard
+</a>        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/2023_RX_AP_Operational_Excellence_Playbook_20230620135623197.pdf" target="_blank" rel="noopener noreferrer">Opl Excellence</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/myShrink_Responsibility_Operational_Risk_Guide_-_Feb_2023_20230223095053563.pdf" target="_blank" rel="noopener noreferrer">Operational Risk</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/High_Risk_Drug_Profiles_-_Q4_FINAL_%28updated_Nov_2022%29_20230320171225743.pdf" target="_blank" rel="noopener noreferrer">High Risk Drugs</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/ThinkLP_ICAPs_Guide_20241009105750305.docx_2pdf.pdf" target="_blank" rel="noopener noreferrer">ICAP Job Aid</a>
@@ -966,11 +969,11 @@ function toggleDropdown(button) {
     }, 1000);
 }
 
-    function openDynamicURL() {
-    let userInput = prompt("Enter your 5 digit store number:");
-    if (userInput) {
-        let completeURL = `https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_${encodeURIComponent(userInput)}.pdf`;
-        window.open(completeURL, "_blank"); // Opens in a new tab
+function openDynamicURL(baseURL) {
+    let storeNumber = prompt("Enter the store number:");
+    if (storeNumber) {
+        let finalURL = baseURL.replace("XXXX", storeNumber);
+        window.open(finalURL, "_blank", "noopener,noreferrer");
     }
 }
 </script>
