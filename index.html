@@ -516,12 +516,12 @@ const searchItems = [
             link.className = "search-result";
 
             // Check if it's the dynamic URL option
-            if (item.url.includes("INFO_XXXX.pdf")) {
+            if (item.url.includes("XXXXX")) {
                 link.href = "#"; // Prevent default action
                 link.onclick = function() {
                     let userInput = prompt("Enter your store number:");
                     if (userInput) {
-                        let completeURL = item.url.replace("XXXX", encodeURIComponent(userInput));
+                        let completeURL = item.url.replace("XXXXX", encodeURIComponent(userInput));
                         window.open(completeURL, "_blank"); // Open in new tab
                     }
                 };
