@@ -209,7 +209,7 @@
         // List of search items
 const searchItems = [
         { name: "myReports (local) ", url: "https://retailspark.cvs.com/spark?view=storeView" },
-        { name: "myReports (enter store number) ", url: "https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs" },
+        { name: "myReports (select store number) ", url: "https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs" },
         { name: "TempAlert ", url: "https://app.smartsense.co/" },
         { name: "Pet Med Formulary ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Did_you_know_20250310152951196.pdf" },
         { name: "Pet Med Indications for Preventatives ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Preventives_Indications_Chart_20250311122103610.pdf" },
@@ -519,7 +519,7 @@ const searchItems = [
             if (item.url.includes("XXXXX")) {
                 link.href = "#"; // Prevent default action
                 link.onclick = function() {
-                    let userInput = prompt("Enter your store number:");
+                    let userInput = prompt("Enter your 5-digit store number:");
                     if (userInput) {
                         let completeURL = item.url.replace("XXXXX", encodeURIComponent(userInput));
                         window.open(completeURL, "_blank"); // Open in new tab
@@ -970,7 +970,7 @@ function toggleDropdown(button) {
 }
 
 function openDynamicURL(baseURL) {
-    let storeNumber = prompt("Enter the store number:");
+    let storeNumber = prompt("Enter your 5-digit store number:");
     if (storeNumber) {
         let finalURL = baseURL.replace("XXXXX", storeNumber);
         window.open(finalURL, "_blank", "noopener,noreferrer");
