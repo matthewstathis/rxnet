@@ -496,7 +496,7 @@ const searchItems = [
 
 ];
 
-function searchFunction() {
+ function searchFunction() {
     let input = document.getElementById("searchBox").value.toLowerCase();
     let resultsDiv = document.getElementById("searchResults");
     resultsDiv.innerHTML = ""; // Clear previous results
@@ -516,27 +516,15 @@ function searchFunction() {
             link.className = "search-result";
 
             // Check if it's the dynamic URL option
-            if (item.url.includes("INFO_XXXXX.pdf")) {
+            if (item.url.includes("INFO_XXXX.pdf")) {
                 link.href = "#"; // Prevent default action
                 link.onclick = function() {
                     let userInput = prompt("Enter your store number:");
                     if (userInput) {
-                        let completeURL = item.url.replace("XXXXX", encodeURIComponent(userInput));
+                        let completeURL = item.url.replace("XXXX", encodeURIComponent(userInput));
                         window.open(completeURL, "_blank"); // Open in new tab
                     }
                 };
-
-  if (item.url.includes("sXXXXXrxs")) {
-                link.href = "#"; // Prevent default action
-                link.onclick = function() {
-                    let userInput = prompt("Enter your store number:");
-                    if (userInput) {
-                        let completeURL = item.url.replace("XXXXX", encodeURIComponent(userInput));
-                        window.open(completeURL, "_blank"); // Open in new tab
-                    }
-                };
-
-                
             } else {
                 link.href = item.url;
                 link.target = "_blank"; // Open normal links in a new tab
