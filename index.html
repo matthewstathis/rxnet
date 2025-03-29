@@ -208,9 +208,8 @@
     <script>
         // List of search items
 const searchItems = [
-        { name: "myReports ", url: "https://retailspark.cvs.com/spark?view=storeView&storeName=s01631rxs" },
+        { name: "myReports store 1631 ", url: "https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs" },
         { name: "TempAlert ", url: "https://app.smartsense.co/" },
-
         { name: "Pet Med Formulary ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Did_you_know_20250310152951196.pdf" },
         { name: "Pet Med Indications for Preventatives ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Preventives_Indications_Chart_20250311122103610.pdf" },
         { name: "Pet Med Rebates ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Pet_Med_Rebate_20250317085858808.pdf" },
@@ -285,7 +284,7 @@ const searchItems = [
         { name: "D22 Store Directory ", url: "https://matthewstathis.github.io/rxnet/districtdirectory" },
         { name: "PR QR Codes ", url: "https://matthewstathis.github.io/rxnet/prqrcodes.pdf" },
         { name: "ThinkLP ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://cvsthinklp.my.salesforce.com" },
-        { name: "AP Dashboard", url: "https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_XXXX.pdf" },
+        { name: "AP Dashboard", url: "https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_XXXXX.pdf" },
         { name: "Opl Excellence ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/2023_RX_AP_Operational_Excellence_Playbook_20230620135623197.pdf" },
         { name: "Operational Risk ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/myShrink_Responsibility_Operational_Risk_Guide_-_Feb_2023_20230223095053563.pdf" },
         { name: "High Risk Drugs ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/High_Risk_Drug_Profiles_-_Q4_FINAL_%28updated_Nov_2022%29_20230320171225743.pdf" },
@@ -516,15 +515,27 @@ function searchFunction() {
             link.className = "search-result";
 
             // Check if it's the dynamic URL option
-            if (item.url.includes("INFO_XXXX.pdf")) {
+            if (item.url.includes("INFO_XXXXX.pdf")) {
                 link.href = "#"; // Prevent default action
                 link.onclick = function() {
                     let userInput = prompt("Enter your store number:");
                     if (userInput) {
-                        let completeURL = item.url.replace("XXXX", encodeURIComponent(userInput));
+                        let completeURL = item.url.replace("XXXXX", encodeURIComponent(userInput));
                         window.open(completeURL, "_blank"); // Open in new tab
                     }
                 };
+
+  if (item.url.includes("sXXXXXrxs")) {
+                link.href = "#"; // Prevent default action
+                link.onclick = function() {
+                    let userInput = prompt("Enter your store number:");
+                    if (userInput) {
+                        let completeURL = item.url.replace("XXXXX", encodeURIComponent(userInput));
+                        window.open(completeURL, "_blank"); // Open in new tab
+                    }
+                };
+
+                
             } else {
                 link.href = item.url;
                 link.target = "_blank"; // Open normal links in a new tab
@@ -615,7 +626,7 @@ function searchFunction() {
     <div class="dropdown" onmouseleave="hideDropdown(this)">
         <button onclick="toggleDropdown(this)" class="dropbtn">Operational</button>
         <div class="dropdown-content">
-        <a href="https://retailspark.cvs.com/spark?view=storeView&storeName=s01631rxs" target="_blank" rel="noopener noreferrer">myReports</a>
+        <a href="https://retailspark.cvs.com/spark?view=storeView" target="_blank" rel="noopener noreferrer">myReports</a>
         <a href="https://mail.cvshealth.com/" target="_blank" rel="noopener noreferrer">Outlook</a>
         <a href="https://app.smartsense.co/" target="_blank" rel="noopener noreferrer">TempAlert</a>
         <a href="https://appsmcsaml.corp.cvscaremark.com/" target="_blank" rel="noopener noreferrer">Citrix</a>
