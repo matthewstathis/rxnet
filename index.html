@@ -1013,7 +1013,7 @@ function toggleDropdown(button) {
     let newTab = window.open(url, "_blank", "noopener,noreferrer"); // Open in a new tab securely
     setTimeout(() => {
         if (newTab) newTab.location.reload(); // Refresh the new tab after 1 second
-    }, 5000);
+    }, 1000);
 }
 
 function openDynamicURL(baseURL) {
