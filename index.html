@@ -966,6 +966,7 @@ const searchItems = [
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Dispensing_with_the_FLAVORx_Auto_%28002%29_20240104125806446.pdf" target="_blank" rel="noopener noreferrer">FillMaster Flavoring</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Nonsterile_Compounding_Labels_20230607140522602.pdf" target="_blank" rel="noopener noreferrer">Labeling Guide</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Compounding_Binder_Guidance_Document_20230801144052106.pdf" target="_blank" rel="noopener noreferrer">CMP Binder</a>
+        <a href="#" onclick="openHomeAndRedirect(); return false;">Open Image Retrieval</a>
         </div>
     </div>
 </div>
@@ -1022,6 +1023,19 @@ function openDynamicURL(baseURL) {
         let finalURL = baseURL.replace("XXXXX", storeNumber);
         window.open(finalURL, "_blank", "noopener,noreferrer");
     }
+}
+
+
+function openHomeAndRedirect() {
+    let newTab = window.open(window.location.href, "_blank"); // Open RxNet in a new tab
+    setTimeout(() => {
+        if (newTab) {
+            newTab.location.href = "https://rxdw-rximageretrieval.rxdw-cld-ap.cvshealthcloud.com/imageRequest#no-back-button"; // Redirect in new tab
+            setTimeout(() => {
+                newTab.location.reload(); // Refresh after 2s
+            }, 2000);
+        }
+    }, 1000); // Delay before redirecting to prevent interference
 }
 
 
