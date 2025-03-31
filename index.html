@@ -878,12 +878,7 @@ const searchItems = [
         <a href="https://cvshealth.sabacloud.com/Saba/document/NA10P1PRD006/simrs000000000025831" target="_blank" rel="noopener noreferrer">RPh Daily Task List</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/RPh_prescribing_myDocs_State_Specific_resources_11.23_2023111612555506_20231116132148708.pptx_2pdf.pdf" target="_blank" rel="noopener noreferrer">Expanded Services</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Non_Saleable_Non_CII_Drugs_v2024_11_20241105124655549.pdf" target="_blank" rel="noopener noreferrer">Non-saleable Return</a>
-        <a href="https://rxdw-rximageretrieval.rxdw-cld-ap.cvshealthcloud.com/imageRequest#no-back-button" 
-   target="_blank" 
-   rel="noopener noreferrer" 
-   onclick="setTimeout(() => { location.reload(); }, 3000);">
-   Image Retrieval (test)
-</a>
+<a href="#" onclick="openAndRefresh(); return false;">Open Image Retrieval</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/NIOSH_DRUGS_20191203083207826.pdf" target="_blank" rel="noopener noreferrer">NIOSH Drugs</a>
     </div>
 </div>
@@ -1028,6 +1023,15 @@ function openDynamicURL(baseURL) {
         let finalURL = baseURL.replace("XXXXX", storeNumber);
         window.open(finalURL, "_blank", "noopener,noreferrer");
     }
+}
+
+function openAndRefresh() {
+    let newTab = window.open("https://rxdw-rximageretrieval.rxdw-cld-ap.cvshealthcloud.com/imageRequest#no-back-button", "_blank");
+    setTimeout(() => {
+        if (newTab) {
+            newTab.location.reload();
+        }
+    }, 2000); // Adjust delay as needed (2000ms = 2 seconds)
 }
 </script>
 
