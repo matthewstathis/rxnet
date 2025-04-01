@@ -97,35 +97,25 @@
     <title>RxNet</title>
     <style>
         /* Style for the Home button */
-        .admin-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #148275;
-            color: white;
-            padding: 10px 40px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin-bottom: 30px; /* Adjust value as needed */
+    .admin-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #007bff; /* Adjust color as needed */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
 
-        }
+    .admin-button:hover {
+        background-color: #0056b3; /* Darker shade for hover effect */
+    }
+</style>
 
-        /* Hover effect */
-        .admin-button:hover {
-            background-color: #0f6658;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Home button linking to the homepage -->
-<button id="admin-button">Admin</button>
-
-</body>
+<button id="adminButton" class="admin-button">Admin</button>
 </html>
 
 
@@ -985,7 +975,7 @@ function openDynamicURL(baseURL) {
 }
 
 
-document.getElementById("admin-button").addEventListener("click", function() {
+document.getElementById("adminButton").addEventListener("click", function() {
     let username = prompt("Enter Username:");
     let password = prompt("Enter Password:");
 
