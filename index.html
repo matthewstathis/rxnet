@@ -358,7 +358,7 @@ const searchItems = [
         { name: "NIOSH Drugs ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/NIOSH_DRUGS_20191203083207826.pdf" },
         { name: "Card on File ", url: "https://www.cvs.com/epp/remote-payment" },
         { name: "Insurance Tips ", url: "https://matthewstathis.github.io/rxnet/insurancetips2.pdf" },
-        { name: "Express Scripts PRC ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=XXXXXXXXXX" },
+        { name: "Express Scripts PRC ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=YYYYYYYYYY" },
         { name: "PA Medicaid PDL ", url: "https://papdl.com/preferred-drug-list" },
         { name: "IMZ Medical Billing ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Vaccine_Third_Party_Billing_Job_Aid_20241004132831656.pdf" },
         { name: "Technician Protocol ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/PA_Pharmacy_Technician_Protocol_Sign_Off_20180730151841166_20221118092028383.pdf" },
@@ -534,12 +534,12 @@ const searchItems = [
     }
 
       // Check if it's the dynamic URL option
-            if (item.url.includes("XXXXXXXXXX")) {
+            if (item.url.includes("YYYYYYYYYY")) {
                 link.href = "#"; // Prevent default action
                 link.onclick = function() {
                     let userInput = prompt("Enter your pharmacy's NPI number:");
                     if (userInput) {
-                        let completeURL = item.url.replace("XXXXXXXXXX", encodeURIComponent(userInput));
+                        let completeURL = item.url.replace("YYYYYYYYYY", encodeURIComponent(userInput));
                         window.open(completeURL, "_blank"); // Open in new tab
                     }
                 };
