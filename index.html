@@ -532,18 +532,8 @@ const searchItems = [
     } else {
         resultsDiv.style.display = "none"; // Hide if no matches
     }
-}
 
-
-
-    if (matches.length > 0) {
-        resultsDiv.style.display = "block"; // Show dropdown
-        matches.forEach(item => {
-            let link = document.createElement("a");
-            link.innerText = item.name;
-            link.className = "search-result";
-
-            // Check if it's the dynamic URL option
+      // Check if it's the dynamic URL option
             if (item.url.includes("XXXXXXXXXX")) {
                 link.href = "#"; // Prevent default action
                 link.onclick = function() {
@@ -557,13 +547,10 @@ const searchItems = [
                 link.href = item.url;
                 link.target = "_blank"; // Open normal links in a new tab
             }
-
-            resultsDiv.appendChild(link);
-        });
-    } else {
-        resultsDiv.style.display = "none"; // Hide if no matches
-    }
 }
+
+
+
 
 
         
