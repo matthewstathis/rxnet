@@ -725,9 +725,10 @@ const searchItems = [
         <button onclick="toggleDropdown(this)" class="dropbtn">Asset Protection</button>
         <div class="dropdown-content">
         <a href="https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://cvsthinklp.my.salesforce.com" target="_blank" rel="noopener noreferrer">ThinkLP</a>
-<a href="#" onclick="openDynamicURL('https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_XXXXX.pdf'); return false;">
+<a href="#" id="specialLink" onclick="openDynamicURL('https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_XXXXX.pdf'); return false;">
     AP Dashboard
-</a>        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/2023_RX_AP_Operational_Excellence_Playbook_20230620135623197.pdf" target="_blank" rel="noopener noreferrer">Opl Excellence</a>
+</a>        
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/2023_RX_AP_Operational_Excellence_Playbook_20230620135623197.pdf" target="_blank" rel="noopener noreferrer">Opl Excellence</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/myShrink_Responsibility_Operational_Risk_Guide_-_Feb_2023_20230223095053563.pdf" target="_blank" rel="noopener noreferrer">Operational Risk</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/High_Risk_Drug_Profiles_-_Q4_FINAL_%28updated_Nov_2022%29_20230320171225743.pdf" target="_blank" rel="noopener noreferrer">High Risk Drugs</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/ThinkLP_ICAPs_Guide_20241009105750305.docx_2pdf.pdf" target="_blank" rel="noopener noreferrer">ICAP Job Aid</a>
@@ -959,15 +960,8 @@ function toggleDropdown(button) {
     }
 
 
-    function openAndRefresh(url) {
-    let newTab = window.open(url, "_blank", "noopener,noreferrer"); // Open in a new tab securely
-    setTimeout(() => {
-        if (newTab) newTab.location.reload(); // Refresh the new tab after 1 second
-    }, 1000);
-}
-
 function openDynamicURL(baseURL) {
-    let storeNumber = prompt("Alert: if your browser session blocks opening this page, you'll have to allow pop-ups and try again. Enter your 5-digit store number:");
+    let storeNumber = prompt("Enter your 5-digit store number:\n");
     if (storeNumber) {
         let finalURL = baseURL.replace("XXXXX", storeNumber);
         window.open(finalURL, "_blank", "noopener,noreferrer");
@@ -985,6 +979,22 @@ document.getElementById("adminButton").addEventListener("click", function() {
         alert("Incorrect login. Access denied.");
     }
 });
+
+    document.getElementById("specialLink").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent default link action until user input is processed
+
+    alert("You may need to allow popups in your browser session if this link fails to load."); // Only for this specific link
+
+    let storeNumber = prompt("Enter your store number:\n");
+
+    if (storeNumber) {
+        let newURL = `https://yourwebsite.com/page?store=${storeNumber}`; // Example URL modification
+        window.open(newURL, "_blank"); // Opens in new tab
+    } else {
+        alert("No store number entered.");
+    }
+});
+    
 </script>
 
 </body>
