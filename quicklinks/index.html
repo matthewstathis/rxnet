@@ -578,41 +578,7 @@ document.addEventListener("click", function(event) {
 }
 
 
-    document.getElementById("specialLink").addEventListener("click", function(event) {
-    event.preventDefault(); // Prevent default link action until user input is processed
-    alert("You may need to allow popups in your browser session if this link fails to load."); // Only for this specific link
-    let storeNumber = prompt("Enter your store number:\n");
-    if (storeNumber) {
-        let newURL = `https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_${storeNumber}.pdf`; // Example URL modification
-        window.open(newURL, "_blank"); // Opens in new tab
-    } else {
-        alert("No store number entered.");
-    }
-});
 
-    document.getElementById("specialLink2").addEventListener("click", function(event) {
-    event.preventDefault(); // Prevent default link action until user input is processed
-    let storeNumber = prompt("Enter your store number:\n");
-    if (storeNumber) {
-        let newURL = `https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=${storeNumber}&port=30000`; // Example URL modification
-        window.open(newURL, "_blank"); // Opens in new tab
-    } else {
-        alert("No store number entered.");
-    }
-});
-
-
-
-    document.getElementById("specialLink3").addEventListener("click", function(event) {
-    event.preventDefault(); // Prevent default link action until user input is processed
-    let npiNumber = prompt("Enter your pharmacy's NPI number:\n");
-    if (npiNumber) {
-        let newURL = `https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=${npiNumber}`; // Example URL modification
-        window.open(newURL, "_blank"); // Opens in new tab
-    } else {
-        alert("No NPI number entered.");
-    }
-});
     </script>
 
 
