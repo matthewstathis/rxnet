@@ -425,7 +425,7 @@ const searchItems = [
     
 ];
 
- function searchFunction() {
+function searchFunction() {
     let input = document.getElementById("searchBox").value.toLowerCase();
     let resultsDiv = document.getElementById("searchResults");
     resultsDiv.innerHTML = ""; // Clear previous results
@@ -439,6 +439,7 @@ const searchItems = [
 
     if (matches.length > 0) {
         resultsDiv.style.display = "block"; // Show dropdown
+
         matches.forEach(item => {
             let link = document.createElement("a");
             link.innerText = item.name;
@@ -448,21 +449,9 @@ const searchItems = [
             if (item.url.includes("XXXXX")) {
                 link.href = "#"; // Prevent default action
                 link.onclick = function() {
-                    let userInput = prompt("Enter your store number:");
+                    let userInput = prompt("Enter your 5-digit store number:");
                     if (userInput) {
                         let completeURL = item.url.replace("XXXXX", encodeURIComponent(userInput));
-                        window.open(completeURL, "_blank"); // Open in new tab
-                    }
-                };
-            } 
-
-                        // Check if it's the dynamic URL option
-            if (item.url.includes("YYYYYYYYYY")) {
-                link.href = "#"; // Prevent default action
-                link.onclick = function() {
-                    let userInput = prompt("Enter your pharmacy's NPI number:");
-                    if (userInput) {
-                        let completeURL = item.url.replace("YYYYYYYYYY", encodeURIComponent(userInput));
                         window.open(completeURL, "_blank"); // Open in new tab
                     }
                 };
@@ -471,26 +460,22 @@ const searchItems = [
                 link.target = "_blank"; // Open normal links in a new tab
             }
 
-            resultsDiv.appendChild(link);
+            resultsDiv.appendChild(link); // Append link correctly
         });
     } else {
         resultsDiv.style.display = "none"; // Hide if no matches
     }
 }
 
-                // Hide results if clicked outside
-        document.addEventListener("click", function(event) {
-            let searchBox = document.getElementById("searchBox");
-            let resultsDiv = document.getElementById("searchResults");
+// Hide results if clicked outside
+document.addEventListener("click", function(event) {
+    let searchBox = document.getElementById("searchBox");
+    let resultsDiv = document.getElementById("searchResults");
 
-            if (!searchBox.contains(event.target) && !resultsDiv.contains(event.target)) {
-                resultsDiv.style.display = "none";
-            }
-        });
-
-
-
-
+    if (!searchBox.contains(event.target) && !resultsDiv.contains(event.target)) {
+        resultsDiv.style.display = "none";
+    }
+});
 
         
 </script>
