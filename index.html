@@ -527,11 +527,6 @@ const searchItems = [
                 link.target = "_blank"; // Open normal links in a new tab
             }
 
-            resultsDiv.appendChild(link);
-        });
-    } else {
-        resultsDiv.style.display = "none"; // Hide if no matches
-    }
 
       // Check if it's the dynamic URL option
             if (item.url.includes("YYYYYYYYYY")) {
@@ -548,6 +543,16 @@ const searchItems = [
                 link.target = "_blank"; // Open normal links in a new tab
             }
 }
+
+            
+
+            resultsDiv.appendChild(link);
+        });
+    } else {
+        resultsDiv.style.display = "none"; // Hide if no matches
+    }
+
+
 
 
 
