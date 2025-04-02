@@ -1023,8 +1023,7 @@ document.getElementById("adminButton").addEventListener("click", function() {
 
     document.getElementById("specialLink2").addEventListener("click", function(event) {
     event.preventDefault(); // Prevent default link action until user input is processed
-    alert("You may need to allow popups in your browser session if this link fails to load."); // Only for this specific link
-    let npiNumber = prompt("Enter your store number:\n");
+    let npiNumber = prompt("Enter your pharmacy's NPI number:\n");
     if (npiNumber) {
         let newURL = `https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=${storeNumber}`; // Example URL modification
         window.open(newURL, "_blank"); // Opens in new tab
