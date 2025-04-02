@@ -519,7 +519,7 @@ const searchItems = [
         <a href="https://mail.cvshealth.com/" class="link-button">Outlook</a>
         <a href="https://appsmcsaml.corp.cvscaremark.com/" class="link-button">Citrix</a>
         <a href="https://app.smartsense.co/" class="link-button">TempAlert</a>
-        <a href="#" onclick="openDynamicURL('https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000'); class=:"link-button">Command Center</a>
+<a href="#" id="specialLink2" class="link-button">Command Cntr</a>   
         <a href="https://matthewstathis.github.io/rxnet/rxtelephonev2.pdf" class="link-button">Verbal Rx</a>
         <a href="https://matthewstathis.github.io/rxnet/rxtransferv2.pdf" class="link-button">Verbal Transfer</a>
         <a href="https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" class="link-button">myWork</a>
@@ -577,13 +577,22 @@ const searchItems = [
 
     document.getElementById("specialLink").addEventListener("click", function(event) {
     event.preventDefault(); // Prevent default link action until user input is processed
-
     alert("You may need to allow popups in your browser session if this link fails to load."); // Only for this specific link
-
     let storeNumber = prompt("Enter your store number:\n");
-
     if (storeNumber) {
         let newURL = `https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_${storeNumber}.pdf`; // Example URL modification
+        window.open(newURL, "_blank"); // Opens in new tab
+    } else {
+        alert("No store number entered.");
+    }
+});
+
+            document.getElementById("specialLink2").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent default link action until user input is processed
+    alert("You may need to allow popups in your browser session if this link fails to load."); // Only for this specific link
+    let storeNumber = prompt("Enter your store number:\n");
+    if (storeNumber) {
+        let newURL = `https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=${storeNumber}&port=30000`; // Example URL modification
         window.open(newURL, "_blank"); // Opens in new tab
     } else {
         alert("No store number entered.");
