@@ -524,17 +524,6 @@ const searchItems = [
                 };
             } 
 
-
-      // Check if it's the dynamic URL option
-            if (item.url.includes("YYYYYYYYYY")) {
-                link.href = "#"; // Prevent default action
-                link.onclick = function() {
-                    let userInput = prompt("Enter your pharmacy's NPI number:");
-                    if (userInput) {
-                        let completeURL = item.url.replace("YYYYYYYYYY", encodeURIComponent(userInput));
-                        window.open(completeURL, "_blank"); // Open in new tab
-                    }
-                };
             } else {
                 link.href = item.url;
                 link.target = "_blank"; // Open normal links in a new tab
@@ -1004,7 +993,17 @@ document.getElementById("adminButton").addEventListener("click", function() {
     }
 });
 
-
+    document.getElementById("specialLink").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent default link action until user input is processed
+    alert("You may need to allow popups in your browser session if this link fails to load."); // Only for this specific link
+    let storeNumber = prompt("Enter your store number:\n");
+    if (storeNumber) {
+        let newURL = `https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_${storeNumber}.pdf`; // Example URL modification
+        window.open(newURL, "_blank"); // Opens in new tab
+    } else {
+        alert("No store number entered.");
+    }
+});
 
 
     
