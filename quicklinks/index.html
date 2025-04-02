@@ -412,6 +412,17 @@ const searchItems = [
 
         { name: "Workflow Guide ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Compounding_Workflow_20230811154151986.pdf" }
 
+
+
+        { 
+        name: "Express Scripts PRC Test", 
+        url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=", 
+        requiresInput: true, 
+        inputPrompt: "Enter your pharmacy's NPI number:" 
+    }
+
+
+    
 ];
 
  function searchFunction() {
@@ -476,6 +487,46 @@ const searchItems = [
                 resultsDiv.style.display = "none";
             }
         });
+
+
+
+
+// Function to handle link clicks
+function handleDynamicLink(link) {
+    if (link.requiresInput) {
+        let userInput = prompt(link.inputPrompt);
+        if (userInput) {
+            window.open(link.url + userInput, "_blank"); // Open dynamic URL in new tab
+        } else {
+            alert("You must enter a value.");
+        }
+    } else {
+        window.open(link.url, "_blank"); // Open static link
+    }
+}
+
+// Dynamically create links in your dropdown menu
+const dropdownMenu = document.getElementById("dropdownMenu"); // Replace with your actual dropdown ID
+
+searchLinks.forEach(link => {
+    let listItem = document.createElement("li");
+    let anchor = document.createElement("a");
+
+    anchor.href = "#"; // Prevent default navigation
+    anchor.textContent = link.name;
+    anchor.className = "dropdown-item"; // Keep styling consistent
+
+    anchor.addEventListener("click", function(event) {
+        event.preventDefault(); 
+        handleDynamicLink(link);
+    });
+
+    listItem.appendChild(anchor);
+    dropdownMenu.appendChild(listItem);
+});
+
+
+        
 </script>
 </body>
 </html>
