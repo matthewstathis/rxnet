@@ -491,40 +491,6 @@ const searchItems = [
 
 
 
-// Function to handle link clicks
-function handleDynamicLink(link) {
-    if (link.requiresInput) {
-        let userInput = prompt(link.inputPrompt);
-        if (userInput) {
-            window.open(link.url + userInput, "_blank"); // Open dynamic URL in new tab
-        } else {
-            alert("You must enter a value.");
-        }
-    } else {
-        window.open(link.url, "_blank"); // Open static link
-    }
-}
-
-// Dynamically create links in your dropdown menu
-const dropdownMenu = document.getElementById("dropdownMenu"); // Replace with your actual dropdown ID
-
-searchLinks.forEach(link => {
-    let listItem = document.createElement("li");
-    let anchor = document.createElement("a");
-
-    anchor.href = "#"; // Prevent default navigation
-    anchor.textContent = link.name;
-    anchor.className = "dropdown-item"; // Keep styling consistent
-
-    anchor.addEventListener("click", function(event) {
-        event.preventDefault(); 
-        handleDynamicLink(link);
-    });
-
-    listItem.appendChild(anchor);
-    dropdownMenu.appendChild(listItem);
-});
-
 
         
 </script>
