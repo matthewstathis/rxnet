@@ -204,10 +204,9 @@
     <script>
         // List of search items
 const searchItems = [
-        { name: "myReports (local) ", url: "https://retailspark.cvs.com/spark?view=storeView" },
+        { name: "myReports/Spark (store) ", url: "https://retailspark.cvs.com/spark?view=storeView" },
         { name: "Environmental Health and Safety Reports Portal ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Environmental_Health_%26_Safety_Reports_Portal_Job_Aid.pdf" },
         { name: "Controlled Substance Inventory ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Controlled_Substance_Inventory_Annual_PIC_Change_20230308132257348.pdf" },
-        { name: "myReports (select store number) ", url: "https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs" },
         { name: "TempAlert ", url: "https://app.smartsense.co/" },
         { name: "Pet Med Formulary ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Did_you_know_20250310152951196.pdf" },
         { name: "Pet Med Indications for Preventatives ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Preventives_Indications_Chart_20250311122103610.pdf" },
@@ -312,8 +311,8 @@ const searchItems = [
         { name: "Queue Depth ", url: "https://rxcreports.rxc.cvs.com:31210/airsupport/queuesummary" },
         { name: "CIIM ", url: "https://ciim.cvs.com/ciimappnew/#/login" },
         { name: "Rx Scoreboard ", url: "https://matthewstathis.github.io/rxnet/scoreboard.pdf" },
-        { name: "Profit & Loss ", url: "https://enterpriseportalreporting-prd2.corp.cvscaremark.com:8443/enterprisePortalReporting/viewDocuments.do?listingID=storeProfitLoss&roles=c3RvcmVwbHVzZXI=&storeNumber=1631" },
-        { name: "Green Sheets ", url: "https://enterpriseportalreporting-prd2.corp.cvscaremark.com:8443/enterprisePortalReporting/viewDocuments.do?listingID=fmsGreenSheetsReportLandingPage&roles=Zm1zcG9ydHBhZ2V1c2Vy&storeNumber=01631" },
+        { name: "Profit & Loss ", url: "https://enterpriseportalreporting-prd2.corp.cvscaremark.com:8443/enterprisePortalReporting/viewDocuments.do?listingID=storeProfitLoss&roles=c3RvcmVwbHVzZXI=&storeNumber=XXXXX" },
+        { name: "Green Sheets ", url: "https://enterpriseportalreporting-prd2.corp.cvscaremark.com:8443/enterprisePortalReporting/viewDocuments.do?listingID=fmsGreenSheetsReportLandingPage&roles=Zm1zcG9ydHBhZ2V1c2Vy&storeNumber=XXXXX" },
         { name: "Compliance Report ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/LearningHub_Analytics_MyTeam_Compliance_Reporting_2023062113415949.pdf" },
         { name: "To-Do List Report ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/LearningHub_Analytics_MyTeam_To-Do_List_Reporting.pptx_2pdf.pdf" },
         { name: "OA Audit ", url: "https://www.cvsreports.com/RXRC/CorporateHome" },
@@ -410,7 +409,7 @@ const searchItems = [
         { name: "Labeling Guide ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Nonsterile_Compounding_Labels_20230607140522602.pdf" },
         { name: "CMP Binder ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Compounding_Binder_Guidance_Document_20230801144052106.pdf" },
         { name: "First Kit Quarantine ", url: "https://cvsthinklp.my.salesforce.com/sfc/p/36000001HXbW/a/Kf000000uNSU/Pa5A628WahrLlMBtccYeZ1SasnMXokr_4S018Q2s8L0" },
-        { name: "Spark ", url: "https://retailspark.cvs.com/spark?view=storeView&storeName=s01631rxs" },
+        { name: "myReports/Spark (field) ", url: "https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs" },
         { name: "Citrix (manual login) ", url: "https://appsmc.minclinic.local/Citrix/appsmcWeb/" },
         { name: "DynaMedex ", url: "https://www.dynamedex.com" },
         { name: "Clinical Key ", url: "https://auth.elsevier.com/ShibAuth/institutionLogin?appReturnURL=https%3A%2F%2Fwww.clinicalkey.com%2Fshibboleth%2F&entityID=urn%3Amace%3Aincommon%3Amsu.edu" },
@@ -456,7 +455,7 @@ const searchItems = [
         { name: "2024 IMZ Bonus ", url: "https://cvshealth.sabacloud.com/Saba/document/NA10P1PRD006/simrs000000000025921" },
         { name: "Travel IMZ NDCs ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/TravelVaccineDetails_20241106120156848.pdf" },
         { name: "WH Backorders ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Back_Order_Rpt.pdf" },
-        { name: "WeCare Weekly ", url: "https://portaldoctool.cvs.com/rxreports/wecare/weekly/WeCare_Scorecard_S01631.pdf" },
+        { name: "WeCare Weekly ", url: "https://portaldoctool.cvs.com/rxreports/wecare/weekly/WeCare_Scorecard_SXXXXX.pdf" },
         { name: "WeCare Hourly ", url: "https://dashboard.rxc.cvs.com:33210/WeCare/?store_id=Y3Zzd2VibWFzdGVy&roleType=Y29ycA%3D%3D" },
         { name: "LearnRx Playbook ", url: "https://cvshealth.sabacloud.com/Saba/document/NA10P1PRD006/simrs000000000022200" },
         { name: "PTCB Slide Deck ", url: "https://cvshealth.sabacloud.com/Saba/document/NA10P1PRD006/simrs000000000025525" },
@@ -613,14 +612,10 @@ const searchItems = [
     <div class="dropdown" onmouseleave="hideDropdown(this)">
         <button onclick="toggleDropdown(this)" class="dropbtn">Operational</button>
         <div class="dropdown-content">
-        <a href="#" onclick="openDynamicURL('https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs'); return false;">
-    myReports (Field)
-</a>
+        <a href="#" onclick="openDynamicURL('https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs'); return false;">myReports (Field)</a>
         <a href="https://app.smartsense.co/" target="_blank" rel="noopener noreferrer">TempAlert</a>
         <a href="https://appsmcsaml.corp.cvscaremark.com/" target="_blank" rel="noopener noreferrer">Citrix</a>
-<a href="#" onclick="openDynamicURL('https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000'); return false;">
-    Command Center
-</a>
+        <a href="#" onclick="openDynamicURL('https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000'); return false;">Command Center</a>
         <a href="https://matthewstathis.github.io/rxnet/storesupplies">Store Supplies</a>
         <a href="https://www.cvs.com/epp/remote-payment" target="_blank" rel="noopener noreferrer">Card on File</a>
         <a href="https://federatione.cvs.com/siteminderagent/forms/enterpriselogin.fcc?TYPE=33554433&REALMOID=06-000b85c2-7455-17b6-bef3-f8a50a5ca09e&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=-SM-4qv8ej3I%2bef50jOTXBfzddyxWLgCk4rIl4aQ5C1Iv8Cpj7PHBvrt2ao8JPl1Sd7S&TARGET=-SM-HTTPS%3a%2f%2ffederatione%2ecvs%2ecom%2fsiteminderagent%2fredirectjsp%2fredirect%2ejsp%3fSPID%3dhttps%3a%2f%2fprc%2eexpress--scripts%2ecom%26RelayState%3d1407957962%26SMPORTALURL%3dhttps-%3A-%2F-%2Ffederatione%2ecvs%2ecom-%2Faffwebservices-%2Fpublic-%2Fsaml2sso%26SAMLTRANSACTIONID%3db0939aea--b28f6cf5--33450dd4--e9774897--273cac56--d7" target="_blank" rel="noopener noreferrer">Express Scripts PRC</a>
