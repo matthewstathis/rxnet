@@ -983,6 +983,13 @@ function openDynamicURL(baseURL) {
     }
 }
 
+    function openDynamicURL(baseURL) {
+    let npiNumber = prompt("Enter your pharmacy's NPI number:\n");
+    if (npiNumber) {
+        let finalURL = baseURL.replace("YYYYYYYYYY", npiNumber);
+        window.open(finalURL, "_blank", "noopener,noreferrer");
+    }
+}
 
 document.getElementById("adminButton").addEventListener("click", function() {
     let username = prompt("Enter Username:");
@@ -995,14 +1002,6 @@ document.getElementById("adminButton").addEventListener("click", function() {
     }
 });
 
-
-function openDynamicURL(baseURL) {
-    let npiNumber = prompt("Enter your pharmacy's NPI number:\n");
-    if (npiNumber) {
-        let finalURL = baseURL.replace("YYYYYYYYYY", npiNumber);
-        window.open(finalURL, "_blank", "noopener,noreferrer");
-    }
-}
 
 
 
