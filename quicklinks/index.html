@@ -138,7 +138,7 @@ const searchItems = [
         { name: "JNLP ", url: "https://jnlplauncher.rxc.cvs.com:7289/RxConnectRxP/" },
         { name: "CoverMyMeds ", url: "https://portal.covermymeds.com/requests" },
         { name: "Citrix ", url: "https://appsmcsaml.corp.cvscaremark.com/" },
-        { name: "Command Center ", url: "https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000" },
+        { name: "Command Center ", url: "https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXXX&port=30000" },
         { name: "myDocs ", url: "https://storeresources.cvsapps.com/?user_ard=MTYzMQ==&employee_ID=MTA5Mzk5MQ==&user_firstname=TWF0dGhldw==&user_lastname=U3RhdGhpcw==&user_title=UGhhcm1hY2lzdA==" },
         { name: "Store Supplies ", url: "https://matthewstathis.github.io/rxnet/storesupplies" },
         { name: "Outlook ", url: "https://mail.cvshealth.com/" },
@@ -203,7 +203,7 @@ const searchItems = [
         { name: "D22 Store Directory ", url: "https://matthewstathis.github.io/rxnet/districtdirectory" },
         { name: "PR QR Codes ", url: "https://matthewstathis.github.io/rxnet/prqrcodes.pdf" },
         { name: "ThinkLP ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://cvsthinklp.my.salesforce.com" },
-        { name: "AP Dashboard", url: "https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_XXXX.pdf" },
+        { name: "AP Dashboard", url: "https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_XXXXX.pdf" },
         { name: "Opl Excellence ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/2023_RX_AP_Operational_Excellence_Playbook_20230620135623197.pdf" },
         { name: "Operational Risk ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/myShrink_Responsibility_Operational_Risk_Guide_-_Feb_2023_20230223095053563.pdf" },
         { name: "High Risk Drugs ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/High_Risk_Drug_Profiles_-_Q4_FINAL_%28updated_Nov_2022%29_20230320171225743.pdf" },
@@ -434,12 +434,12 @@ const searchItems = [
             link.className = "search-result";
 
             // Check if it's the dynamic URL option
-            if (item.url.includes("INFO_XXXX.pdf")) {
+            if (item.url.includes("XXXXX")) {
                 link.href = "#"; // Prevent default action
                 link.onclick = function() {
                     let userInput = prompt("Enter your store number:");
                     if (userInput) {
-                        let completeURL = item.url.replace("XXXX", encodeURIComponent(userInput));
+                        let completeURL = item.url.replace("XXXXX", encodeURIComponent(userInput));
                         window.open(completeURL, "_blank"); // Open in new tab
                     }
                 };
