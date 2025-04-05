@@ -955,14 +955,13 @@ function toggleDropdown(button) {
         dropdown.classList.remove("show");
     }
 
-    function openDynamicURL(baseURL) { 
-        let storeNumber = prompt("Enter your 5-digit store number:\n"); 
-        if (storeNumber) { 
-            // Replace just the 'XXXXX' part 
-            let finalURL = baseURL.replace("XXXXX", storeNumber); 
-            window.open(finalURL, "_blank", "noopener,noreferrer");
-        }
-    } 
+function openDynamicURL(baseURL) {
+    let storeNumber = prompt("Enter your 5-digit store number:\n");
+    if (storeNumber) {
+        let finalURL = baseURL.replace("XXXXX", storeNumber);
+        window.open(finalURL, "_blank", "noopener,noreferrer");
+    }
+}
 
 function openDynamicURL(baseURL) {
     let storeNumber = prompt("Enter your NPI number:\n");
