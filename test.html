@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RxNet Test</title>
+</head>
+<body>
+
+<a href="#" onclick="openDynamicURL('https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs'); return false;">
+    myReports (Field)
+</a>
+
+<script>
+function openDynamicURL(baseURL) {
+    let storeNumber = prompt("Enter your 5-digit store number:\n");
+    if (storeNumber) {
+        let finalURL = baseURL.replace("XXXXX", storeNumber);
+        window.open(finalURL, "_blank", "noopener,noreferrer");
+    }
+}
+</script>
+
+</body>
+</html>
