@@ -144,7 +144,49 @@ const firebaseConfig = {
     db.ref('reminders/' + id).remove();
   }
 
+
+
+
+
+
+function formatToSortKey(dateObj) {
+  const yy = String(dateObj.getFullYear()).slice(-2);
+  const mm = String(dateObj.getMonth() + 1).padStart(2, '0');
+  const dd = String(dateObj.getDate()).padStart(2, '0');
+  const hh = String(dateObj.getHours()).padStart(2, '0');
+  const min = String(dateObj.getMinutes()).padStart(2, '0');
+  return `${yy}${mm}${dd}${hh}${min}`;
+}
+
+function checkAndAlertDueReminders(nowKey) {
+  db.ref('reminders').once('value', (snapshot) => {
+    const data = snapshot.val();
+    if (data) {
+      Object.entries(data).forEach(([id, { text, sortKey }]) => {
+        if (sortKey <= nowKey) {
+          alert(`Reminder due: ${text}`);
+          db.ref('reminders/' + id).remove(); // auto-remove when alerted
+        }
+      });
+    }
+  });
+}
+
+
+
+
   window.onload = loadReminders;
+  
+  
+  
+  
+  
+  setInterval(() => {
+  const now = new Date();
+  const nowKey = formatToSortKey(now);
+  checkAndAlertDueReminders(nowKey);
+}, 60000); // checks every 60 seconds
+
 </script>
 </body>
 </html>
