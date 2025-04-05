@@ -1,24 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>RxNet Test</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reminder List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .reminder-form input {
+      margin: 5px 0;
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    .reminder-form button {
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .reminder-form button:hover {
+      background-color: #218838;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #f8f9fa;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .reminder-text {
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+  </style>
 </head>
 <body>
+  <h1>Reminder List</h1>
 
-<a href="#" onclick="openDynamicURL('https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs'); return false;">
-    myReports (Field)
-</a>
+  <div class="reminder-form">
+    <input type="text" id="reminderText" placeholder="Reminder text" />
+    <input type="text" id="reminderTime" placeholder="Due time (HHMM, 24hr)" />
+    <input type="text" id="reminderDate" placeholder="Due date (MMDDYY)" />
+    <button onclick="addReminder()">Add Reminder</button>
+  </div>
 
-<script>
-function openDynamicURL(baseURL) {
-    let storeNumber = prompt("Enter your 5-digit store number:\n");
-    if (storeNumber) {
-        let finalURL = baseURL.replace("XXXXX", storeNumber);
-        window.open(finalURL, "_blank", "noopener,noreferrer");
+  <ul id="reminderList"></ul>
+
+  <script>
+    const list = document.getElementById('reminderList');
+
+    function loadReminders() {
+      list.innerHTML = '';
+      const reminders = JSON.parse(localStorage.getItem('reminders') || '[]');
+      reminders.forEach((reminder, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span class="reminder-text">${reminder.text} - ${reminder.time} - ${reminder.date}</span>
+          <input type="checkbox" onclick="removeReminder(${index})" />
+        `;
+        list.appendChild(li);
+      });
     }
-}
-</script>
 
+    function addReminder() {
+      const text = document.getElementById('reminderText').value.trim();
+      const time = document.getElementById('reminderTime').value.trim();
+      const date = document.getElementById('reminderDate').value.trim();
+
+      if (!text || !time || !date) {
+        alert('Please fill out all fields.');
+        return;
+      }
+
+      const reminders = JSON.parse(localStorage.getItem('reminders') || '[]');
+      reminders.push({ text, time, date });
+      localStorage.setItem('reminders', JSON.stringify(reminders));
+
+      document.getElementById('reminderText').value = '';
+      document.getElementById('reminderTime').value = '';
+      document.getElementById('reminderDate').value = '';
+
+      loadReminders();
+    }
+
+    function removeReminder(index) {
+      const reminders = JSON.parse(localStorage.getItem('reminders') || '[]');
+      reminders.splice(index, 1);
+      localStorage.setItem('reminders', JSON.stringify(reminders));
+      loadReminders();
+    }
+
+    // Load reminders on page load
+    window.onload = loadReminders;
+  </script>
 </body>
 </html>
