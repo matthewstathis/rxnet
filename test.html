@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reminder List</title>
+  <title>Synced Reminder List</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -59,7 +59,7 @@
   </style>
 </head>
 <body>
-  <h1>Reminder List</h1>
+  <h1>Synced Reminder List</h1>
 
   <div class="reminder-form">
     <input type="text" id="reminderText" placeholder="Reminder text" />
@@ -70,19 +70,43 @@
 
   <ul id="reminderList"></ul>
 
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-database-compat.js"></script>
+
   <script>
+    // Your Firebase configuration (inserted here)
+    const firebaseConfig = {
+  apiKey: "AIzaSyB-gqB-21WDYbjLSPIsflBi5OF-YTErews",
+  authDomain: "cait-calendar-87d75.firebaseapp.com",
+  databaseURL: "https://cait-calendar-87d75-default-rtdb.firebaseio.com",
+  projectId: "cait-calendar-87d75",
+  storageBucket: "cait-calendar-87d75.firebasestorage.app",
+  messagingSenderId: "97273136570",
+  appId: "1:97273136570:web:92b3a4580b232fba990983",
+  measurementId: "G-KBNS0RMFTD"
+};
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
     const list = document.getElementById('reminderList');
 
     function loadReminders() {
-      list.innerHTML = '';
-      const reminders = JSON.parse(localStorage.getItem('reminders') || '[]');
-      reminders.forEach((reminder, index) => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-          <span class="reminder-text">${reminder.text} - ${reminder.time} - ${reminder.date}</span>
-          <input type="checkbox" onclick="removeReminder(${index})" />
-        `;
-        list.appendChild(li);
+      db.ref('reminders').on('value', (snapshot) => {
+        list.innerHTML = '';
+        const data = snapshot.val();
+        if (data) {
+          Object.keys(data).forEach((key) => {
+            const reminder = data[key];
+            const li = document.createElement('li');
+            li.innerHTML = `
+              <span class="reminder-text">${reminder.text} - ${reminder.time} - ${reminder.date}</span>
+              <input type="checkbox" onclick="removeReminder('${key}')" />
+            `;
+            list.appendChild(li);
+          });
+        }
       });
     }
 
@@ -96,25 +120,18 @@
         return;
       }
 
-      const reminders = JSON.parse(localStorage.getItem('reminders') || '[]');
-      reminders.push({ text, time, date });
-      localStorage.setItem('reminders', JSON.stringify(reminders));
+      const newRef = db.ref('reminders').push();
+      newRef.set({ text, time, date });
 
       document.getElementById('reminderText').value = '';
       document.getElementById('reminderTime').value = '';
       document.getElementById('reminderDate').value = '';
-
-      loadReminders();
     }
 
-    function removeReminder(index) {
-      const reminders = JSON.parse(localStorage.getItem('reminders') || '[]');
-      reminders.splice(index, 1);
-      localStorage.setItem('reminders', JSON.stringify(reminders));
-      loadReminders();
+    function removeReminder(id) {
+      db.ref('reminders/' + id).remove();
     }
 
-    // Load reminders on page load
     window.onload = loadReminders;
   </script>
 </body>
