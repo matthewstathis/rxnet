@@ -87,52 +87,64 @@
   measurementId: "G-KBNS0RMFTD"
 };
 
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.database();
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
 
-    const list = document.getElementById('reminderList');
+  const list = document.getElementById('reminderList');
 
-    function loadReminders() {
-      db.ref('reminders').on('value', (snapshot) => {
-        list.innerHTML = '';
-        const data = snapshot.val();
-        if (data) {
-          Object.keys(data).forEach((key) => {
-            const reminder = data[key];
-            const li = document.createElement('li');
-            li.innerHTML = `
-              <span class="reminder-text">${reminder.text} - ${reminder.time} - ${reminder.date}</span>
-              <input type="checkbox" onclick="removeReminder('${key}')" />
-            `;
-            list.appendChild(li);
-          });
-        }
-      });
-    }
+  function loadReminders() {
+    db.ref('reminders').on('value', (snapshot) => {
+      list.innerHTML = '';
+      const data = snapshot.val();
+      if (data) {
+        const remindersArray = Object.entries(data).map(([id, reminder]) => ({
+          id,
+          ...reminder
+        }));
 
-    function addReminder() {
-      const text = document.getElementById('reminderText').value.trim();
-      const time = document.getElementById('reminderTime').value.trim();
-      const date = document.getElementById('reminderDate').value.trim();
+        // Sort by sortKey
+        remindersArray.sort((a, b) => {
+          return a.sortKey.localeCompare(b.sortKey);
+        });
 
-      if (!text || !time || !date) {
-        alert('Please fill out all fields.');
-        return;
+        remindersArray.forEach(({ id, text, time, date }) => {
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <span class="reminder-text">${text} - ${time} - ${date}</span>
+            <input type="checkbox" onclick="removeReminder('${id}')" />
+          `;
+          list.appendChild(li);
+        });
       }
+    });
+  }
 
-      const newRef = db.ref('reminders').push();
-      newRef.set({ text, time, date });
+  function addReminder() {
+    const text = document.getElementById('reminderText').value.trim();
+    const time = document.getElementById('reminderTime').value.trim();
+    const date = document.getElementById('reminderDate').value.trim();
 
-      document.getElementById('reminderText').value = '';
-      document.getElementById('reminderTime').value = '';
-      document.getElementById('reminderDate').value = '';
+    if (!text || !time || !date) {
+      alert('Please fill out all fields.');
+      return;
     }
 
-    function removeReminder(id) {
-      db.ref('reminders/' + id).remove();
-    }
+    // Format sortKey as YYMMDDHHMM for easy sorting
+    const sortKey = `${date.slice(4)}${date.slice(0,2)}${date.slice(2,4)}${time.padStart(4, '0')}`;
 
-    window.onload = loadReminders;
-  </script>
+    const newRef = db.ref('reminders').push();
+    newRef.set({ text, time, date, sortKey });
+
+    document.getElementById('reminderText').value = '';
+    document.getElementById('reminderTime').value = '';
+    document.getElementById('reminderDate').value = '';
+  }
+
+  function removeReminder(id) {
+    db.ref('reminders/' + id).remove();
+  }
+
+  window.onload = loadReminders;
+</script>
 </body>
 </html>
