@@ -73,7 +73,9 @@
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-database-compat.js"></script>
-<script>
+
+  <script>
+    // Your Firebase configuration (inserted here)
 const firebaseConfig = {
   apiKey: "AIzaSyB-gqB-21WDYbjLSPIsflBi5OF-YTErews",
   authDomain: "cait-calendar-87d75.firebaseapp.com",
@@ -86,64 +88,52 @@ const firebaseConfig = {
 };
 
 
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
 
-  const list = document.getElementById('reminderList');
+    const list = document.getElementById('reminderList');
 
-  function loadReminders() {
-    db.ref('reminders').on('value', (snapshot) => {
-      list.innerHTML = '';
-      const data = snapshot.val();
-      if (data) {
-        const remindersArray = Object.entries(data).map(([id, reminder]) => ({
-          id,
-          ...reminder
-        }));
-
-        // Sort by sortKey
-        remindersArray.sort((a, b) => {
-          return a.sortKey.localeCompare(b.sortKey);
-        });
-
-        remindersArray.forEach(({ id, text, time, date }) => {
-          const li = document.createElement('li');
-          li.innerHTML = `
-            <span class="reminder-text">${text} - ${time} - ${date}</span>
-            <input type="checkbox" onclick="removeReminder('${id}')" />
-          `;
-          list.appendChild(li);
-        });
-      }
-    });
-  }
-
-  function addReminder() {
-    const text = document.getElementById('reminderText').value.trim();
-    const time = document.getElementById('reminderTime').value.trim();
-    const date = document.getElementById('reminderDate').value.trim();
-
-    if (!text || !time || !date) {
-      alert('Please fill out all fields.');
-      return;
+    function loadReminders() {
+      db.ref('reminders').on('value', (snapshot) => {
+        list.innerHTML = '';
+        const data = snapshot.val();
+        if (data) {
+          Object.keys(data).forEach((key) => {
+            const reminder = data[key];
+            const li = document.createElement('li');
+            li.innerHTML = `
+              <span class="reminder-text">${reminder.text} - ${reminder.time} - ${reminder.date}</span>
+              <input type="checkbox" onclick="removeReminder('${key}')" />
+            `;
+            list.appendChild(li);
+          });
+        }
+      });
     }
 
-    // Format sortKey as YYMMDDHHMM for easy sorting
-    const sortKey = `${date.slice(4)}${date.slice(0,2)}${date.slice(2,4)}${time.padStart(4, '0')}`;
+    function addReminder() {
+      const text = document.getElementById('reminderText').value.trim();
+      const time = document.getElementById('reminderTime').value.trim();
+      const date = document.getElementById('reminderDate').value.trim();
 
-    const newRef = db.ref('reminders').push();
-    newRef.set({ text, time, date, sortKey });
+      if (!text || !time || !date) {
+        alert('Please fill out all fields.');
+        return;
+      }
 
-    document.getElementById('reminderText').value = '';
-    document.getElementById('reminderTime').value = '';
-    document.getElementById('reminderDate').value = '';
-  }
+      const newRef = db.ref('reminders').push();
+      newRef.set({ text, time, date });
 
-  function removeReminder(id) {
-    db.ref('reminders/' + id).remove();
-  }
+      document.getElementById('reminderText').value = '';
+      document.getElementById('reminderTime').value = '';
+      document.getElementById('reminderDate').value = '';
+    }
 
-  window.onload = loadReminders;
-</script>
+    function removeReminder(id) {
+      db.ref('reminders/' + id).remove();
+    }
+
+    window.onload = loadReminders;
+  </script>
 </body>
 </html>
