@@ -203,6 +203,14 @@
     <script>
         // List of search items
 const searchItems = [
+        { name: "AP Dashboard (non-redirect) ", url: "https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_XXXXX.pdf" },
+        { name: "Command Center (non-redirect) ", url: "https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000" },
+        { name: "Truck Manifest (non-redirect) ", url: "https://portaldoctool.cvs.com/portalDocTool/viewDocuments.do?listingID=dcReportPage&roles=ZGNyZXBvcnRwYWdldXNlcg==&storeNumber=XXXXX" },
+        { name: "Express Scripts PRC (non-redirect) ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=YYYYYYYYYY" },
+        { name: "myReports/Spark (non-redirect) ", url: "https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs" },
+
+
+    
         { name: "New RTS on Ironman/storeOS Job Aid ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/RTS_on_Ironman_Job_Aid.pdf" },
         { name: "myReports/Spark (store) ", url: "https://retailspark.cvs.com/spark?view=storeView" },
         { name: "Environmental Health and Safety Reports Portal ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Environmental_Health_%26_Safety_Reports_Portal_Job_Aid.pdf" },
@@ -512,20 +520,28 @@ function searchFunction() {
             link.innerText = item.name;
             link.className = "search-result";
 
-            // Check if it's the dynamic URL option
-            if (item.url.includes("XXXXX")) {
-                link.href = "#"; // Prevent default action
-                link.onclick = function() {
-                    let userInput = prompt("Enter your 5-digit store number:");
-                    if (userInput) {
-                        let completeURL = item.url.replace("XXXXX", encodeURIComponent(userInput));
-                        window.open(completeURL, "_blank"); // Open in new tab
-                    }
-                };
-            } else {
-                link.href = item.url;
-                link.target = "_blank"; // Open normal links in a new tab
-            }
+if (item.url.includes("XXXXX")) {
+    link.href = "#"; // Prevent default action
+    link.onclick = function() {
+        let userInput = prompt("Enter your 5-digit store number:");
+        if (userInput) {
+            let completeURL = item.url.replace("XXXXX", encodeURIComponent(userInput));
+            window.open(completeURL, "_blank");
+        }
+    };
+} else if (item.url.includes("YYYYYYYYY")) {
+    link.href = "#"; // Prevent default action
+    link.onclick = function() {
+        let userInput = prompt("Enter your NPI number:");
+        if (userInput) {
+            let completeURL = item.url.replace("YYYYYYYYY", encodeURIComponent(userInput));
+            window.open(completeURL, "_blank");
+        }
+    };
+} else {
+    link.href = item.url;
+    link.target = "_blank"; // Open normal links in a new tab
+}
 
             resultsDiv.appendChild(link); // Append link correctly
         });
