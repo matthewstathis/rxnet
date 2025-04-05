@@ -635,7 +635,7 @@ document.addEventListener("click", function(event) {
         <a href="https://matthewstathis.github.io/rxnet/storesupplies">Store Supplies</a>
         <a href="https://www.cvs.com/epp/remote-payment" target="_blank" rel="noopener noreferrer">Card on File</a>
         <a href="prcredirect.html" target="_blank">Express Scripts PRC</a>
-        <a href="#" onclick="openDynamicURL2('https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=YYYYYYYYYY'); return false;">Express Scripts PRCtest</a>        
+        <a href="#" onclick="openDynamicURL('https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=YYYYYYYYYY'); return false;">Express Scripts PRCtest</a>        
         <a href="#" onclick="openDynamicURL('https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs'); return false;">
     myReports (Field)
 </a>
@@ -974,18 +974,21 @@ function toggleDropdown(button) {
     }
 
 function openDynamicURL(baseURL) {
-    let storeNumber = prompt("Enter your 5-digit store number:\n");
-    if (storeNumber) {
-        let finalURL = baseURL.replace("XXXXX", storeNumber);
-        window.open(finalURL, "_blank", "noopener,noreferrer");
-    }
-}
-
-function openDynamicURL2(baseURL) {
-    let storeNumber = prompt("Enter your NPI number:\n");
-    if (storeNumber) {
-        let finalURL = baseURL.replace("YYYYYYYYYY", storeNumber);
-        window.open(finalURL, "_blank", "noopener,noreferrer");
+    if (baseURL.includes("XXXXX")) {
+        let storeNumber = prompt("Enter your 5-digit store number:");
+        if (storeNumber) {
+            let finalURL = baseURL.replace("XXXXX", encodeURIComponent(storeNumber));
+            window.open(finalURL, "_blank", "noopener,noreferrer");
+        }
+    } else if (baseURL.includes("YYYYYYYYYY")) {
+        let npiNumber = prompt("Enter your NPI number:");
+        if (npiNumber) {
+            let finalURL = baseURL.replace("YYYYYYYYYY", encodeURIComponent(npiNumber));
+            window.open(finalURL, "_blank", "noopener,noreferrer");
+        }
+    } else {
+        // Just open the URL normally
+        window.open(baseURL, "_blank", "noopener,noreferrer");
     }
 }
 
