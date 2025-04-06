@@ -558,38 +558,38 @@ document.addEventListener("click", function(event) {
 
 </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let buttons = document.querySelectorAll(".link-button");
-            buttons.forEach(button => {
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let buttons = document.querySelectorAll(".link-button");
+        buttons.forEach(button => {
+            let href = button.getAttribute("href");
+
+            if (href.includes("XXXXX")) {
+                button.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    let storeNumber = prompt("Enter your 5-digit store number:");
+                    if (storeNumber) {
+                        let finalURL = href.replace("XXXXX", storeNumber);
+                        window.open(finalURL, "_blank", "noopener,noreferrer");
+                    }
+                });
+            } else if (href.includes("YYYYYYYYYY")) {
+                button.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    let npiNumber = prompt("Enter your NPI number:");
+                    if (npiNumber) {
+                        let finalURL = href.replace("YYYYYYYYYY", npiNumber);
+                        window.open(finalURL, "_blank", "noopener,noreferrer");
+                    }
+                });
+            } else {
+                // Default behavior: open link in new tab
                 button.setAttribute("target", "_blank");
                 button.setAttribute("rel", "noopener noreferrer");
-            });
+            }
         });
-
-
-
-        function openDynamicURL(baseURL) {
-    let storeNumber = prompt("Enter your 5-digit store number:");
-    if (storeNumber) {
-        let finalURL = baseURL.replace("XXXXX", storeNumber);
-        window.open(finalURL, "_blank", "noopener,noreferrer");
-    }
-}
-
-
-        function openDynamicURL(baseURL) {
-    let storeNumber = prompt("Enter your 5-digit store number:");
-    if (storeNumber) {
-        let finalURL = baseURL.replace("YYYYYYYYYY", storeNumber);
-        window.open(finalURL, "_blank", "noopener,noreferrer");
-    }
-}
-
-
-
-    </script>
-
+    });
+</script>
 
     
 </body>
