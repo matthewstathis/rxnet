@@ -522,7 +522,7 @@ document.addEventListener("click", function(event) {
         <a href="https://mail.cvshealth.com/" class="link-button">Outlook</a>
         <a href="https://appsmcsaml.corp.cvscaremark.com/" class="link-button">Citrix</a>
         <a href="https://app.smartsense.co/" class="link-button">TempAlert</a>
-        <a href="https://matthewstathis.github.io/rxnet/commandcenterredirect" class="link-button">Command Cntr</a>   
+        <a href="https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000" class="link-button">Command Cntr</a>   
         <a href="https://matthewstathis.github.io/rxnet/rxtelephonev2.pdf" class="link-button">Verbal Rx</a>
         <a href="https://matthewstathis.github.io/rxnet/rxtransferv2.pdf" class="link-button">Verbal Transfer</a>
         <a href="https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" class="link-button">myWork</a>
@@ -543,12 +543,12 @@ document.addEventListener("click", function(event) {
         <a href="https://ciim.cvs.com/ciimappnew/#/login" class="link-button">CIIM</a>
         <a href="https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://cvsthinklp.my.salesforce.com" class="link-button">ThinkLP</a>
         <a href="https://matthewstathis.github.io/rxnet/apdashredirect" class="link-button">AP Dashboard</a>   
-        <a href="https://matthewstathis.github.io/rxnet/dcmanifestsredirect.html" class="link-button">Truck Manifest</a>
+        <a href="https://portaldoctool.cvs.com/portalDocTool/viewDocuments.do?listingID=dcReportPage&roles=ZGNyZXBvcnRwYWdldXNlcg==&storeNumber=XXXXX" class="link-button">Truck Manifest</a>
         <a href="https://retailspark.cvs.com/rbi/?options-base=on&storeNumber=" class="link-button">Store Digest</a>
         <a href="https://rxcreports.rxc.cvs.com:31210/airsupport/queuesummary" class="link-button">Queue Depth</a>
         <a href="https://barcode.tec-it.com/en/GS1QRCode?data=" class="link-button">QR Generator</a>
         <a href="https://matthewstathis.github.io/rxnet/formulary" class="link-button">Formulary</a>
-        <a href="https://matthewstathis.github.io/rxnet/prcredirect" class="link-button">Express Scripts</a>
+        <a href="https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=YYYYYYYYYY" class="link-button">Express Scripts</a>
         <a href="https://matthewstathis.github.io/rxnet/insurancetips2.pdf" class="link-button">Billing Help</a>
         <a href="https://ipledgeprogram.com/?connection=cvs" class="link-button">iPledge</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Master_Formulation_Landing_Page_20230509133428779.pdf" class="link-button">CMP Recipes</a>
@@ -573,6 +573,15 @@ document.addEventListener("click", function(event) {
     let storeNumber = prompt("Enter your 5-digit store number:");
     if (storeNumber) {
         let finalURL = baseURL.replace("XXXXX", storeNumber);
+        window.open(finalURL, "_blank", "noopener,noreferrer");
+    }
+}
+
+
+        function openDynamicURL(baseURL) {
+    let storeNumber = prompt("Enter your 5-digit store number:");
+    if (storeNumber) {
+        let finalURL = baseURL.replace("YYYYYYYYYY", storeNumber);
         window.open(finalURL, "_blank", "noopener,noreferrer");
     }
 }
