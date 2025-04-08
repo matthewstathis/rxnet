@@ -57,15 +57,19 @@
       word-wrap: break-word;
     }
 
-    .big-dropdown {
-  font-size: 16px;
-  padding: 10px;
-  width: 100%;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  appearance: none;
-}
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #f9f9f9;
+    }
+    .checkbox-group label {
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
@@ -76,22 +80,20 @@
     <input type="text" id="reminderTime" placeholder="Due time (HHMM, 24hr)" />
     <input type="text" id="reminderDate" placeholder="Due date (MM/DD/YYYY)" />
 
+    <label>Tags (select one or more):</label>
+    <div id="tagCheckboxes" class="checkbox-group">
+      <label><input type="checkbox" name="tags" value="Important"> #Important</label>
+      <label><input type="checkbox" name="tags" value="Jim"> #Jim</label>
+      <label><input type="checkbox" name="tags" value="LessUrgent"> #LessUrgent</label>
+      <label><input type="checkbox" name="tags" value="ModeratelyUrgent"> #ModeratelyUrgent</label>
+      <label><input type="checkbox" name="tags" value="NeedToFollowUp"> #NeedToFollowUp</label>
+      <label><input type="checkbox" name="tags" value="Nonurgent"> #Nonurgent</label>
+      <label><input type="checkbox" name="tags" value="Ongoing"> #Ongoing</label>
+      <label><input type="checkbox" name="tags" value="Recurring"> #Recurring</label>
+      <label><input type="checkbox" name="tags" value="Training"> #Training</label>
+      <label><input type="checkbox" name="tags" value="Training, Jim"> #Training and Jim</label>
+    </div>
 
-<select id="reminderTag" class="big-dropdown">
-  <option value="">Select a tag (optional)</option>
-  <option value="Important">#Important</option>
-  <option value="Jim">#Jim</option>
-  <option value="LessUrgent">#LessUrgent</option>
-  <option value="ModeratelyUrgent">#ModeratelyUrgent</option>
-  <option value="NeedToFollowUp">#NeedToFollowUp</option>
-  <option value="Nonurgent">#Nonurgent</option>
-  <option value="Ongoing">#Ongoing</option>
-  <option value="Recurring">#Recurring</option>
-  <option value="Training">#Training</option>
-    <option value="Training, Jim">#Training and Jim</option>
-
-</select>
-    
     <button onclick="addReminder()">Add Reminder</button>
   </div>
 
@@ -113,81 +115,67 @@ const firebaseConfig = {
   measurementId: "G-KBNS0RMFTD"
 };
 
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const list = document.getElementById('reminderList');
 
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
-
-  const list = document.getElementById('reminderList');
-
-  function loadReminders() {
-    db.ref('reminders').on('value', (snapshot) => {
-      list.innerHTML = '';
-      const data = snapshot.val();
-      if (data) {
-        const remindersArray = Object.entries(data).map(([id, reminder]) => ({
-          id,
-          ...reminder
-        }));
-
-        // Sort by sortKey
-        remindersArray.sort((a, b) => {
-          return a.sortKey.localeCompare(b.sortKey);
-        });
-
-        remindersArray.forEach(({ id, text, time, date }) => {
-          const li = document.createElement('li');
-          li.innerHTML = `
-            <span class="reminder-text">${text} - ${time} - ${date}</span>
-            <input type="checkbox" onclick="removeReminder('${id}')" />
-          `;
-          list.appendChild(li);
-        });
-      }
-    });
-  }
+function getSelectedTags() {
+  const checkboxes = document.querySelectorAll('input[name="tags"]:checked');
+  return Array.from(checkboxes).map(cb => cb.value);
+}
 
 function addReminder() {
   const text = document.getElementById('reminderText').value.trim();
   const time = document.getElementById('reminderTime').value.trim();
   const date = document.getElementById('reminderDate').value.trim();
-  const tag = document.getElementById('reminderTag').value.trim();
+  const tags = getSelectedTags();
 
   if (!text || !time || !date) {
     alert('Please fill out all fields.');
     return;
   }
 
-  // Format sortKey as YYMMDDHHMM for easy sorting
   const sortKey = `${date.slice(4)}${date.slice(0,2)}${date.slice(2,4)}${time.padStart(4, '0')}`;
 
   const newRef = db.ref('reminders').push();
-  newRef.set({ text, time, date, tag, sortKey });
+  newRef.set({ text, time, date, tags, sortKey });
 
   document.getElementById('reminderText').value = '';
   document.getElementById('reminderTime').value = '';
   document.getElementById('reminderDate').value = '';
-  document.getElementById('reminderTag').value = '';
+  document.querySelectorAll('input[name="tags"]:checked').forEach(cb => cb.checked = false);
 }
 
-  function removeReminder(id) {
-    db.ref('reminders/' + id).remove();
-  }
+function loadReminders() {
+  db.ref('reminders').on('value', (snapshot) => {
+    list.innerHTML = '';
+    const data = snapshot.val();
+    if (data) {
+      const remindersArray = Object.entries(data).map(([id, reminder]) => ({
+        id,
+        ...reminder
+      }));
 
+      remindersArray.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
 
-
-
-
-
-function formatToSortKey(dateObj) {
-  const yy = String(dateObj.getFullYear()).slice(-2);
-  const mm = String(dateObj.getMonth() + 1).padStart(2, '0');
-  const dd = String(dateObj.getDate()).padStart(2, '0');
-  const hh = String(dateObj.getHours()).padStart(2, '0');
-  const min = String(dateObj.getMinutes()).padStart(2, '0');
-  return `${yy}${mm}${dd}${hh}${min}`;
+      remindersArray.forEach(({ id, text, time, date, tags }) => {
+        const li = document.createElement('li');
+        const tagText = tags && tags.length ? ` - Tags: ${tags.join(', ')}` : '';
+        li.innerHTML = `
+          <span class="reminder-text">${text} - ${time} - ${date}${tagText}</span>
+          <input type="checkbox" onclick="removeReminder('${id}')" />
+        `;
+        list.appendChild(li);
+      });
+    }
+  });
 }
 
-  window.onload = loadReminders;
+function removeReminder(id) {
+  db.ref('reminders/' + id).remove();
+}
+
+window.onload = loadReminders;
 </script>
 </body>
 </html>
