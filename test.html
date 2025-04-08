@@ -75,24 +75,23 @@
     <input type="text" id="reminderText" placeholder="Reminder text" />
     <input type="text" id="reminderTime" placeholder="Due time (HHMM, 24hr)" />
     <input type="text" id="reminderDate" placeholder="Due date (MM/DD/YYYY)" />
-<label for="reminderTag1">Primary Tag:</label>
-<select id="reminderTag1" class="big-dropdown">
-  <option value="">Select a primary tag</option>
-  <option value="Work">Work</option>
-  <option value="Personal">Personal</option>
-  <option value="Urgent">Urgent</option>
-  <option value="Chores">Chores</option>
-</select>
 
-<label for="reminderTag2" style="margin-top: 10px;">Secondary Tag (optional):</label>
-<select id="reminderTag2" class="big-dropdown">
-  <option value="">Select a secondary tag</option>
-  <option value="Work">Work</option>
-  <option value="Personal">Personal</option>
-  <option value="Urgent">Urgent</option>
-  <option value="Chores">Chores</option>
-</select>
 
+<select id="reminderTag" class="big-dropdown">
+  <option value="">Select a tag (optional)</option>
+  <option value="Important">#Important</option>
+  <option value="Jim">#Jim</option>
+  <option value="LessUrgent">#LessUrgent</option>
+  <option value="ModeratelyUrgent">#ModeratelyUrgent</option>
+  <option value="NeedToFollowUp">#NeedToFollowUp</option>
+  <option value="Nonurgent">#Nonurgent</option>
+  <option value="Ongoing">#Ongoing</option>
+  <option value="Recurring">#Recurring</option>
+  <option value="Training">#Training</option>
+    <option value="Training, Jim">#Training and Jim</option>
+
+</select>
+    
     <button onclick="addReminder()">Add Reminder</button>
   </div>
 
