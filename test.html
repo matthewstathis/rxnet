@@ -161,10 +161,8 @@ function loadReminders() {
         const li = document.createElement('li');
         const tagText = tags && tags.length ? ` - Tags: ${tags.join(', ')}` : '';
 li.innerHTML = `
-  <label style="display: flex; align-items: center; gap: 10px; width: 100%;">
-    <input type="checkbox" onclick="removeReminder('${id}')" />
-    <span class="reminder-text">${text}${tagDisplay} - ${time} - ${date}</span>
-  </label>
+  <span class="reminder-text">${text}${tagDisplay} - ${time} - ${date}</span>
+  <input type="checkbox" onclick="removeReminder('${id}')" />
 `;
         list.appendChild(li);
       });
