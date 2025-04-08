@@ -57,21 +57,23 @@
       word-wrap: break-word;
     }
 
-    .checkbox-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 10px;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      background-color: #f9f9f9;
-    }
-.checkbox-group label {
-  font-size: 16px;
+ .checkbox-group {
   display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+.checkbox-group label {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
+  font-size: 16px;
+  white-space: nowrap;
 }
   </style>
 </head>
