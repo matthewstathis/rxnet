@@ -67,7 +67,11 @@
       border-radius: 6px;
       background-color: #f9f9f9;
     }
+
     .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       font-size: 16px;
     }
   </style>
@@ -82,16 +86,15 @@
 
     <label>Tags (select one or more):</label>
     <div id="tagCheckboxes" class="checkbox-group">
-      <label><input type="checkbox" name="tags" value="Important"> #Important</label>
-      <label><input type="checkbox" name="tags" value="Jim"> #Jim</label>
-      <label><input type="checkbox" name="tags" value="LessUrgent"> #LessUrgent</label>
-      <label><input type="checkbox" name="tags" value="ModeratelyUrgent"> #ModeratelyUrgent</label>
-      <label><input type="checkbox" name="tags" value="NeedToFollowUp"> #NeedToFollowUp</label>
-      <label><input type="checkbox" name="tags" value="Nonurgent"> #Nonurgent</label>
-      <label><input type="checkbox" name="tags" value="Ongoing"> #Ongoing</label>
-      <label><input type="checkbox" name="tags" value="Recurring"> #Recurring</label>
-      <label><input type="checkbox" name="tags" value="Training"> #Training</label>
-      <label><input type="checkbox" name="tags" value="Training, Jim"> #Training and Jim</label>
+      <label><input type="checkbox" name="tags" value="Important">#Important</label>
+      <label><input type="checkbox" name="tags" value="Jim">#Jim</label>
+      <label><input type="checkbox" name="tags" value="LessUrgent">#LessUrgent</label>
+      <label><input type="checkbox" name="tags" value="ModeratelyUrgent">#ModeratelyUrgent</label>
+      <label><input type="checkbox" name="tags" value="NeedToFollowUp">#NeedToFollowUp</label>
+      <label><input type="checkbox" name="tags" value="Nonurgent">#Nonurgent</label>
+      <label><input type="checkbox" name="tags" value="Ongoing">#Ongoing</label>
+      <label><input type="checkbox" name="tags" value="Recurring">#Recurring</label>
+      <label><input type="checkbox" name="tags" value="Training">#Training</label>
     </div>
 
     <button onclick="addReminder()">Add Reminder</button>
