@@ -57,28 +57,23 @@
       word-wrap: break-word;
     }
 
-.checkbox-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 10px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background-color: #f9f9f9;
-  max-height: 300px; /* optional: makes sure it doesn't overflow vertically */
-  overflow-y: auto;
-}
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #f9f9f9;
+    }
 
-.checkbox-group label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 16px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
@@ -100,6 +95,7 @@
       <label><input type="checkbox" name="tags" value="Ongoing">#Ongoing</label>
       <label><input type="checkbox" name="tags" value="Recurring">#Recurring</label>
       <label><input type="checkbox" name="tags" value="Training">#Training</label>
+      <label><input type="checkbox" name="tags" value="Training, Jim">#Training and Jim</label>
     </div>
 
     <button onclick="addReminder()">Add Reminder</button>
