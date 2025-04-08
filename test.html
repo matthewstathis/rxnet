@@ -56,6 +56,16 @@
       max-width: 80%;
       word-wrap: break-word;
     }
+
+    .big-dropdown {
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  appearance: none;
+}
   </style>
 </head>
 <body>
@@ -65,7 +75,7 @@
     <input type="text" id="reminderText" placeholder="Reminder text" />
     <input type="text" id="reminderTime" placeholder="Due time (HHMM, 24hr)" />
     <input type="text" id="reminderDate" placeholder="Due date (MM/DD/YYYY)" />
-    <select id="reminderTag">
+<select id="reminderTag" class="big-dropdown">
   <option value="">Select a tag (optional)</option>
   <option value="Important">#Important</option>
   <option value="Jim">#Jim</option>
