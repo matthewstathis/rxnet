@@ -66,6 +66,22 @@
   background-color: #fff;
   appearance: none;
 }
+
+
+    .checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+.checkbox-group label {
+  font-size: 16px;
+}
+    
   </style>
 </head>
 <body>
@@ -76,21 +92,14 @@
     <input type="text" id="reminderTime" placeholder="Due time (HHMM, 24hr)" />
     <input type="text" id="reminderDate" placeholder="Due date (MM/DD/YYYY)" />
 
+<label>Tags (select one or more):</label>
+<div id="tagCheckboxes" class="checkbox-group">
+  <label><input type="checkbox" name="tags" value="Work"> Work</label>
+  <label><input type="checkbox" name="tags" value="Personal"> Personal</label>
+  <label><input type="checkbox" name="tags" value="Urgent"> Urgent</label>
+  <label><input type="checkbox" name="tags" value="Chores"> Chores</label>
+</div>
 
-<select id="reminderTag" class="big-dropdown">
-  <option value="">Select a tag (optional)</option>
-  <option value="Important">#Important</option>
-  <option value="Jim">#Jim</option>
-  <option value="LessUrgent">#LessUrgent</option>
-  <option value="ModeratelyUrgent">#ModeratelyUrgent</option>
-  <option value="NeedToFollowUp">#NeedToFollowUp</option>
-  <option value="Nonurgent">#Nonurgent</option>
-  <option value="Ongoing">#Ongoing</option>
-  <option value="Recurring">#Recurring</option>
-  <option value="Training">#Training</option>
-    <option value="Training, Jim">#Training and Jim</option>
-
-</select>
     
     <button onclick="addReminder()">Add Reminder</button>
   </div>
@@ -146,11 +155,20 @@ const firebaseConfig = {
     });
   }
 
+function getSelectedTags() {
+  const checkboxes = document.querySelectorAll('input[name="tags"]:checked');
+  const tags = Array.from(checkboxes).map(cb => cb.value);
+  return tags; // this will be an array like ["Work", "Urgent"]
+}
+
+
+
+  
 function addReminder() {
   const text = document.getElementById('reminderText').value.trim();
   const time = document.getElementById('reminderTime').value.trim();
   const date = document.getElementById('reminderDate').value.trim();
-  const tag = document.getElementById('reminderTag').value.trim();
+  const tags = document.getElementById('reminderTag').value.trim();
 
   if (!text || !time || !date) {
     alert('Please fill out all fields.');
@@ -187,6 +205,12 @@ function formatToSortKey(dateObj) {
   return `${yy}${mm}${dd}${hh}${min}`;
 }
 
+
+
+
+
+
+  
   window.onload = loadReminders;
 </script>
 </body>
