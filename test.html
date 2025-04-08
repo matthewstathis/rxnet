@@ -57,14 +57,18 @@
       word-wrap: break-word;
     }
 
-    .big-dropdown {
-      font-size: 16px;
-      padding: 10px;
-      width: 100%;
-      border-radius: 6px;
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 10px;
+      padding: 8px;
       border: 1px solid #ccc;
-      background-color: #fff;
-      appearance: none;
+      border-radius: 6px;
+      background-color: #f9f9f9;
+    }
+    .checkbox-group label {
+      font-size: 16px;
     }
   </style>
 </head>
@@ -76,18 +80,19 @@
     <input type="text" id="reminderTime" placeholder="Due time (HHMM, 24hr)" />
     <input type="text" id="reminderDate" placeholder="Due date (MM/DD/YYYY)" />
 
-    <select id="reminderTag" class="big-dropdown">
-      <option value="">Select a tag (optional)</option>
-      <option value="Important">#Important</option>
-      <option value="Jim">#Jim</option>
-      <option value="LessUrgent">#LessUrgent</option>
-      <option value="ModeratelyUrgent">#ModeratelyUrgent</option>
-      <option value="NeedToFollowUp">#NeedToFollowUp</option>
-      <option value="Nonurgent">#Nonurgent</option>
-      <option value="Ongoing">#Ongoing</option>
-      <option value="Recurring">#Recurring</option>
-      <option value="Training">#Training</option>
-    </select>
+    <label>Tags (select one or more):</label>
+    <div id="tagCheckboxes" class="checkbox-group">
+      <label><input type="checkbox" name="tags" value="Important"> #Important</label>
+      <label><input type="checkbox" name="tags" value="Jim"> #Jim</label>
+      <label><input type="checkbox" name="tags" value="LessUrgent"> #LessUrgent</label>
+      <label><input type="checkbox" name="tags" value="ModeratelyUrgent"> #ModeratelyUrgent</label>
+      <label><input type="checkbox" name="tags" value="NeedToFollowUp"> #NeedToFollowUp</label>
+      <label><input type="checkbox" name="tags" value="Nonurgent"> #Nonurgent</label>
+      <label><input type="checkbox" name="tags" value="Ongoing"> #Ongoing</label>
+      <label><input type="checkbox" name="tags" value="Recurring"> #Recurring</label>
+      <label><input type="checkbox" name="tags" value="Training"> #Training</label>
+      <label><input type="checkbox" name="tags" value="Training, Jim"> #Training and Jim</label>
+    </div>
 
     <button onclick="addReminder()">Add Reminder</button>
   </div>
@@ -98,105 +103,79 @@
   <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-database-compat.js"></script>
 
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyB-gqB-21WDYbjLSPIsflBi5OF-YTErews",
-      authDomain: "cait-calendar-87d75.firebaseapp.com",
-      databaseURL: "https://cait-calendar-87d75-default-rtdb.firebaseio.com",
-      projectId: "cait-calendar-87d75",
-      storageBucket: "cait-calendar-87d75.firebasestorage.app",
-      messagingSenderId: "97273136570",
-      appId: "1:97273136570:web:92b3a4580b232fba990983",
-      measurementId: "G-KBNS0RMFTD"
-    };
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyB-gqB-21WDYbjLSPIsflBi5OF-YTErews",
+  authDomain: "cait-calendar-87d75.firebaseapp.com",
+  databaseURL: "https://cait-calendar-87d75-default-rtdb.firebaseio.com",
+  projectId: "cait-calendar-87d75",
+  storageBucket: "cait-calendar-87d75.firebasestorage.app",
+  messagingSenderId: "97273136570",
+  appId: "1:97273136570:web:92b3a4580b232fba990983",
+  measurementId: "G-KBNS0RMFTD"
+};
 
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.database();
-    const list = document.getElementById('reminderList');
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const list = document.getElementById('reminderList');
 
-    function loadReminders() {
-      db.ref('reminders').on('value', (snapshot) => {
-        list.innerHTML = '';
-        const data = snapshot.val();
-        if (data) {
-          const remindersArray = Object.entries(data).map(([id, reminder]) => ({
-            id,
-            ...reminder
-          }));
+function getSelectedTags() {
+  const checkboxes = document.querySelectorAll('input[name="tags"]:checked');
+  return Array.from(checkboxes).map(cb => cb.value);
+}
 
-          remindersArray.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
+function addReminder() {
+  const text = document.getElementById('reminderText').value.trim();
+  const time = document.getElementById('reminderTime').value.trim();
+  const date = document.getElementById('reminderDate').value.trim();
+  const tags = getSelectedTags();
 
-          remindersArray.forEach(({ id, text, time, date, tag }) => {
-            const li = document.createElement('li');
-            const tagDisplay = tag ? ` [${tag}]` : '';
-            li.innerHTML = `
-              <span class="reminder-text">${text}${tagDisplay} - ${time} - ${date}</span>
-              <input type="checkbox" onclick="removeReminder('${id}')" />
-            `;
-            list.appendChild(li);
-          });
-        }
+  if (!text || !time || !date) {
+    alert('Please fill out all fields.');
+    return;
+  }
+
+  const sortKey = `${date.slice(4)}${date.slice(0,2)}${date.slice(2,4)}${time.padStart(4, '0')}`;
+
+  const newRef = db.ref('reminders').push();
+  newRef.set({ text, time, date, tags, sortKey });
+
+  document.getElementById('reminderText').value = '';
+  document.getElementById('reminderTime').value = '';
+  document.getElementById('reminderDate').value = '';
+  document.querySelectorAll('input[name="tags"]:checked').forEach(cb => cb.checked = false);
+}
+
+function loadReminders() {
+  db.ref('reminders').on('value', (snapshot) => {
+    list.innerHTML = '';
+    const data = snapshot.val();
+    if (data) {
+      const remindersArray = Object.entries(data).map(([id, reminder]) => ({
+        id,
+        ...reminder
+      }));
+
+      remindersArray.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
+
+      remindersArray.forEach(({ id, text, time, date, tags }) => {
+        const li = document.createElement('li');
+        const tagText = tags && tags.length ? ` - Tags: ${tags.join(', ')}` : '';
+        li.innerHTML = `
+          <span class="reminder-text">${text} - ${time} - ${date}${tagText}</span>
+          <input type="checkbox" onclick="removeReminder('${id}')" />
+        `;
+        list.appendChild(li);
       });
     }
+  });
+}
 
-    function addReminder() {
-      const text = document.getElementById('reminderText').value.trim();
-      const time = document.getElementById('reminderTime').value.trim();
-      const date = document.getElementById('reminderDate').value.trim();
-      const tag = document.getElementById('reminderTag').value.trim();
+function removeReminder(id) {
+  db.ref('reminders/' + id).remove();
+}
 
-      if (!text || !time || !date) {
-        alert('Please fill out all fields.');
-        return;
-      }
-
-      // Validate time: must be 4-digit number
-      if (!/^\d{4}$/.test(time)) {
-        alert("Please enter time as HHMM in 24-hour format.");
-        return;
-      }
-
-      // Validate date format MM/DD/YYYY
-      const dateParts = date.split('/');
-      if (dateParts.length !== 3) {
-        alert("Please enter date as MM/DD/YYYY.");
-        return;
-      }
-
-      const [month, day, year] = dateParts.map(Number);
-      const hour = parseInt(time.slice(0, 2), 10);
-      const minute = parseInt(time.slice(2, 4), 10);
-      const dateObj = new Date(year, month - 1, day, hour, minute);
-
-      if (isNaN(dateObj.getTime())) {
-        alert("Invalid date or time.");
-        return;
-      }
-
-      const sortKey = formatToSortKey(dateObj);
-      const newRef = db.ref('reminders').push();
-      newRef.set({ text, time, date, tag, sortKey });
-
-      document.getElementById('reminderText').value = '';
-      document.getElementById('reminderTime').value = '';
-      document.getElementById('reminderDate').value = '';
-      document.getElementById('reminderTag').value = '';
-    }
-
-    function removeReminder(id) {
-      db.ref('reminders/' + id).remove();
-    }
-
-    function formatToSortKey(dateObj) {
-      const yy = String(dateObj.getFullYear()).slice(-2);
-      const mm = String(dateObj.getMonth() + 1).padStart(2, '0');
-      const dd = String(dateObj.getDate()).padStart(2, '0');
-      const hh = String(dateObj.getHours()).padStart(2, '0');
-      const min = String(dateObj.getMinutes()).padStart(2, '0');
-      return `${yy}${mm}${dd}${hh}${min}`;
-    }
-
-    window.onload = loadReminders;
-  </script>
+window.onload = loadReminders;
+</script>
 </body>
 </html>
