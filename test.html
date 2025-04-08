@@ -91,6 +91,7 @@
       <label><input type="checkbox" name="tags" value="Ongoing"> #Ongoing</label>
       <label><input type="checkbox" name="tags" value="Recurring"> #Recurring</label>
       <label><input type="checkbox" name="tags" value="Training"> #Training</label>
+      <label><input type="checkbox" name="tags" value="Training, Jim"> #Training and Jim</label>
     </div>
 
     <button onclick="addReminder()">Add Reminder</button>
@@ -134,7 +135,7 @@ function addReminder() {
     return;
   }
 
-  const sortKey = ${date.slice(4)}${date.slice(0,2)}${date.slice(2,4)}${time.padStart(4, '0')};
+  const sortKey = `${date.slice(4)}${date.slice(0,2)}${date.slice(2,4)}${time.padStart(4, '0')}`;
 
   const newRef = db.ref('reminders').push();
   newRef.set({ text, time, date, tags, sortKey });
@@ -159,11 +160,11 @@ function loadReminders() {
 
       remindersArray.forEach(({ id, text, time, date, tags }) => {
         const li = document.createElement('li');
-        const tagText = tags && tags.length ?  - Tags: ${tags.join(', ')} : '';
-        li.innerHTML = 
+        const tagText = tags && tags.length ? ` - Tags: ${tags.join(', ')}` : '';
+        li.innerHTML = `
           <span class="reminder-text">${text} - ${time} - ${date}${tagText}</span>
           <input type="checkbox" onclick="removeReminder('${id}')" />
-        ;
+        `;
         list.appendChild(li);
       });
     }
