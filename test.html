@@ -58,19 +58,31 @@
       word-wrap: break-word;
     }
 
-    .checkbox-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 10px;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      background-color: #f9f9f9;
-    }
-    .checkbox-group label {
-      font-size: 16px;
-    }
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  max-height: 300px;
+  overflow-y: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between checkbox and text */
+  width: 100%;
+  color: #333;
+  font-size: 16px;
+  word-break: break-word;
+}
   </style>
 </head>
 <body>
@@ -82,17 +94,17 @@
     <input type="text" id="reminderDate" placeholder="Due date (MM/DD/YYYY)" />
 
     <label>Tags (select one or more):</label>
-    <div id="tagCheckboxes" class="checkbox-group">
-      <label><input type="checkbox" name="tags" value="Important"> #Important</label>
-      <label><input type="checkbox" name="tags" value="Jim"> #Jim</label>
-      <label><input type="checkbox" name="tags" value="LessUrgent"> #LessUrgent</label>
-      <label><input type="checkbox" name="tags" value="ModeratelyUrgent"> #ModeratelyUrgent</label>
-      <label><input type="checkbox" name="tags" value="NeedToFollowUp"> #NeedToFollowUp</label>
-      <label><input type="checkbox" name="tags" value="Nonurgent"> #Nonurgent</label>
-      <label><input type="checkbox" name="tags" value="Ongoing"> #Ongoing</label>
-      <label><input type="checkbox" name="tags" value="Recurring"> #Recurring</label>
-      <label><input type="checkbox" name="tags" value="Training"> #Training</label>
-    </div>
+<div class="checkbox-group">
+  <label><input type="checkbox" value="#Important" /> #Important</label>
+  <label><input type="checkbox" value="#Jim" /> #Jim</label>
+  <label><input type="checkbox" value="#LessUrgent" /> #LessUrgent</label>
+  <label><input type="checkbox" value="#ModeratelyUrgent" /> #ModeratelyUrgent</label>
+  <label><input type="checkbox" value="#NeedToFollowUp" /> #NeedToFollowUp</label>
+  <label><input type="checkbox" value="#Nonurgent" /> #Nonurgent</label>
+  <label><input type="checkbox" value="#Ongoing" /> #Ongoing</label>
+  <label><input type="checkbox" value="#Recurring" /> #Recurring</label>
+  <label><input type="checkbox" value="#Training" /> #Training</label>
+</div>
 
     <button onclick="addReminder()">Add Reminder</button>
   </div>
