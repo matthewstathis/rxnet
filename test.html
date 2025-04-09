@@ -58,19 +58,24 @@
       word-wrap: break-word;
     }
 
-    .checkbox-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 10px;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      background-color: #f9f9f9;
-    }
-    .checkbox-group label {
-      font-size: 16px;
-    }
+    
+.checkbox-group {
+  display: flex;
+  flex-direction: column; /* Changed to column to maintain current layout */
+  gap: 6px;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+.checkbox-group label {
+  font-size: 16px;
+  display: flex; /* Add this to display checkbox and label in a row */
+  align-items: center; /* Vertically align the checkbox and label */
+}
+
   </style>
 </head>
 <body>
