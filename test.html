@@ -61,7 +61,7 @@
 .checkbox-group {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch; /* 👈 CHANGED from flex-start */
   gap: 8px;
   margin-bottom: 10px;
   padding: 12px;
@@ -77,11 +77,11 @@
 .checkbox-group label {
   display: flex;
   align-items: center;
-  gap: 8px; /* space between checkbox and text */
-  width: 100%;
+  gap: 8px;
   color: #333;
   font-size: 16px;
   word-break: break-word;
+  flex-wrap: wrap; /* 👈 NEW */
 }
   </style>
 </head>
