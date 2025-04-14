@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <!DOCTYPE html>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,10 +37,89 @@
 <body>
 
     <!-- Home button linking to the homepage -->
-    <a href="https://matthewstathis.github.io/rxnet/" class="home-button">Home</a>
+    <a href="https://matthewstathis.github.io/rxnet/quicklinks" class="home-button">Quick Links</a>
 
 </body>
 </html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RxNet</title>
+    <style>
+        /* Style for the Home button */
+        .left2-button {
+            position: absolute;
+            top: 10px;
+            left: 200px;
+            background-color: #148275;
+            color: white;
+            padding: 10px 40px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 30px; /* Adjust value as needed */
+
+        }
+
+        /* Hover effect */
+        .left2-button:hover {
+            background-color: #0f6658;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Home button linking to the homepage -->
+    <a href="https://retailspark.cvs.com/spark?view=storeView" target="_blank" rel="noopener noreferrer" class="left2-button">myReports</a>
+
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RxNet</title>
+    <style>
+        /* Style for the Home button */
+    .admin-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #007bff; /* Adjust color as needed */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .admin-button:hover {
+        background-color: #0056b3; /* Darker shade for hover effect */
+    }
+</style>
+
+<button id="adminButton" class="admin-button">Admin</button>
+</html>
+
+
+
 
 
 <html lang="en">
@@ -113,21 +194,28 @@
     </style>
 </head>
 <body>
-    <h1 class="site-title">RxNet - Admin Home</h1>
-
+<h1 class="site-title">RxNet - v5.0</h1>
     <div class="search-container">
         <input type="text" id="searchBox" placeholder="Search for a link..." onkeyup="searchFunction()">
         <div id="searchResults" class="search-results"></div>
     </div>
 
-
-    
     <script>
         // List of search items
 const searchItems = [
-        { name: "myReports/Spark (store) ", url: "https://retailspark.cvs.com/spark?view=storeView" },
-        { name: "TempAlert ", url: "https://app.smartsense.co/" },
+        { name: "AP Dashboard (non-redirect) ", url: "https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_XXXXX.pdf" },
+        { name: "Command Center (non-redirect) ", url: "https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000" },
+        { name: "Truck Manifest (non-redirect) ", url: "https://portaldoctool.cvs.com/portalDocTool/viewDocuments.do?listingID=dcReportPage&roles=ZGNyZXBvcnRwYWdldXNlcg==&storeNumber=XXXXX" },
+        { name: "Express Scripts PRC (non-redirect) ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=YYYYYYYYYY" },
+        { name: "myReports/Spark (non-redirect) ", url: "https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs" },
 
+
+    
+        { name: "New RTS on Ironman/storeOS Job Aid ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/RTS_on_Ironman_Job_Aid.pdf" },
+        { name: "myReports/Spark (store) ", url: "https://retailspark.cvs.com/spark?view=storeView" },
+        { name: "Environmental Health and Safety Reports Portal ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Environmental_Health_%26_Safety_Reports_Portal_Job_Aid.pdf" },
+        { name: "Controlled Substance Inventory ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Controlled_Substance_Inventory_Annual_PIC_Change_20230308132257348.pdf" },
+        { name: "TempAlert ", url: "https://app.smartsense.co/" },
         { name: "Pet Med Formulary ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Did_you_know_20250310152951196.pdf" },
         { name: "Pet Med Indications for Preventatives ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Preventives_Indications_Chart_20250311122103610.pdf" },
         { name: "Pet Med Rebates ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Pet_Med_Rebate_20250317085858808.pdf" },
@@ -151,11 +239,11 @@ const searchItems = [
         { name: "Pharmacist Letter ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Pharmacists_Letter_access_jobaid_20220415095427755.pdf" },
         { name: "Contraceptive Sub ", url: "https://pharmacist.therapeuticresearch.com/Content/Segments/PRL/2015/Jul/Comparison-of-Oral-Contraceptives-and-Non-Oral-Alternatives-United-States-8631" },
         { name: "Do Not Crush List ", url: "https://pharmacist.therapeuticresearch.com/api/sitecore/FileGuard/GetFile?id=af2e7118-447c-45d0-a48e-0341198b8ba0" },
-        { name: "All Resources ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/ClinicalResourceGuide_20230207125446867.pdf" },
+        { name: "All Clinical References ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/ClinicalResourceGuide_20230207125446867.pdf" },
         { name: "Cardinal ", url: "https://www1.cardinalhealth.com/" },
         { name: "Rx Phone Order ", url: "https://matthewstathis.github.io/rxnet/rxtelephonev2.pdf" },
         { name: "Rx Transfer ", url: "https://matthewstathis.github.io/rxnet/rxtransferv2.pdf" },
-        { name: "Image Retrieval Tool ", url: "https://federatione.cvshealth.com/siteminderagent/forms/enterpriselogin.fcc?TYPE=33554433&REALMOID=06-000988cf-fbc1-1e56-8a47-f8a50a5c0000&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=-SM-4qv8ej3I%2bef50jOTXBfzddyxWLgCk4rIl4aQ5C1Iv8Cpj7PHBvrt2ao8JPl1Sd7S&TARGET=-SM-HTTPS%3a%2f%2ffederatione%2ecvshealth%2ecom%2faffwebservices%2fsecure%2fsecureredirect%3fclient_id%3d00032dae--7ee7--1272--a901--182c0af90000%26redirect_uri%3dhttps%3a%2f%2frxdw--rximageretrieval%2erxdw--cld--ap%2ecvshealthcloud%2ecom%2fhome%26response_type%3dcode%26scope%3dopenid-%20user_attributes-%20roles%26state%3deyJwb3J0YWx1c2VyUm9sZSI6ImNHOXlkR0ZzYzNSdmNtVjFjMlZ5IiAsICJwb3J0YWxTdG9yZU5iciI6Ik1ERTJNekU9In0%3d%26SMPORTALURL%3dmVY-%2FrLs-%2BjtaAWMqRCqeBf8iqKopJfa-%2FP-%2B3PwVzwPMMG61U448c9Aco4xoU3IYU39TQ-%2FmLfJfxMhSyR2SXsEH-%2FeiwauH7Q-%2FTOoOvl-%2BS3hIo7EFw6PwwTefEtqt7-%2BG2XED5K2IVBju2QK-%2F2WUrJMw065FXBFkKajTe" },
+        { name: "Image Retrieval Tool **refresh the page if it loads with an error** ", url: "https://rxdw-rximageretrieval.rxdw-cld-ap.cvshealthcloud.com/imageRequest#no-back-button" },
         { name: "Formulary ", url: "https://matthewstathis.github.io/rxnet/formulary" },
         { name: "iPledge ", url: "https://ipledgeprogram.com/?connection=cvs" },
         { name: "Uniform Sizing Guide ", url: "https://cvstracking.hpidirectstore.net/images/store_images/Uniform_Sizing_Guide.pdf" },
@@ -230,7 +318,7 @@ const searchItems = [
         { name: "Store Digest ", url: "https://retailspark.cvs.com/rbi/?options-base=on&storeNumber=" },
         { name: "Queue Depth ", url: "https://rxcreports.rxc.cvs.com:31210/airsupport/queuesummary" },
         { name: "CIIM ", url: "https://ciim.cvs.com/ciimappnew/#/login" },
-        { name: "Rx Scoreboard ", url: "https://matthewstathis.github.io/rxnet/scoreboard" },
+        { name: "Rx Scoreboard ", url: "https://matthewstathis.github.io/rxnet/scoreboard.pdf" },
         { name: "Profit & Loss ", url: "https://enterpriseportalreporting-prd2.corp.cvscaremark.com:8443/enterprisePortalReporting/viewDocuments.do?listingID=storeProfitLoss&roles=c3RvcmVwbHVzZXI=&storeNumber=XXXXX" },
         { name: "Green Sheets ", url: "https://enterpriseportalreporting-prd2.corp.cvscaremark.com:8443/enterprisePortalReporting/viewDocuments.do?listingID=fmsGreenSheetsReportLandingPage&roles=Zm1zcG9ydHBhZ2V1c2Vy&storeNumber=XXXXX" },
         { name: "Compliance Report ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/LearningHub_Analytics_MyTeam_Compliance_Reporting_2023062113415949.pdf" },
@@ -277,7 +365,7 @@ const searchItems = [
         { name: "Non-saleable Return ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Non_Saleable_Non_CII_Drugs_v2024_11_20241105124655549.pdf" },
         { name: "NIOSH Drugs ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/NIOSH_DRUGS_20191203083207826.pdf" },
         { name: "Card on File ", url: "https://www.cvs.com/epp/remote-payment" },
-        { name: "Insurance Tips ", url: "https://matthewstathis.github.io/rxnet/insurance" },
+        { name: "Insurance Tips ", url: "https://matthewstathis.github.io/rxnet/insurancetips2.pdf" },
         { name: "PA Medicaid PDL ", url: "https://papdl.com/preferred-drug-list" },
         { name: "IMZ Medical Billing ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Vaccine_Third_Party_Billing_Job_Aid_20241004132831656.pdf" },
         { name: "Technician Protocol ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/PA_Pharmacy_Technician_Protocol_Sign_Off_20180730151841166_20221118092028383.pdf" },
@@ -328,7 +416,7 @@ const searchItems = [
         { name: "Labeling Guide ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Nonsterile_Compounding_Labels_20230607140522602.pdf" },
         { name: "CMP Binder ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Compounding_Binder_Guidance_Document_20230801144052106.pdf" },
         { name: "First Kit Quarantine ", url: "https://cvsthinklp.my.salesforce.com/sfc/p/36000001HXbW/a/Kf000000uNSU/Pa5A628WahrLlMBtccYeZ1SasnMXokr_4S018Q2s8L0" },
-        { name: "myReports/Spark (Field) ", url: "https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs" },
+        { name: "myReports/Spark (field) ", url: "https://matthewstathis.github.io/rxnet/sparkredirect.html" },
         { name: "Citrix (manual login) ", url: "https://appsmc.minclinic.local/Citrix/appsmcWeb/" },
         { name: "DynaMedex ", url: "https://www.dynamedex.com" },
         { name: "Clinical Key ", url: "https://auth.elsevier.com/ShibAuth/institutionLogin?appReturnURL=https%3A%2F%2Fwww.clinicalkey.com%2Fshibboleth%2F&entityID=urn%3Amace%3Aincommon%3Amsu.edu" },
@@ -410,8 +498,6 @@ const searchItems = [
         { name: "Workflow Guide ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Compounding_Workflow_20230811154151986.pdf" },
         { name: "Express Scripts PRC ", url: "http://matthewstathis.github.io/rxnet/prcredirect" }
 
-
-    
 ];
 
 function searchFunction() {
@@ -434,20 +520,28 @@ function searchFunction() {
             link.innerText = item.name;
             link.className = "search-result";
 
-            // Check if it's the dynamic URL option
-            if (item.url.includes("XXXXX")) {
-                link.href = "#"; // Prevent default action
-                link.onclick = function() {
-                    let userInput = prompt("Enter your 5-digit store number:");
-                    if (userInput) {
-                        let completeURL = item.url.replace("XXXXX", encodeURIComponent(userInput));
-                        window.open(completeURL, "_blank"); // Open in new tab
-                    }
-                };
-            } else {
-                link.href = item.url;
-                link.target = "_blank"; // Open normal links in a new tab
-            }
+if (item.url.includes("XXXXX")) {
+    link.href = "#"; // Prevent default action
+    link.onclick = function() {
+        let userInput = prompt("Enter your 5-digit store number:");
+        if (userInput) {
+            let completeURL = item.url.replace("XXXXX", encodeURIComponent(userInput));
+            window.open(completeURL, "_blank");
+        }
+    };
+} else if (item.url.includes("YYYYYYYYY")) {
+    link.href = "#"; // Prevent default action
+    link.onclick = function() {
+        let userInput = prompt("Enter your NPI number:");
+        if (userInput) {
+            let completeURL = item.url.replace("YYYYYYYYY", encodeURIComponent(userInput));
+            window.open(completeURL, "_blank");
+        }
+    };
+} else {
+    link.href = item.url;
+    link.target = "_blank"; // Open normal links in a new tab
+}
 
             resultsDiv.appendChild(link); // Append link correctly
         });
@@ -465,106 +559,33 @@ document.addEventListener("click", function(event) {
         resultsDiv.style.display = "none";
     }
 });
-
-        
 </script>
 </body>
 </html>
 
 
-<html>
+
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <style>
-        .button-container {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 10px 45px;
-            padding: 10px;
-            max-width: 90vw;
-            margin: auto;
-        }
-
-        .link-button {
-            flex: 1 1 16%;
-            max-width: 300px;
-            min-width: 70px;
-            aspect-ratio: 12 / 1;
-            background-color: #148275;
-            color: white;
-            padding: 14px;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            display: flex;
-            text-align: center;
-            width: 100%;
-            border-radius: 12px;
-            justify-content: center;
-            align-items: center;
-            min-height: 15px;
-            
-        }
-        
-        .link-button:hover {
-            background-color: #0f5d4f;
-        }
-
-        .show { display: grid; } /* Use grid display only when triggered */
-    </style>
+    <meta charset="UTF-8">
+    <title>RxNet Page</title>
 </head>
 <body>
+    <header>
+        <h1>Welcome to RxNet</h1>
+    </header>
 
+    <main>
+        <div>
+            <!-- Your content goes here -->
+            <iframe src="https://matthewstathis.github.io/rxnet/formulary" width="100%" height="600" style="border:1px solid #ccc;"></iframe>
+        </div>
+    </main>
 
-<div class="button-container">
-        <a href="https://retailspark.cvs.com/spark?view=storeView" class="link-button">myReports</a>
-        <a href="https://github.com/matthewstathis/rxnet/tree/main" class="link-button">GitHub</a>
-        <a href="https://ms-nightscout.azurewebsites.net" class="link-button">NightScout</a>
-        <a href="https://matthewstathis.github.io/rxnet/test.html" class="link-button">Reminders</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/CS_Hub_Pharmacist_Toolkit_Store_Version_20250326151148745.pdf" class="link-button">CS Hub</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/CVS_Health_Corporation_COI_2025_20241230114942787.pdf" class="link-button">COI</a>
-
-
-
-<iframe src="https://www1.cardinalhealth.com" width="100%" height="600px" style="border:1px solid #ccc;"></iframe>
-
-</div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let buttons = document.querySelectorAll(".link-button");
-            buttons.forEach(button => {
-                button.setAttribute("target", "_blank");
-                button.setAttribute("rel", "noopener noreferrer");
-            });
-        });
-
-
-
-function openDynamicURL(baseURL) {
-    if (baseURL.includes("XXXXX")) {
-        let storeNumber = prompt("Enter your 5-digit store number:");
-        if (storeNumber) {
-            let finalURL = baseURL.replace("XXXXX", encodeURIComponent(storeNumber));
-            window.open(finalURL, "_blank", "noopener,noreferrer");
-        }
-    } else if (baseURL.includes("YYYYYYYYYY")) {
-        let npiNumber = prompt("Enter your NPI number:");
-        if (npiNumber) {
-            let finalURL = baseURL.replace("YYYYYYYYYY", encodeURIComponent(npiNumber));
-            window.open(finalURL, "_blank", "noopener,noreferrer");
-        }
-    } else {
-        // Just open the URL normally
-        window.open(baseURL, "_blank", "noopener,noreferrer");
-    }
-}
-
-
-
-    </script>
-
-
-    
+    <footer>
+        <!-- Footer content -->
+    </footer>
 </body>
 </html>
