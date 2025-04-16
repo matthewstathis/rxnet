@@ -121,6 +121,39 @@
 
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RxNet</title>
+    <style>
+        /* Style for the tasks button */
+    .tasks-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #B10F5F; /* Adjust color as needed */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .tasks-button:hover {
+        background-color: #900D4D; /* Darker shade for hover effect */
+    }
+</style>
+
+<button id="tasksButton" class="tasks-button">Tasks</button>
+</html>
+
+
+
+
+
 
 <html lang="en">
 <head>
@@ -994,6 +1027,16 @@ function openDynamicURL(baseURL) {
     }
 }
 
+document.getElementById("tasksButton").addEventListener("click", function() {
+    let username = prompt("Pilot stores only!! Enter login:");
+
+    if (username === "rx01631") {
+        window.location.href = "reminders.html"; // Change this to your actual admin page
+    } else {
+        alert("Incorrect login. Access denied.");
+    }
+
+    
 document.getElementById("adminButton").addEventListener("click", function() {
     let username = prompt("Enter Username:");
     let password = prompt("Enter Password:");
