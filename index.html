@@ -1073,7 +1073,7 @@ document.getElementById("nightscoutButton").addEventListener("click", function()
     let password = prompt("Enter password:");
 
     if (password === "rx01631") {
-        window.location.href = "https://ms-nightscout.azurewebsites.net"; // Change this to your actual admin page
+        window.open("https://ms-nightscout.azurewebsites.net", "_blank", "noopener,noreferrer");
     } else {
         alert("Incorrect login. Access denied.");
     }
