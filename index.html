@@ -132,7 +132,7 @@
     .tasks-button {
         position: absolute;
         top: 10px;
-        right: 150px;
+        right: 140px;
         background-color: #B10F5F; /* Adjust color as needed */
         color: white;
         padding: 10px 40px;
@@ -149,6 +149,37 @@
 
 <button id="tasksButton" class="tasks-button">Tasks</button>
 </html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RxNet</title>
+    <style>
+        /* Style for the nightscout button */
+    .tasks-button {
+        position: absolute;
+        top: 10px;
+        right: 140px;
+        background-color: #148275; /* Adjust color as needed */
+        color: white;
+        padding: 10px 40px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .tasks-button:hover {
+        background-color: #0056b3; /* Darker shade for hover effect */
+    }
+</style>
+
+<button id="nightscoutButton" class="nightscout-button">Nightscout</button>
+</html>
+
 
 
 
@@ -1037,12 +1068,21 @@ document.getElementById("tasksButton").addEventListener("click", function() {
     }
 })
 
+document.getElementById("nightscoutButton").addEventListener("click", function() {
+    let password = prompt("Enter password:");
+
+    if (password === "rx01631") {
+        window.location.href = "https://ms-nightscout.azurewebsites.net"; // Change this to your actual admin page
+    } else {
+        alert("Incorrect login. Access denied.");
+    }
+})
+
     
 document.getElementById("adminButton").addEventListener("click", function() {
-    let username = prompt("Enter Username:");
     let password = prompt("Enter Password:");
 
-    if (username === "rx01631" && password === "rx01631") {
+    if (password === "rx01631") {
         window.location.href = "admin.html"; // Change this to your actual admin page
     } else {
         alert("Incorrect login. Access denied.");
