@@ -1,196 +1,179 @@
 <!DOCTYPE html>
-
-<!DOCTYPE html>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RxNet</title>
-    <style>
-        /* Style for the Home button */
-        .home-button {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: #148275;
-            color: white;
-            padding: 10px 40px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin-bottom: 30px; /* Adjust value as needed */
-
-        }
-
-        /* Hover effect */
-        .home-button:hover {
-            background-color: #0f6658;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Home button linking to the homepage -->
-    <a href="https://matthewstathis.github.io/rxnet" class="home-button">Home</a>
-
-</body>
-</html>
-
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RxNet Desktop Simulation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RxNet - Taskbar Style Popups</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
       margin: 0;
-      font-family: sans-serif;
       background-color: #f4f4f4;
-      overflow: hidden;
     }
 
-    /* Dock at the bottom */
-    #dock {
+    .taskbar {
       position: fixed;
       bottom: 0;
-      left: 0;
       width: 100%;
       background-color: #333;
-      padding: 10px;
       display: flex;
       justify-content: center;
+      padding: 10px;
       gap: 10px;
-      z-index: 1000;
+      z-index: 999;
     }
 
-    .dock-btn {
+    .taskbar button {
       background-color: #148275;
       color: white;
       border: none;
-      padding: 10px 16px;
+      padding: 10px 20px;
       border-radius: 8px;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 14px;
     }
 
-    .dock-btn:hover {
+    .taskbar button:hover {
       background-color: #0f5d4f;
     }
 
-    /* Window area */
-    .app-window {
+    .popup-window {
       position: absolute;
-      top: 50px;
-      left: 50px;
-      width: 80%;
-      height: 80%;
-      border: 2px solid #888;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      background-color: white;
-      z-index: 900;
+      top: 100px;
+      left: 100px;
+      width: 800px;
+      height: 500px;
+      border: 1px solid #999;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      background: white;
+      z-index: 1000;
       display: none;
       flex-direction: column;
     }
 
-    .app-header {
+    .popup-header {
       background-color: #148275;
       color: white;
-      padding: 8px 12px;
+      padding: 10px;
+      cursor: move;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
+      border-radius: 8px 8px 0 0;
     }
 
-    .app-header button {
-      background: none;
+    .popup-content {
+      flex: 1;
+      display: block;
+      height: 100%;
+    }
+
+    .popup-content iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .minimize-btn {
+      background: transparent;
       border: none;
       color: white;
-      font-size: 1.2rem;
+      font-size: 18px;
       cursor: pointer;
     }
 
-    iframe {
-      flex: 1;
-      border: none;
-      width: 100%;
+    .minimize-btn:hover {
+      color: #ccc;
     }
   </style>
 </head>
 <body>
 
-  <!-- Windows (apps) -->
-  <div id="app1" class="app-window">
-    <div class="app-header">
-      <span>Outlook</span>
-      <button onclick="closeApp('app1')">&times;</button>
-    </div>
-    <iframe src="https://mail.cvshealth.com/"></iframe>
-  </div>
+<div class="taskbar">
+  <button onclick="togglePopup('popupMyDocs')">myDocs</button>
+  <button onclick="togglePopup('popupClinical')">Clinical Pharm</button>
+  <button onclick="togglePopup('popupMyWork')">myWork</button>
+  <button onclick="togglePopup('popupTempAlert')">TempAlert</button>
+</div>
 
-  <div id="app2" class="app-window">
-    <div class="app-header">
-      <span>myDocs</span>
-      <button onclick="closeApp('app2')">&times;</button>
-    </div>
+<!-- myDocs -->
+<div class="popup-window" id="popupMyDocs">
+  <div class="popup-header" id="popupMyDocsHeader">
+    <span>myDocs</span>
+    <button class="minimize-btn" onclick="togglePopup('popupMyDocs')">–</button>
+  </div>
+  <div class="popup-content">
     <iframe src="https://storeresources.cvsapps.com/?user_ard=MTYzMQ==&employee_ID=MTA5Mzk5MQ==&user_firstname=TWF0dGhldw==&user_lastname=U3RhdGhpcw==&user_title=UGhhcm1hY2lzdA=="></iframe>
   </div>
+</div>
 
-  <div id="app3" class="app-window">
-    <div class="app-header">
-      <span>Cardinal</span>
-      <button onclick="closeApp('app3')">&times;</button>
-    </div>
-    <iframe src="https://www1.cardinalhealth.com/"></iframe>
+<!-- Clinical Pharm -->
+<div class="popup-window" id="popupClinical">
+  <div class="popup-header" id="popupClinicalHeader">
+    <span>Clinical Pharmacology</span>
+    <button class="minimize-btn" onclick="togglePopup('popupClinical')">–</button>
   </div>
-
- <div id="app4" class="app-window">
-    <div class="app-header">
-      <span>Clinical Pharmacology</span>
-      <button onclick="closeApp('app4')">&times;</button>
-    </div>
+  <div class="popup-content">
     <iframe src="https://www.clinicalkey.com/pharmacology/"></iframe>
   </div>
-    
-  <!-- Dock -->
-  <div id="dock">
-    <button class="dock-btn" onclick="toggleApp('app1')">Outlook</button>
-    <button class="dock-btn" onclick="toggleApp('app2')">myDocs</button>
-    <button class="dock-btn" onclick="toggleApp('app3')">Cardinal</button>
-    <button class="dock-btn" onclick="toggleApp('app4')">Clinical Pharmacology</button>
+</div>
 
+<!-- myWork -->
+<div class="popup-window" id="popupMyWork">
+  <div class="popup-header" id="popupMyWorkHeader">
+    <span>myWork</span>
+    <button class="minimize-btn" onclick="togglePopup('popupMyWork')">–</button>
   </div>
+  <div class="popup-content">
+    <iframe src="https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view"></iframe>
+  </div>
+</div>
 
-  <script>
-    function toggleApp(appId) {
-      const app = document.getElementById(appId);
-      if (app.style.display === "none" || app.style.display === "") {
-        app.style.display = "flex";
-        bringToFront(app);
-      } else {
-        app.style.display = "none";
+<!-- TempAlert -->
+<div class="popup-window" id="popupTempAlert">
+  <div class="popup-header" id="popupTempAlertHeader">
+    <span>TempAlert</span>
+    <button class="minimize-btn" onclick="togglePopup('popupTempAlert')">–</button>
+  </div>
+  <div class="popup-content">
+    <iframe src="https://app.smartsense.co/"></iframe>
+  </div>
+</div>
+
+<script>
+  function togglePopup(id) {
+    const win = document.getElementById(id);
+    win.style.display = (win.style.display === 'none' || win.style.display === '') ? 'flex' : 'none';
+  }
+
+  function makeDraggable(popupId) {
+    const popup = document.getElementById(popupId);
+    const header = document.getElementById(popupId + 'Header');
+    let offsetX = 0, offsetY = 0, isDown = false;
+
+    header.addEventListener('mousedown', function(e) {
+      isDown = true;
+      offsetX = popup.offsetLeft - e.clientX;
+      offsetY = popup.offsetTop - e.clientY;
+    });
+
+    document.addEventListener('mouseup', function() {
+      isDown = false;
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (isDown) {
+        popup.style.left = (e.clientX + offsetX) + 'px';
+        popup.style.top = (e.clientY + offsetY) + 'px';
       }
-    }
+    });
+  }
 
-    function closeApp(appId) {
-      document.getElementById(appId).style.display = "none";
-    }
+  // Enable dragging for each window
+  ['popupMyDocs', 'popupClinical', 'popupMyWork', 'popupTempAlert'].forEach(id => makeDraggable(id));
+</script>
 
-    function bringToFront(el) {
-      document.querySelectorAll('.app-window').forEach(win => win.style.zIndex = 900);
-      el.style.zIndex = 999;
-    }
-  </script>
 </body>
 </html>
-
