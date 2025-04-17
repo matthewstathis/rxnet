@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RxNet</title>
     <style>
-        /* Style for the Home button */
+        /* Home button */
         .home-button {
             position: absolute;
             top: 10px;
@@ -22,36 +19,22 @@
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            margin-bottom: 30px; /* Adjust value as needed */
-
+            margin-bottom: 30px;
         }
 
-        /* Hover effect */
         .home-button:hover {
             background-color: #0f6658;
         }
-    </style>
-</head>
-<body>
 
-    <!-- Home button linking to the homepage -->
-    <a href="https://matthewstathis.github.io/rxnet/" class="home-button">Home</a>
-
-</body>
-</html>
-
-
-<html>
-<head>
-    <style>
-
+        /* Centered site title */
         .site-title {
-    font-size: 18pt; /* Set font size */
-    font-weight: bold; /* Make it bold */
-    text-align: center; /* Center align */
-    margin-top: 20px; /* Add space at the top */
-    color: black; /* Set text color */
-}
+            font-size: 18pt;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 60px; /* Adjusted to allow space below Home button */
+            color: black;
+        }
+
         .button-container {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
@@ -80,31 +63,29 @@
             justify-content: center;
             align-items: center;
             min-height: 15px;
-            
         }
-        
+
         .link-button:hover {
             background-color: #0f5d4f;
         }
 
-        .show { display: grid; } /* Use grid display only when triggered */
+        .show { display: grid; }
     </style>
 </head>
 <body>
+
+    <a href="https://matthewstathis.github.io/rxnet/" class="home-button">Home</a>
+
     <h1 class="site-title">RxNet - Admin Home</h1>
 
-
-<div class="button-container">
+    <div class="button-container">
         <a href="https://github.com/matthewstathis/rxnet/blob/main/index.html" class="link-button">Modify RxNet</a>
         <a href="https://github.com/matthewstathis/rxnet/deployments" class="link-button">Deployments</a>
         <a href="https://github.com/matthewstathis/rxnet/tree/main" class="link-button">GitHub Main</a>
         <a href="https://ms-nightscout.azurewebsites.net" class="link-button">Nightscout</a>
         <a href="https://matthewstathis.github.io/rxnet/reminders" class="link-button">Reminders</a>
         <a href="https://matthewstathis.github.io/rxnet/test" class="link-button">Test Page</a>
-
-
-
-</div>
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -115,32 +96,24 @@
             });
         });
 
-
-
-function openDynamicURL(baseURL) {
-    if (baseURL.includes("XXXXX")) {
-        let storeNumber = prompt("Enter your 5-digit store number:");
-        if (storeNumber) {
-            let finalURL = baseURL.replace("XXXXX", encodeURIComponent(storeNumber));
-            window.open(finalURL, "_blank", "noopener,noreferrer");
+        function openDynamicURL(baseURL) {
+            if (baseURL.includes("XXXXX")) {
+                let storeNumber = prompt("Enter your 5-digit store number:");
+                if (storeNumber) {
+                    let finalURL = baseURL.replace("XXXXX", encodeURIComponent(storeNumber));
+                    window.open(finalURL, "_blank", "noopener,noreferrer");
+                }
+            } else if (baseURL.includes("YYYYYYYYYY")) {
+                let npiNumber = prompt("Enter your NPI number:");
+                if (npiNumber) {
+                    let finalURL = baseURL.replace("YYYYYYYYYY", encodeURIComponent(npiNumber));
+                    window.open(finalURL, "_blank", "noopener,noreferrer");
+                }
+            } else {
+                window.open(baseURL, "_blank", "noopener,noreferrer");
+            }
         }
-    } else if (baseURL.includes("YYYYYYYYYY")) {
-        let npiNumber = prompt("Enter your NPI number:");
-        if (npiNumber) {
-            let finalURL = baseURL.replace("YYYYYYYYYY", encodeURIComponent(npiNumber));
-            window.open(finalURL, "_blank", "noopener,noreferrer");
-        }
-    } else {
-        // Just open the URL normally
-        window.open(baseURL, "_blank", "noopener,noreferrer");
-    }
-}
-
-
-
     </script>
 
-
-    
 </body>
 </html>
