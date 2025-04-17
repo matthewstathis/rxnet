@@ -2,26 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>RxNet Windowed Apps</title>
+  <title>RxNet Window Dock</title>
   <style>
     body {
       font-family: sans-serif;
+      margin: 0;
+      padding: 0;
       background-color: #f5f5f5;
-      padding: 20px;
-    }
-
-    .taskbar {
-      margin-bottom: 20px;
-    }
-
-    .taskbar button {
-      background-color: #148275;
-      color: white;
-      padding: 10px 20px;
-      margin: 5px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      height: 100vh;
+      overflow: hidden;
     }
 
     .popup {
@@ -32,8 +21,8 @@
       height: 500px;
       border: 2px solid #148275;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
       background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
       display: flex;
       flex-direction: column;
       resize: both;
@@ -44,10 +33,10 @@
       background-color: #148275;
       color: white;
       padding: 10px;
-      cursor: move;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      cursor: move;
       user-select: none;
     }
 
@@ -55,17 +44,13 @@
       font-weight: bold;
     }
 
-    .popup-header .controls {
-      display: flex;
-      gap: 5px;
-    }
-
-    .popup-header button {
+    .popup-header .controls button {
       background: none;
       border: none;
       color: white;
       font-size: 16px;
       cursor: pointer;
+      margin-left: 5px;
     }
 
     .popup iframe {
@@ -74,21 +59,38 @@
       border: none;
     }
 
-    .minimized {
-      display: none !important;
+    .dock {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      z-index: 9999;
+    }
+
+    .dock button {
+      background-color: #148275;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 5px;
+      border-radius: 10px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <div class="taskbar">
+  <div class="dock">
     <button onclick="createPopup('myDocs', 'https://storeresources.cvsapps.com/?user_ard=MTYzMQ==&employee_ID=MTA5Mzk5MQ==&user_firstname=TWF0dGhldw==&user_lastname=U3RhdGhpcw==&user_title=UGhhcm1hY2lzdA==')">myDocs</button>
     <button onclick="createPopup('Clinical Pharmacology', 'https://www.clinicalkey.com/pharmacology/')">Clinical Pharm</button>
     <button onclick="createPopup('Rx Phone Order', 'https://matthewstathis.github.io/rxnet/rxtelephonev2.pdf')">Rx Phone Order</button>
     <button onclick="createPopup('Formulary', 'https://matthewstathis.github.io/rxnet/formulary')">Formulary</button>
     <button onclick="createPopup('Task List', 'https://matthewstathis.github.io/rxnet/reminders.html')">Task List</button>
     <button onclick="createPopup('Nightscout', 'https://ms-nightscout.azurewebsites.net')">Nightscout</button>
-
   </div>
 
   <script>
@@ -111,7 +113,7 @@
 
       const minimizeBtn = document.createElement("button");
       minimizeBtn.innerText = "–";
-      minimizeBtn.onclick = () => popup.classList.toggle("minimized");
+      minimizeBtn.onclick = () => popup.style.display = "none";
 
       const closeBtn = document.createElement("button");
       closeBtn.innerText = "✕";
