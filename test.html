@@ -146,10 +146,29 @@
     <iframe src="https://retailspark.cvs.com/spark?view=storeView"></iframe>
   </div>
 
+  <div id="app3" class="app-window">
+    <div class="app-header">
+      <span>Cardinal</span>
+      <button onclick="closeApp('app3')">&times;</button>
+    </div>
+    <iframe src="https://www1.cardinalhealth.com/"></iframe>
+  </div>
+
+ <div id="app4" class="app-window">
+    <div class="app-header">
+      <span>Clinical Pharmacology</span>
+      <button onclick="closeApp('app4')">&times;</button>
+    </div>
+    <iframe src="https://www.clinicalkey.com/pharmacology/"></iframe>
+  </div>
+    
   <!-- Dock -->
   <div id="dock">
     <button class="dock-btn" onclick="toggleApp('app1')">Outlook</button>
     <button class="dock-btn" onclick="toggleApp('app2')">myReports</button>
+    <button class="dock-btn" onclick="toggleApp('app3')">Cardinal</button>
+    <button class="dock-btn" onclick="toggleApp('app4')">Clinical Pharmacology</button>
+
   </div>
 
   <script>
