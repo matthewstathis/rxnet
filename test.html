@@ -39,54 +39,6 @@
 <!-- Popup container -->
 <div id="popupContainer"></div>
 
-
-
-<div class="window">
-  <div class="window-header">
-    <span class="window-title">Triage Queue (QT)</span>
-    <button class="close-btn" onclick="this.parentElement.parentElement.remove()">&times;</button>
-  </div>
-  <div class="window-content">
-    <h2>Patients in Triage</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Rx #</th>
-          <th>Patient Name</th>
-          <th>Status</th>
-          <th>Waiting Time</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>RX001234</td>
-          <td>Jane Doe</td>
-          <td>Needs Verification</td>
-          <td>12 min</td>
-        </tr>
-        <tr>
-          <td>RX001235</td>
-          <td>John Smith</td>
-          <td>Needs Clarification</td>
-          <td>8 min</td>
-        </tr>
-        <tr>
-          <td>RX001236</td>
-          <td>Lisa Ray</td>
-          <td>Ready for Fill</td>
-          <td>3 min</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-
-
-
-
-
-  
 <script>
   const functionMap = {
     QT: 'Triage Queue',
@@ -118,7 +70,7 @@
     popup.className = 'popup';
     popup.style = `
       position:fixed; top:100px; left:100px;
-      width:400px; height:250px; background:white;
+      width:500px; height:300px; background:white;
       border:2px solid #008080; box-shadow:2px 2px 10px rgba(0,0,0,0.2);
       z-index:1000; resize:both; overflow:auto;
     `;
@@ -128,7 +80,7 @@
       background:#008080; color:white; padding:10px;
       cursor:move; display:flex; justify-content:space-between; align-items:center;
     `;
-    header.innerHTML = `<strong>${title}</strong>`;
+    header.innerHTML = `<strong>${title} (${code})</strong>`;
 
     const controls = document.createElement('div');
     controls.innerHTML = `
@@ -136,16 +88,53 @@
       <button onclick="this.closest('.popup').remove()">✖</button>
     `;
     header.appendChild(controls);
+    popup.appendChild(header);
 
     const content = document.createElement('div');
     content.style = "padding:10px;";
-    content.innerHTML = `<p>This is the <strong>${title}</strong> window for code: <strong>${code}</strong>.</p>`;
 
-    popup.appendChild(header);
+    // Special case for Triage Queue (QT)
+    if (code === 'QT') {
+      content.innerHTML = `
+        <h2>Patients in Triage</h2>
+        <table style="width:100%; border-collapse:collapse;">
+          <thead>
+            <tr>
+              <th style="border-bottom:1px solid #ccc; text-align:left;">Rx #</th>
+              <th style="border-bottom:1px solid #ccc; text-align:left;">Patient Name</th>
+              <th style="border-bottom:1px solid #ccc; text-align:left;">Status</th>
+              <th style="border-bottom:1px solid #ccc; text-align:left;">Waiting Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>RX001234</td>
+              <td>Jane Doe</td>
+              <td>Needs Verification</td>
+              <td>12 min</td>
+            </tr>
+            <tr>
+              <td>RX001235</td>
+              <td>John Smith</td>
+              <td>Needs Clarification</td>
+              <td>8 min</td>
+            </tr>
+            <tr>
+              <td>RX001236</td>
+              <td>Lisa Ray</td>
+              <td>Ready for Fill</td>
+              <td>3 min</td>
+            </tr>
+          </tbody>
+        </table>
+      `;
+    } else {
+      // Default content for other codes
+      content.innerHTML = `<p>This is the <strong>${title}</strong> window for code: <strong>${code}</strong>.</p>`;
+    }
+
     popup.appendChild(content);
     document.getElementById('popupContainer').appendChild(popup);
-
-    // Make draggable
     makeDraggable(popup, header);
   }
 
