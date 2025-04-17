@@ -1,55 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RxNet - Taskbar Style Popups</title>
+  <meta charset="UTF-8">
+  <title>RxNet Windowed Apps</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f4f4f4;
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
     }
 
     .taskbar {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background-color: #333;
-      display: flex;
-      justify-content: center;
-      padding: 10px;
-      gap: 10px;
-      z-index: 999;
+      margin-bottom: 20px;
     }
 
     .taskbar button {
       background-color: #148275;
       color: white;
-      border: none;
       padding: 10px 20px;
+      margin: 5px;
+      border: none;
       border-radius: 8px;
       cursor: pointer;
-      font-size: 14px;
     }
 
-    .taskbar button:hover {
-      background-color: #0f5d4f;
-    }
-
-    .popup-window {
+    .popup {
       position: absolute;
       top: 100px;
       left: 100px;
       width: 800px;
       height: 500px;
-      border: 1px solid #999;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      background: white;
-      z-index: 1000;
-      display: none;
+      border: 2px solid #148275;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      background-color: white;
+      display: flex;
       flex-direction: column;
+      resize: both;
+      overflow: hidden;
     }
 
     .popup-header {
@@ -60,120 +48,103 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-radius: 8px 8px 0 0;
+      user-select: none;
     }
 
-    .popup-content {
-      flex: 1;
-      display: block;
-      height: 100%;
+    .popup-header .title {
+      font-weight: bold;
     }
 
-    .popup-content iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 0 0 8px 8px;
+    .popup-header .controls {
+      display: flex;
+      gap: 5px;
     }
 
-    .minimize-btn {
-      background: transparent;
+    .popup-header button {
+      background: none;
       border: none;
       color: white;
-      font-size: 18px;
+      font-size: 16px;
       cursor: pointer;
     }
 
-    .minimize-btn:hover {
-      color: #ccc;
+    .popup iframe {
+      flex: 1;
+      width: 100%;
+      border: none;
+    }
+
+    .minimized {
+      display: none !important;
     }
   </style>
 </head>
 <body>
 
-<div class="taskbar">
-  <button onclick="togglePopup('popupMyDocs')">myDocs</button>
-  <button onclick="togglePopup('popupClinical')">Clinical Pharm</button>
-  <button onclick="togglePopup('popupMyWork')">myWork</button>
-  <button onclick="togglePopup('popupTempAlert')">TempAlert</button>
-</div>
-
-<!-- myDocs -->
-<div class="popup-window" id="popupMyDocs">
-  <div class="popup-header" id="popupMyDocsHeader">
-    <span>myDocs</span>
-    <button class="minimize-btn" onclick="togglePopup('popupMyDocs')">–</button>
+  <div class="taskbar">
+    <button onclick="createPopup('myDocs', 'https://storeresources.cvsapps.com/?user_ard=MTYzMQ==&employee_ID=MTA5Mzk5MQ==&user_firstname=TWF0dGhldw==&user_lastname=U3RhdGhpcw==&user_title=UGhhcm1hY2lzdA==')">myDocs</button>
+    <button onclick="createPopup('Clinical Pharmacology', 'https://www.clinicalkey.com/pharmacology/')">Clinical Pharm</button>
+    <button onclick="createPopup('myWork', 'https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view')">myWork</button>
+    <button onclick="createPopup('TempAlert', 'https://app.smartsense.co/')">TempAlert</button>
   </div>
-  <div class="popup-content">
-    <iframe src="https://storeresources.cvsapps.com/?user_ard=MTYzMQ==&employee_ID=MTA5Mzk5MQ==&user_firstname=TWF0dGhldw==&user_lastname=U3RhdGhpcw==&user_title=UGhhcm1hY2lzdA=="></iframe>
-  </div>
-</div>
 
-<!-- Clinical Pharm -->
-<div class="popup-window" id="popupClinical">
-  <div class="popup-header" id="popupClinicalHeader">
-    <span>Clinical Pharmacology</span>
-    <button class="minimize-btn" onclick="togglePopup('popupClinical')">–</button>
-  </div>
-  <div class="popup-content">
-    <iframe src="https://www.clinicalkey.com/pharmacology/"></iframe>
-  </div>
-</div>
+  <script>
+    let zIndex = 10;
 
-<!-- myWork -->
-<div class="popup-window" id="popupMyWork">
-  <div class="popup-header" id="popupMyWorkHeader">
-    <span>myWork</span>
-    <button class="minimize-btn" onclick="togglePopup('popupMyWork')">–</button>
-  </div>
-  <div class="popup-content">
-    <iframe src="https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view"></iframe>
-  </div>
-</div>
+    function createPopup(title, url) {
+      const popup = document.createElement("div");
+      popup.className = "popup";
+      popup.style.zIndex = zIndex++;
 
-<!-- TempAlert -->
-<div class="popup-window" id="popupTempAlert">
-  <div class="popup-header" id="popupTempAlertHeader">
-    <span>TempAlert</span>
-    <button class="minimize-btn" onclick="togglePopup('popupTempAlert')">–</button>
-  </div>
-  <div class="popup-content">
-    <iframe src="https://app.smartsense.co/"></iframe>
-  </div>
-</div>
+      const header = document.createElement("div");
+      header.className = "popup-header";
 
-<script>
-  function togglePopup(id) {
-    const win = document.getElementById(id);
-    win.style.display = (win.style.display === 'none' || win.style.display === '') ? 'flex' : 'none';
-  }
+      const titleSpan = document.createElement("span");
+      titleSpan.className = "title";
+      titleSpan.innerText = title;
 
-  function makeDraggable(popupId) {
-    const popup = document.getElementById(popupId);
-    const header = document.getElementById(popupId + 'Header');
-    let offsetX = 0, offsetY = 0, isDown = false;
+      const controls = document.createElement("div");
+      controls.className = "controls";
 
-    header.addEventListener('mousedown', function(e) {
-      isDown = true;
-      offsetX = popup.offsetLeft - e.clientX;
-      offsetY = popup.offsetTop - e.clientY;
-    });
+      const minimizeBtn = document.createElement("button");
+      minimizeBtn.innerText = "–";
+      minimizeBtn.onclick = () => popup.classList.toggle("minimized");
 
-    document.addEventListener('mouseup', function() {
-      isDown = false;
-    });
+      const closeBtn = document.createElement("button");
+      closeBtn.innerText = "✕";
+      closeBtn.onclick = () => popup.remove();
 
-    document.addEventListener('mousemove', function(e) {
-      if (isDown) {
-        popup.style.left = (e.clientX + offsetX) + 'px';
-        popup.style.top = (e.clientY + offsetY) + 'px';
-      }
-    });
-  }
+      controls.appendChild(minimizeBtn);
+      controls.appendChild(closeBtn);
+      header.appendChild(titleSpan);
+      header.appendChild(controls);
 
-  // Enable dragging for each window
-  ['popupMyDocs', 'popupClinical', 'popupMyWork', 'popupTempAlert'].forEach(id => makeDraggable(id));
-</script>
+      const iframe = document.createElement("iframe");
+      iframe.src = url;
+
+      popup.appendChild(header);
+      popup.appendChild(iframe);
+      document.body.appendChild(popup);
+
+      // Drag support
+      let offsetX, offsetY, isDragging = false;
+      header.addEventListener("mousedown", e => {
+        isDragging = true;
+        offsetX = e.clientX - popup.offsetLeft;
+        offsetY = e.clientY - popup.offsetTop;
+        popup.style.zIndex = zIndex++;
+      });
+
+      document.addEventListener("mousemove", e => {
+        if (isDragging) {
+          popup.style.left = `${e.clientX - offsetX}px`;
+          popup.style.top = `${e.clientY - offsetY}px`;
+        }
+      });
+
+      document.addEventListener("mouseup", () => isDragging = false);
+    }
+  </script>
 
 </body>
 </html>
