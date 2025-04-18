@@ -64,6 +64,30 @@
   <div class="reminder-form">
     <input type="text" id="reminderText" placeholder="Reminder text" />
     <input type="text" id="reminderDate" placeholder="Due date (MM/DD/YYYY)" />
+    
+    
+    
+  <script>
+  document.getElementById("reminderDate").addEventListener("input", function(e) {
+    let input = e.target.value.replace(/\D/g, ""); // remove all non-digit characters
+    if (input.length >= 3 && input.length <= 4) {
+      e.target.value = input.slice(0, 2) + "/" + input.slice(2);
+    } else if (input.length > 4) {
+      e.target.value = input.slice(0, 2) + "/" + input.slice(2, 4) + "/" + input.slice(4, 8);
+    } else {
+      e.target.value = input;
+    }
+  });
+</script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <button onclick="addReminder()">Add Reminder</button>
   </div>
 
