@@ -63,35 +63,12 @@
 
   <div class="reminder-form">
     <input type="text" id="reminderText" placeholder="Reminder text" />
-    <input type="text" id="reminderDate" placeholder="Due date (MM/DD/YYYY)" />
-    
-    
-    
-  <script>
-  document.getElementById("reminderDate").addEventListener("input", function(e) {
-    let input = e.target.value.replace(/\D/g, ""); // remove all non-digit characters
-    if (input.length >= 3 && input.length <= 4) {
-      e.target.value = input.slice(0, 2) + "/" + input.slice(2);
-    } else if (input.length > 4) {
-      e.target.value = input.slice(0, 2) + "/" + input.slice(2, 4) + "/" + input.slice(4, 8);
-    } else {
-      e.target.value = input;
-    }
-  });
-</script>
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    <input type="text" id="reminderDate" placeholder="Due date (MM/DD/YYYY)" maxlength="10" oninput="autoFormatDate(this)" />
     <button onclick="addReminder()">Add Reminder</button>
   </div>
 
   <ul id="reminderList"></ul>
+  <button onclick="deleteCompletedReminders()" style="margin-top: 20px; background-color: #b00; color:white; width:100%; padding:10px; border:none; cursor:pointer;">Delete All Completed</button>
 
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
@@ -113,20 +90,28 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 const list = document.getElementById('reminderList');
 
+function autoFormatDate(input) {
+  let value = input.value.replace(/[^0-9]/g, '');
+  if (value.length >= 3 && value.length <= 4)
+    input.value = value.slice(0, 2) + '/' + value.slice(2);
+  else if (value.length > 4)
+    input.value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8);
+  else
+    input.value = value;
+}
+
 function addReminder() {
   const text = document.getElementById('reminderText').value.trim();
   const date = document.getElementById('reminderDate').value.trim();
 
   if (!text || !date) {
-    alert('Please fill out both fields.');
+    alert('Please fill out all fields.');
     return;
   }
 
-  const [month, day, year] = date.split('/');
-  const sortKey = `${year}${month.padStart(2, '0')}${day.padStart(2, '0')}`;
-
+  const sortKey = `${date.slice(6)}${date.slice(0,2)}${date.slice(3,5)}`;
   const newRef = db.ref('reminders').push();
-  newRef.set({ text, date, sortKey });
+  newRef.set({ text, date, sortKey, completed: false });
 
   document.getElementById('reminderText').value = '';
   document.getElementById('reminderDate').value = '';
@@ -137,14 +122,39 @@ function loadReminders() {
     list.innerHTML = '';
     const data = snapshot.val();
     if (data) {
-      const remindersArray = Object.entries(data).map(([id, reminder]) => ({ id, ...reminder }));
-      remindersArray.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
+      const active = [], completed = [];
 
-      remindersArray.forEach(({ id, text, date }) => {
+      Object.entries(data).forEach(([id, reminder]) => {
+        if (reminder.completed) {
+          completed.push({ id, ...reminder });
+        } else {
+          active.push({ id, ...reminder });
+        }
+      });
+
+      active.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
+      completed.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
+
+      active.forEach(({ id, text, date }) => {
         const li = document.createElement('li');
         li.innerHTML = `
           <span class="reminder-text">${text} - ${date}</span>
-          <input type="checkbox" onclick="removeReminder('${id}')" />
+          <input type="checkbox" onclick="markAsCompleted('${id}')" />
+        `;
+        list.appendChild(li);
+      });
+
+      if (completed.length > 0) {
+        const divider = document.createElement('h3');
+        divider.innerText = 'Completed Tasks';
+        divider.style.marginTop = '20px';
+        list.appendChild(divider);
+      }
+
+      completed.forEach(({ id, text, date }) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span class="reminder-text" style="text-decoration: line-through; color: gray;">${text} - ${date}</span>
         `;
         list.appendChild(li);
       });
@@ -152,8 +162,18 @@ function loadReminders() {
   });
 }
 
-function removeReminder(id) {
-  db.ref('reminders/' + id).remove();
+function markAsCompleted(id) {
+  db.ref('reminders/' + id).update({ completed: true });
+}
+
+function deleteCompletedReminders() {
+  db.ref('reminders').once('value', (snapshot) => {
+    snapshot.forEach((child) => {
+      if (child.val().completed) {
+        db.ref('reminders/' + child.key).remove();
+      }
+    });
+  });
 }
 
 window.onload = loadReminders;
