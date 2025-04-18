@@ -1,48 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RxNet</title>
-    <style>
-        /* Style for the Home button */
-        .home-button {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: #148275;
-            color: white;
-            padding: 10px 40px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin-bottom: 30px; /* Adjust value as needed */
-
-        }
-
-        /* Hover effect */
-        .home-button:hover {
-            background-color: #0f6658;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Home button linking to the homepage -->
-    <a href="https://matthewstathis.github.io/rxnet/" class="home-button">Home</a>
-
-</body>
-</html>
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CVS Store 01631 Reminder List</title>
@@ -98,31 +56,6 @@
       max-width: 80%;
       word-wrap: break-word;
     }
-
-    .checkbox-group {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-      margin-bottom: 10px;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      background-color: #f9f9f9;
-      max-height: 300px;
-      overflow-y: auto;
-    }
-
-    .checkbox-group label {
-      display: flex;
-      align-items: center;
-      font-size: 16px;
-      color: #333;
-    }
-
-    .checkbox-group input[type="checkbox"] {
-      margin-right: 10px;
-    }
   </style>
 </head>
 <body>
@@ -130,9 +63,7 @@
 
   <div class="reminder-form">
     <input type="text" id="reminderText" placeholder="Reminder text" />
-    <input type="text" id="reminderTime" placeholder="Due time (HHMM, 24hr)" />
     <input type="text" id="reminderDate" placeholder="Due date (MM/DD/YYYY)" />
-
     <button onclick="addReminder()">Add Reminder</button>
   </div>
 
@@ -158,32 +89,23 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 const list = document.getElementById('reminderList');
 
-function getSelectedTags() {
-  const checkboxes = document.querySelectorAll('input[name="tags"]:checked');
-  return Array.from(checkboxes).map(cb => cb.value);
-}
-
 function addReminder() {
   const text = document.getElementById('reminderText').value.trim();
-  const time = document.getElementById('reminderTime').value.trim();
   const date = document.getElementById('reminderDate').value.trim();
-  const tags = getSelectedTags();
 
-  if (!text || !time || !date) {
-    alert('Please fill out all fields.');
+  if (!text || !date) {
+    alert('Please fill out both fields.');
     return;
   }
 
   const [month, day, year] = date.split('/');
-const sortKey = `${year}${month.padStart(2, '0')}${day.padStart(2, '0')}${time.padStart(4, '0')}`;
+  const sortKey = `${year}${month.padStart(2, '0')}${day.padStart(2, '0')}`;
 
   const newRef = db.ref('reminders').push();
-  newRef.set({ text, time, date, tags, sortKey });
+  newRef.set({ text, date, sortKey });
 
   document.getElementById('reminderText').value = '';
-  document.getElementById('reminderTime').value = '';
   document.getElementById('reminderDate').value = '';
-  document.querySelectorAll('input[name="tags"]:checked').forEach(cb => cb.checked = false);
 }
 
 function loadReminders() {
@@ -191,18 +113,13 @@ function loadReminders() {
     list.innerHTML = '';
     const data = snapshot.val();
     if (data) {
-      const remindersArray = Object.entries(data).map(([id, reminder]) => ({
-        id,
-        ...reminder
-      }));
-
+      const remindersArray = Object.entries(data).map(([id, reminder]) => ({ id, ...reminder }));
       remindersArray.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
 
-      remindersArray.forEach(({ id, text, time, date, tags }) => {
+      remindersArray.forEach(({ id, text, date }) => {
         const li = document.createElement('li');
-        const tagText = tags && tags.length ? ` - Tags: ${tags.join(', ')}` : '';
         li.innerHTML = `
-          <span class="reminder-text">${text} - ${time} - ${date}${tagText}</span>
+          <span class="reminder-text">${text} - ${date}</span>
           <input type="checkbox" onclick="removeReminder('${id}')" />
         `;
         list.appendChild(li);
