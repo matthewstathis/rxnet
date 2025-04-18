@@ -174,7 +174,8 @@ function addReminder() {
     return;
   }
 
-  const sortKey = `${date.slice(4)}${date.slice(0,2)}${date.slice(2,4)}${time.padStart(4, '0')}`;
+  const [month, day, year] = date.split('/');
+const sortKey = `${year}${month.padStart(2, '0')}${day.padStart(2, '0')}${time.padStart(4, '0')}`;
 
   const newRef = db.ref('reminders').push();
   newRef.set({ text, time, date, tags, sortKey });
