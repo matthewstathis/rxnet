@@ -12,7 +12,7 @@
       padding: 0 20px;
     }
 
-    h1 {
+    h1, h2 {
       text-align: center;
     }
 
@@ -56,6 +56,11 @@
       max-width: 80%;
       word-wrap: break-word;
     }
+
+    .completed {
+      text-decoration: line-through;
+      color: gray;
+    }
   </style>
 </head>
 <body>
@@ -63,12 +68,16 @@
 
   <div class="reminder-form">
     <input type="text" id="reminderText" placeholder="Reminder text" />
-    <input type="text" id="reminderDate" placeholder="Due date (MM/DD/YYYY)" maxlength="10" oninput="autoFormatDate(this)" />
+    <input type="text" id="reminderDate" placeholder="Due date (MM/DD/YYYY)" maxlength="10" oninput="formatDateInput(this)" />
     <button onclick="addReminder()">Add Reminder</button>
   </div>
 
+  <h2>Reminders</h2>
   <ul id="reminderList"></ul>
-  <button onclick="deleteCompletedReminders()" style="margin-top: 20px; background-color: #b00; color:white; width:100%; padding:10px; border:none; cursor:pointer;">Delete All Completed</button>
+
+  <h2>Completed</h2>
+  <button onclick="deleteAllCompleted()">Delete All Completed</button>
+  <ul id="completedList"></ul>
 
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
@@ -89,15 +98,13 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 const list = document.getElementById('reminderList');
+const completedList = document.getElementById('completedList');
 
-function autoFormatDate(input) {
-  let value = input.value.replace(/[^0-9]/g, '');
-  if (value.length >= 3 && value.length <= 4)
-    input.value = value.slice(0, 2) + '/' + value.slice(2);
-  else if (value.length > 4)
-    input.value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8);
-  else
-    input.value = value;
+function formatDateInput(input) {
+  let value = input.value.replace(/\D/g, "");
+  if (value.length >= 2) value = value.slice(0, 2) + '/' + value.slice(2);
+  if (value.length >= 5) value = value.slice(0, 5) + '/' + value.slice(5);
+  input.value = value.slice(0, 10);
 }
 
 function addReminder() {
@@ -110,8 +117,9 @@ function addReminder() {
   }
 
   const sortKey = `${date.slice(6)}${date.slice(0,2)}${date.slice(3,5)}`;
+
   const newRef = db.ref('reminders').push();
-  newRef.set({ text, date, sortKey, completed: false });
+  newRef.set({ text, date, completed: false, sortKey });
 
   document.getElementById('reminderText').value = '';
   document.getElementById('reminderDate').value = '';
@@ -120,59 +128,50 @@ function addReminder() {
 function loadReminders() {
   db.ref('reminders').on('value', (snapshot) => {
     list.innerHTML = '';
+    completedList.innerHTML = '';
     const data = snapshot.val();
     if (data) {
-      const active = [], completed = [];
+      const remindersArray = Object.entries(data).map(([id, reminder]) => ({
+        id,
+        ...reminder
+      })).sort((a, b) => a.sortKey.localeCompare(b.sortKey));
 
-      Object.entries(data).forEach(([id, reminder]) => {
-        if (reminder.completed) {
-          completed.push({ id, ...reminder });
+      remindersArray.forEach(({ id, text, date, completed }) => {
+        const li = document.createElement('li');
+        const span = document.createElement('span');
+        span.className = 'reminder-text' + (completed ? ' completed' : '');
+        span.innerText = `${text} - ${date}`;
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = completed;
+        checkbox.onclick = () => {
+          db.ref('reminders/' + id).update({ completed: !completed });
+        };
+
+        li.appendChild(span);
+        li.appendChild(checkbox);
+
+        if (completed) {
+          completedList.appendChild(li);
         } else {
-          active.push({ id, ...reminder });
+          list.appendChild(li);
         }
-      });
-
-      active.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
-      completed.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
-
-      active.forEach(({ id, text, date }) => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-          <span class="reminder-text">${text} - ${date}</span>
-          <input type="checkbox" onclick="markAsCompleted('${id}')" />
-        `;
-        list.appendChild(li);
-      });
-
-      if (completed.length > 0) {
-        const divider = document.createElement('h3');
-        divider.innerText = 'Completed Tasks';
-        divider.style.marginTop = '20px';
-        list.appendChild(divider);
-      }
-
-      completed.forEach(({ id, text, date }) => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-          <span class="reminder-text" style="text-decoration: line-through; color: gray;">${text} - ${date}</span>
-        `;
-        list.appendChild(li);
       });
     }
   });
 }
 
-function markAsCompleted(id) {
-  db.ref('reminders/' + id).update({ completed: true });
-}
-
-function deleteCompletedReminders() {
-  db.ref('reminders').once('value', (snapshot) => {
-    snapshot.forEach((child) => {
-      if (child.val().completed) {
-        db.ref('reminders/' + child.key).remove();
-      }
-    });
+function deleteAllCompleted() {
+  db.ref('reminders').once('value', snapshot => {
+    const data = snapshot.val();
+    if (data) {
+      Object.entries(data).forEach(([id, reminder]) => {
+        if (reminder.completed) {
+          db.ref('reminders/' + id).remove();
+        }
+      });
+    }
   });
 }
 
