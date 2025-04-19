@@ -275,68 +275,54 @@
 
     <script src="https://matthewstathis.github.io/rxnet/searchData.js:></script>
 
-    <script>
-        // List of search items
 
-function searchFunction() {
+<script>
+  function searchFunction() {
     let input = document.getElementById("searchBox").value.toLowerCase();
     let resultsDiv = document.getElementById("searchResults");
-    resultsDiv.innerHTML = ""; // Clear previous results
+    resultsDiv.innerHTML = "";
 
     if (input.length === 0) {
-        resultsDiv.style.display = "none"; // Hide dropdown if input is empty
+        resultsDiv.style.display = "none";
         return;
     }
 
     let matches = searchItems.filter(item => item.name.toLowerCase().includes(input));
 
     if (matches.length > 0) {
-        resultsDiv.style.display = "block"; // Show dropdown
-
+        resultsDiv.style.display = "block";
         matches.forEach(item => {
             let link = document.createElement("a");
             link.innerText = item.name;
             link.className = "search-result";
 
-if (item.url.includes("XXXXX")) {
-    link.href = "#"; // Prevent default action
-    link.onclick = function() {
-        let userInput = prompt("Enter your 5-digit store number:");
-        if (userInput) {
-            let completeURL = item.url.replace("XXXXX", encodeURIComponent(userInput));
-            window.open(completeURL, "_blank");
-        }
-    };
-} else if (item.url.includes("YYYYYYYYY")) {
-    link.href = "#"; // Prevent default action
-    link.onclick = function() {
-        let userInput = prompt("Enter your NPI number:");
-        if (userInput) {
-            let completeURL = item.url.replace("YYYYYYYYY", encodeURIComponent(userInput));
-            window.open(completeURL, "_blank");
-        }
-    };
-} else {
-    link.href = item.url;
-    link.target = "_blank"; // Open normal links in a new tab
-}
+            if (item.url.includes("XXXXX")) {
+                link.href = "#";
+                link.onclick = function() {
+                    let store = prompt("Enter your store number:");
+                    if (store) window.open(item.url.replace("XXXXX", store), "_blank");
+                };
+            } else if (item.url.includes("YYYYYYYYYY")) {
+                link.href = "#";
+                link.onclick = function() {
+                    let npi = prompt("Enter your NPI number:");
+                    if (npi) window.open(item.url.replace("YYYYYYYYYY", npi), "_blank");
+                };
+            } else {
+                link.href = item.url;
+                link.target = "_blank";
+            }
 
-            resultsDiv.appendChild(link); // Append link correctly
+            resultsDiv.appendChild(link);
         });
     } else {
-        resultsDiv.style.display = "none"; // Hide if no matches
-    }
-}
-
-// Hide results if clicked outside
-document.addEventListener("click", function(event) {
-    let searchBox = document.getElementById("searchBox");
-    let resultsDiv = document.getElementById("searchResults");
-
-    if (!searchBox.contains(event.target) && !resultsDiv.contains(event.target)) {
         resultsDiv.style.display = "none";
     }
-});
+  }
+
+
+
+
 </script>
 </body>
 </html>
