@@ -1,16 +1,13 @@
 const searchItems = [
-        { name: "AP Dashboard (non-redirect) ", url: "https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_XXXXX.pdf" },
-        { name: "Command Center (non-redirect) ", url: "https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000" },
-        { name: "Truck Manifest (non-redirect) ", url: "https://portaldoctool.cvs.com/portalDocTool/viewDocuments.do?listingID=dcReportPage&roles=ZGNyZXBvcnRwYWdldXNlcg==&storeNumber=XXXXX" },
-        { name: "Express Scripts PRC (non-redirect) ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=YYYYYYYYYY" },
-        { name: "myReports/Spark (non-redirect) ", url: "https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs" },
-
+        { name: "AP Dashboard ", url: "https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/INFO_XXXXX.pdf" },
+        { name: "Command Center ", url: "https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000" },
+        { name: "Truck Manifest ", url: "https://portaldoctool.cvs.com/portalDocTool/viewDocuments.do?listingID=dcReportPage&roles=ZGNyZXBvcnRwYWdldXNlcg==&storeNumber=XXXXX" },
+        { name: "Express Scripts PRC ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=YYYYYYYYYY" },
+        { name: "myReports/Spark ", url: "https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs" },
         { name: "Who To Call ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/WHO_TO_CALL_DOCUMENT.pdf" },
         { name: "HIPAA/Disclosing Patient Information ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Disclosing_Patient_Information_Job_Aid.pdf" },
         { name: "Controlled Substance Hub (pilot) ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/CS_Hub_Pharmacist_Toolkit_Store_Version_20250326151148745.pdf" },
         { name: "Proof of Liability Insurance (COI) ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/CVS_Health_Corporation_COI_2025_20241230114942787.pdf" },
-
-    
         { name: "New RTS on Ironman/storeOS Job Aid ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/RTS_on_Ironman_Job_Aid.pdf" },
         { name: "myReports/Spark (store) ", url: "https://retailspark.cvs.com/spark?view=storeView" },
         { name: "Environmental Health and Safety Reports Portal ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Environmental_Health_%26_Safety_Reports_Portal_Job_Aid.pdf" },
@@ -25,7 +22,6 @@ const searchItems = [
         { name: "JNLP ", url: "https://jnlplauncher.rxc.cvs.com:7289/RxConnectRxP/" },
         { name: "CoverMyMeds ", url: "https://portal.covermymeds.com/requests" },
         { name: "Citrix ", url: "https://appsmcsaml.corp.cvscaremark.com/" },
-        { name: "Command Center ", url: "https://matthewstathis.github.io/rxnet/commandcenterredirect" },
         { name: "myDocs ", url: "https://storeresources.cvsapps.com/?user_ard=MTYzMQ==&employee_ID=MTA5Mzk5MQ==&user_firstname=TWF0dGhldw==&user_lastname=U3RhdGhpcw==&user_title=UGhhcm1hY2lzdA==" },
         { name: "Store Supplies ", url: "https://matthewstathis.github.io/rxnet/storesupplies" },
         { name: "Outlook ", url: "https://mail.cvshealth.com/" },
@@ -89,7 +85,6 @@ const searchItems = [
         { name: "Store Locator ", url: "https://www.cvs.com/store-locator/landing" },
         { name: "PR QR Codes ", url: "https://matthewstathis.github.io/rxnet/prqrcodes.pdf" },
         { name: "ThinkLP ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://cvsthinklp.my.salesforce.com" },
-        { name: "AP Dashboard", url: "https://matthewstathis.github.io/rxnet/apdashredirect" },
         { name: "Opl Excellence ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/2023_RX_AP_Operational_Excellence_Playbook_20230620135623197.pdf" },
         { name: "Operational Risk ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/myShrink_Responsibility_Operational_Risk_Guide_-_Feb_2023_20230223095053563.pdf" },
         { name: "High Risk Drugs ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/High_Risk_Drug_Profiles_-_Q4_FINAL_%28updated_Nov_2022%29_20230320171225743.pdf" },
@@ -113,7 +108,6 @@ const searchItems = [
         { name: "Travel IMZ NDCs ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/TravelVaccineDetails_20241106120156848.pdf" },
         { name: "Travel IMZ Ref ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Travel_IMZ_Cheat_Sheet_12122024_20241212111427361.docx_2pdf.pdf" },
         { name: "CDC Yellow Book ", url: "https://wwwnc.cdc.gov/travel/page/yellowbook-home" },    
-        { name: "Truck Manifests ", url: "https://matthewstathis.github.io/rxnet/dcmanifestsredirect.html" },
         { name: "Store Digest ", url: "https://retailspark.cvs.com/rbi/?options-base=on&storeNumber=" },
         { name: "Queue Depth ", url: "https://rxcreports.rxc.cvs.com:31210/airsupport/queuesummary" },
         { name: "CIIM ", url: "https://ciim.cvs.com/ciimappnew/#/login" },
@@ -189,7 +183,7 @@ const searchItems = [
         { name: "Quidel Guide ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/RX_POCT_Quidel_Training_Video_Module_Guide.pdf" },
         { name: "Quidel Manual ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/RX_POCT_Lab_Manual_V1.pdf" },
         { name: "Quidel QC Log ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/RX_POCT_Quidel_Sofia_2_Covid_%2B_Flu_A_%26_B_Quality_Control_Log.pdf" },
-        { name: "Testing Homepage ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/store/oth/myDocs_Homepage_COVID19PFeb25.pdf" },
+        { name: "Retail Testing Initiatives ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/store/oth/myDocs_Homepage_COVID19PFeb25.pdf" },
         { name: "Training Roadmap ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/POST_PHE_Training_Roadmap_Point_of_Care.pptx_2pdf.pdf" },
         { name: "Billing Job Aid ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/COVIDTesting_Billing_Job_Aid_v5.pdf" },
         { name: "Training Report ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Quidel_COVIDFlu_Testing_Reporting.xlsx" },
@@ -215,7 +209,6 @@ const searchItems = [
         { name: "Labeling Guide ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Nonsterile_Compounding_Labels_20230607140522602.pdf" },
         { name: "CMP Binder ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Compounding_Binder_Guidance_Document_20230801144052106.pdf" },
         { name: "First Kit Quarantine ", url: "https://cvsthinklp.my.salesforce.com/sfc/p/36000001HXbW/a/Kf000000uNSU/Pa5A628WahrLlMBtccYeZ1SasnMXokr_4S018Q2s8L0" },
-        { name: "myReports/Spark (field) ", url: "https://matthewstathis.github.io/rxnet/sparkredirect.html" },
         { name: "Citrix (manual login) ", url: "https://appsmc.minclinic.local/Citrix/appsmcWeb/" },
         { name: "DynaMedex ", url: "https://www.dynamedex.com" },
         { name: "Clinical Key ", url: "https://auth.elsevier.com/ShibAuth/institutionLogin?appReturnURL=https%3A%2F%2Fwww.clinicalkey.com%2Fshibboleth%2F&entityID=urn%3Amace%3Aincommon%3Amsu.edu" },
@@ -288,13 +281,11 @@ const searchItems = [
         { name: "Swabbing Directions ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Lumira_English_Swab_Instructions_20210205083258874_20220526134317252.pdf" },
         { name: "Safety Checklist ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/COVID-19_Testing_Safety_Checklist.docx_2pdf.pdf" },
         { name: "Lumira Reference ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Lumira_Quick_Reference_Guide_20220526132557639.pdf" },
-        { name: "Testing Homepage ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Point_of_Care_Testing_%28POC%29.pdf" },
+        { name: "Point of Care Testing (POCT) Homepage ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Point_of_Care_Testing_%28POC%29.pdf" },
         { name: "Billing Guide ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Billing_Resource_Guide_COVID_20211220135315473.pptx_2pdf.pdf" },
         { name: "FAQs ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Combined_FAQ_20220311135851198.pdf" },
         { name: "Competency Eval ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Nonsterile_Compounding_Competency_Evaluation_20230608160950128.pdf" },
         { name: "Mini Game ", url: "https://colleaguezone.cvs.com/cz?id=34534" },
         { name: "Immunization (IMZ) Training and Protocol Homepage ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/IMZ_Training_Resource_20240829_20240830093611879.pdf" },
-        { name: "Workflow Guide ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Compounding_Workflow_20230811154151986.pdf" },
-        { name: "Express Scripts PRC ", url: "http://matthewstathis.github.io/rxnet/prcredirect" }
-
+        { name: "Workflow Guide ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Compounding_Workflow_20230811154151986.pdf" }
 ];
