@@ -1066,7 +1066,7 @@ document.getElementById("tasksButton").addEventListener("click", function() {
     let username = prompt("Pilot stores only!! Enter login:");
 
     if (username === "rx01631") {
-        window.location.href = "reminders.html"; // Change this to your actual admin page
+window.open("reminders.html", "_blank", "noopener,noreferrer");
     } else {
         alert("Incorrect login. Access denied.");
     }
@@ -1087,7 +1087,7 @@ document.getElementById("adminButton").addEventListener("click", function() {
     let password = prompt("Enter Password:");
 
     if (password === "rx01631") {
-        window.location.href = "admin.html"; // Change this to your actual admin page
+        window.open("admin.html", "_blank", "noopener,noreferrer");
     } else {
         alert("Incorrect login. Access denied.");
     }
