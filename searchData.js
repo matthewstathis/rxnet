@@ -48,7 +48,7 @@ const searchItems = [
         { name: "Nebulizers/Spacers (alt) ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Nebulizer_and_Spacer_Support_RxNet_Page_KP_20210618153949167.pptx_2pdf.pdf" },
         { name: "Naloxone ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Naloxone_Program_Support_Page_20240102165341901.pdf" },
         { name: "McKesson ", url: "https://connect.mckesson.com/content" },
-        { name: "PEG Formulations ", url: "https://matthewstathis.github.io/rxnet/pegforms/" },
+        { name: "PEG Formulations ", url: "https://matthewstathis.github.io/rxnet/pegforms" },
         { name: "myWork ", url: "https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" },
         { name: "My Customer Connection  #MCC ", url: "https://cvs.medallia.com/sso/cvs" },
         { name: "LearningHub ", url: "https://cvshealth.sabacloud.com/" },
