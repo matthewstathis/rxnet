@@ -145,9 +145,6 @@
 (4) When you get connected to a tech tell them you need to reactivate your password to set up your my-password account. They should then give you a temp password</td>
 
 
- <td style="padding: 8px;">bash -c 'ws=$(wmctrl -d | awk "/\*/ {print \$1}"); if [ "$ws" -eq 0 ]; then wmctrl -s 10; elif [ "$ws" -eq 10 ]; then wmctrl -s 0; elif [ "$ws" -eq 1 ]; then wmctrl -s 11; elif [ "$ws" -eq 11 ]; then wmctrl -s 1; fi'</td>
-
-
 
 
  </tr>
