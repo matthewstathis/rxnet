@@ -152,6 +152,90 @@
             </tbody>
         </table>
 
+
+<!-- CVS Shortcut Key Table -->
+<table>
+  <caption>StoreOS Shortcut Key Reference</caption>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alt 1</td>
+      <td>bash -c 'xrandr -s 1920x1080'</td>
+      <td>Sets screen resolution to max/HD</td>
+    </tr>
+    <tr>
+      <td>Alt 2</td>
+      <td>bash -c 'xrandr -s 1024x768'</td>
+      <td>Sets screen resolution to default</td>
+    </tr>
+    <tr>
+      <td>Alt 3</td>
+      <td>bash -c 'wmctrl -r :ACTIVE: -b toggle,above'</td>
+      <td>Force window to display on top (use when accessing the Alt F10 browser to hide the storeOS taskbar)</td>
+    </tr>
+    <tr>
+      <td>Alt F1</td>
+      <td>bash -c 'xrandr -s 1024x768 && /opt/cvsapp/bin/run_ALT_F1.sh'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Alt F2</td>
+      <td>bash -c 'xrandr -s 1024x768 && /opt/cvsapp/bin/run_ALT_F2.sh'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Alt F3</td>
+      <td>bash -c 'xrandr -s 1024x768 && /opt/cvsapp/bin/run_ALT_F3.sh'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Alt F4</td>
+      <td>bash -c 'xrandr -s 1024x768 && /opt/cvsapp/bin/run_ALT_F10.sh'</td>
+      <td>Citrix browser at default resolution</td>
+    </tr>
+    <tr>
+      <td>Alt F5</td>
+      <td>bash -c 'xrandr -s 1024x768 && /opt/cvsapp/bin/browser_start.sh https://matthewstathis.github.io/rxnet'</td>
+      <td>Alt F5 now opens RxNet instead of myReports</td>
+    </tr>
+    <tr>
+      <td>F7</td>
+      <td>bash -c 'xrandr -s 1024x768 && /opt/cvsapp/bin/browser_start.sh https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/ClinicalResourceGuide_20230207125446867.pdf'</td>
+      <td>F7 opens to clinical home page instead of Clinical Pharmacology</td>
+    </tr>
+    <tr>
+      <td>Alt F8</td>
+      <td>bash -c 'xrandr -s 1024x768 && /opt/cvsapp/bin/run_ALT_F8.sh'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Alt F10</td>
+      <td>bash -c 'xrandr -s 1920x1080 && /opt/cvsapp/bin/run_ALT_F10.sh'</td>
+      <td>Opens Citrix browser at max/HD resolution</td>
+    </tr>
+    <tr>
+      <td>F9</td>
+      <td>bash -c 'ws=$(wmctrl -d | awk "/\*/ {print \$1}"); if [ "$ws" -eq 0 ]; then wmctrl -s 10; elif [ "$ws" -eq 10; then wmctrl -s 0; elif [ "$ws" -eq 1 ]; then wmctrl -s 11; elif [ "$ws" -eq 11 ]; then wmctrl -s 1; fi'</td>
+      <td>Converts F9 to a command center toggle button</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
     </div>
 
 </body>
