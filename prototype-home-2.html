@@ -13,7 +13,6 @@
       overflow: hidden;
     }
 
-    /* Sidebar Dock */
     .dock {
       width: 180px;
       background-color: #1e3f3f;
@@ -40,7 +39,6 @@
       background-color: #2e5f5f;
     }
 
-    /* Content Panel */
     .content {
       flex-grow: 1;
       background-color: #f5f5f5;
@@ -70,332 +68,166 @@
       background-color: #0f5d4f;
     }
 
-
-
-
-
-
-    /* Search box styling */
-#searchBox {
-    padding: 10px;
-    width: 100%; /* Make it responsive */
-    max-width: 90vw; /* Set a reasonable max width */
-    font-size: 1rem;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* Search results dropdown */
-.search-results {
-    display: none; /* Hidden by default */
-    position: absolute;
-    background-color: white;
-    width: 100%; /* Match input width */
-    max-width: 600px; /* Prevents it from being too wide */
-    max-height: 300px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-}
-
-/* Individual result links */
-.search-result {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: black;
-    font-size: 1rem;
-}
-
-/* Hover effect */
-.search-result:hover {
-    background-color: #f1f1f1;
-}
-
-/* Container for search */
-.search-container {
-    position: relative;
-    width: 90%; /* Make it adjust to screen width */
-    max-width: 100vw; /* Prevents excessive width */
-    margin: 0 auto; /* Center it */
-}
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    #searchBox,
-    .search-results {
-        max-width: 90%; /* Adjust for smaller screens */
+    #searchBox {
+      padding: 10px;
+      width: 100%;
+      max-width: 90vw;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
-}
 
+    .search-results {
+      display: none;
+      position: absolute;
+      background-color: white;
+      width: 100%;
+      max-width: 600px;
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
 
+    .search-result {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+      font-size: 1rem;
+    }
 
+    .search-result:hover {
+      background-color: #f1f1f1;
+    }
 
-
-    
-
-
-
-    
+    .search-container {
+      position: relative;
+      width: 90%;
+      max-width: 100vw;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body>
-
   <div class="dock">
-    <button class="dock-button active" onclick="showCategory('searchBox')">Search</button>
-    <button class="dock-button active" onclick="showCategory('operational')">Operational</button>
+    <button class="dock-button" onclick="showCategory('search')">Search</button>
+    <button class="dock-button" onclick="showCategory('operational')">Operational</button>
     <button class="dock-button" onclick="showCategory('immunizations')">Immunizations</button>
     <button class="dock-button" onclick="showCategory('training')">Training</button>
     <button class="dock-button" onclick="showCategory('technology')">Technology</button>
     <button class="dock-button" onclick="showCategory('manager')">Manager</button>
-    <!-- Add more categories -->
   </div>
 
   <div class="content">
-
-
-   <div class="search-container">
+    <div id="searchPanel" style="display: none;">
+      <div class="search-container">
         <input type="text" id="searchBox" placeholder="Search for a link..." onkeyup="searchFunction()">
         <div id="searchResults" class="search-results"></div>
+      </div>
     </div>
 
-<script src="https://matthewstathis.github.io/rxnet/searchData.js"></script>
-
-<script>
-  function searchFunction() {
-    let input = document.getElementById("searchBox").value.toLowerCase();
-    let resultsDiv = document.getElementById("searchResults");
-    resultsDiv.innerHTML = "";
-
-    if (input.length === 0) {
-      resultsDiv.style.display = "none";
-      return;
-    }
-
-    let matches = searchItems.filter(item => item.name.toLowerCase().includes(input));
-
-    if (matches.length > 0) {
-      resultsDiv.style.display = "block";
-      matches.forEach(item => {
-        let link = document.createElement("a");
-        link.innerText = item.name;
-        link.className = "search-result";
-
-        if (item.url.includes("XXXXX")) {
-          link.href = "#";
-          link.onclick = function () {
-            let store = prompt("Enter your store number:");
-            if (store) window.open(item.url.replace("XXXXX", store), "_blank");
-          };
-        } else if (item.url.includes("YYYYYYYYYY")) {
-          link.href = "#";
-          link.onclick = function () {
-            let npi = prompt("Enter your NPI number:");
-            if (npi) window.open(item.url.replace("YYYYYYYYYY", npi), "_blank");
-          };
-        } else {
-          link.href = item.url;
-          link.target = "_blank";
-        }
-
-        resultsDiv.appendChild(link);
-      });
-    } else {
-      resultsDiv.style.display = "none";
-    }
-  }
-// Hide results if clicked outside
-document.addEventListener("click", function(event) {
-    let searchBox = document.getElementById("searchBox");
-    let resultsDiv = document.getElementById("searchResults");
-
-    if (!searchBox.contains(event.target) && !resultsDiv.contains(event.target)) {
-        resultsDiv.style.display = "none";
-    }
-});
-</script>
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-    
     <div id="operational" class="grid category-panel">
-        <a href="#" onclick="openDynamicURL('https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs'); return false;">myReports (Field)</a>
-        <a href="https://app.smartsense.co/" target="_blank" rel="noopener noreferrer">TempAlert</a>
-        <a href="https://appsmcsaml.corp.cvscaremark.com/" target="_blank" rel="noopener noreferrer">Citrix</a>
-        <a href="#" onclick="openDynamicURL('https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000'); return false;">Command Center</a>
-        <a href="https://matthewstathis.github.io/rxnet/storesupplies">Store Supplies</a>
-        <a href="https://www.cvs.com/epp/remote-payment" target="_blank" rel="noopener noreferrer">Card on File</a>
-        <a href="#" onclick="openDynamicURL('https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=YYYYYYYYYY'); return false;">Express Scripts PRC</a>        
+      <a href="#">myReports</a>
+      <a href="#">TempAlert</a>
     </div>
 
     <div id="immunizations" class="grid category-panel" style="display:none;">
       <a href="#">IMZ SOP</a>
-      <a href="#">Training Resource</a>
-      <a href="#">LumiraDx Log</a>
-      <a href="#">Flu Consent Form</a>
     </div>
 
     <div id="training" class="grid category-panel" style="display:none;">
       <a href="#">LearningHub</a>
-      <a href="#">MyWork Training</a>
-      <a href="#">Covid Billing Guide</a>
     </div>
 
     <div id="technology" class="grid category-panel" style="display:none;">
       <a href="#">StoreOS Tools</a>
-      <a href="#">Command Center</a>
-      <a href="#">Micromedex</a>
     </div>
 
     <div id="manager" class="grid category-panel" style="display:none;">
       <a href="#">Store Reports</a>
-      <a href="#">Manager SOPs</a>
-      <a href="#">Service Channel</a>
     </div>
   </div>
+
+  <script src="https://matthewstathis.github.io/rxnet/searchData.js"></script>
 
   <script>
     function showCategory(id) {
       document.querySelectorAll('.category-panel').forEach(panel => {
         panel.style.display = 'none';
       });
+
+      document.getElementById('searchPanel').style.display = 'none';
+      document.getElementById('searchBox').value = '';
+      document.getElementById('searchResults').innerHTML = '';
+      document.getElementById('searchResults').style.display = 'none';
+
       document.querySelectorAll('.dock-button').forEach(btn => {
         btn.classList.remove('active');
       });
-      document.getElementById(id).style.display = 'grid';
+
       event.target.classList.add('active');
+
+      if (id === 'search') {
+        document.getElementById('searchPanel').style.display = 'block';
+      } else {
+        document.getElementById(id).style.display = 'grid';
+      }
     }
 
+    function searchFunction() {
+      let input = document.getElementById("searchBox").value.toLowerCase();
+      let resultsDiv = document.getElementById("searchResults");
+      resultsDiv.innerHTML = "";
 
+      if (input.length === 0) {
+        resultsDiv.style.display = "none";
+        return;
+      }
 
+      let matches = searchItems.filter(item => item.name.toLowerCase().includes(input));
 
+      if (matches.length > 0) {
+        resultsDiv.style.display = "block";
+        matches.forEach(item => {
+          let link = document.createElement("a");
+          link.innerText = item.name;
+          link.className = "search-result";
 
+          if (item.url.includes("XXXXX")) {
+            link.href = "#";
+            link.onclick = function () {
+              let store = prompt("Enter your store number:");
+              if (store) window.open(item.url.replace("XXXXX", store), "_blank");
+            };
+          } else if (item.url.includes("YYYYYYYYYY")) {
+            link.href = "#";
+            link.onclick = function () {
+              let npi = prompt("Enter your NPI number:");
+              if (npi) window.open(item.url.replace("YYYYYYYYYY", npi), "_blank");
+            };
+          } else {
+            link.href = item.url;
+            link.target = "_blank";
+          }
 
-
-
-
-
-
-
-
-
-    
-    function toggleDropdown(button) {
-    var dropdown = button.nextElementSibling;
-    dropdown.classList.toggle("show");
-
-    // Reset styles
-    dropdown.style.left = "50%";
-    dropdown.style.transform = "translateX(-50%)";
-
-    var rect = dropdown.getBoundingClientRect();
-    var windowWidth = window.innerWidth;
-
-    // If dropdown goes off-screen, adjust positioning
-    if (rect.left < 0) {
-        dropdown.style.left = "0";
-        dropdown.style.transform = "none";
-    } else if (rect.right > windowWidth) {
-        dropdown.style.left = "auto";
-        dropdown.style.right = "0";
-        dropdown.style.transform = "none";
+          resultsDiv.appendChild(link);
+        });
+      } else {
+        resultsDiv.style.display = "none";
+      }
     }
 
-    // Close the dropdown if clicked outside
-    window.onclick = function(event) {
-        if (!button.contains(event.target) && !dropdown.contains(event.target)) {
-            dropdown.classList.remove("show");
-        }
-    };
-}
-
-    function hideDropdown(dropdownElement) {
-        var dropdown = dropdownElement.querySelector('.dropdown-content');
-        dropdown.classList.remove("show");
-    }
-
-function openDynamicURL(baseURL) {
-    if (baseURL.includes("XXXXX")) {
-        let storeNumber = prompt("Enter your 5-digit store number:");
-        if (storeNumber) {
-            let finalURL = baseURL.replace("XXXXX", encodeURIComponent(storeNumber));
-            window.open(finalURL, "_blank", "noopener,noreferrer");
-        }
-    } else if (baseURL.includes("YYYYYYYYYY")) {
-        let npiNumber = prompt("Enter your NPI number:");
-        if (npiNumber) {
-            let finalURL = baseURL.replace("YYYYYYYYYY", encodeURIComponent(npiNumber));
-            window.open(finalURL, "_blank", "noopener,noreferrer");
-        }
-    } else {
-        // Just open the URL normally
-        window.open(baseURL, "_blank", "noopener,noreferrer");
-    }
-}
-
-document.getElementById("tasksButton").addEventListener("click", function() {
-    let username = prompt("Pilot stores only!! Enter login:");
-
-    if (username === "rx01631") {
-window.open("reminders.html", "_blank", "noopener,noreferrer");
-    } else {
-        alert("Incorrect login. Access denied.");
-    }
-})
-
-document.getElementById("nightscoutButton").addEventListener("click", function() {
-    let password = prompt("Enter password:");
-
-    if (password === "rx01631") {
-        window.open("https://ms-nightscout.azurewebsites.net", "_blank", "noopener,noreferrer");
-    } else {
-        alert("Incorrect login. Access denied.");
-    }
-})
-
-    
-document.getElementById("adminButton").addEventListener("click", function() {
-    let password = prompt("Enter Password:");
-
-    if (password === "rx01631") {
-        window.open("admin.html", "_blank", "noopener,noreferrer");
-    } else {
-        alert("Incorrect login. Access denied.");
-    }
-});
-
-
-
-
-
-
-
-    
-
-
-
-    
+    document.addEventListener("click", function (event) {
+      let searchBox = document.getElementById("searchBox");
+      let resultsDiv = document.getElementById("searchResults");
+      if (!searchBox.contains(event.target) && !resultsDiv.contains(event.target)) {
+        resultsDiv.style.display = "none";
+      }
+    });
   </script>
-
 </body>
 </html>
