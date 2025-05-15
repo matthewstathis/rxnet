@@ -130,6 +130,116 @@
       document.getElementById(id).style.display = 'grid';
       event.target.classList.add('active');
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    function toggleDropdown(button) {
+    var dropdown = button.nextElementSibling;
+    dropdown.classList.toggle("show");
+
+    // Reset styles
+    dropdown.style.left = "50%";
+    dropdown.style.transform = "translateX(-50%)";
+
+    var rect = dropdown.getBoundingClientRect();
+    var windowWidth = window.innerWidth;
+
+    // If dropdown goes off-screen, adjust positioning
+    if (rect.left < 0) {
+        dropdown.style.left = "0";
+        dropdown.style.transform = "none";
+    } else if (rect.right > windowWidth) {
+        dropdown.style.left = "auto";
+        dropdown.style.right = "0";
+        dropdown.style.transform = "none";
+    }
+
+    // Close the dropdown if clicked outside
+    window.onclick = function(event) {
+        if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+            dropdown.classList.remove("show");
+        }
+    };
+}
+
+    function hideDropdown(dropdownElement) {
+        var dropdown = dropdownElement.querySelector('.dropdown-content');
+        dropdown.classList.remove("show");
+    }
+
+function openDynamicURL(baseURL) {
+    if (baseURL.includes("XXXXX")) {
+        let storeNumber = prompt("Enter your 5-digit store number:");
+        if (storeNumber) {
+            let finalURL = baseURL.replace("XXXXX", encodeURIComponent(storeNumber));
+            window.open(finalURL, "_blank", "noopener,noreferrer");
+        }
+    } else if (baseURL.includes("YYYYYYYYYY")) {
+        let npiNumber = prompt("Enter your NPI number:");
+        if (npiNumber) {
+            let finalURL = baseURL.replace("YYYYYYYYYY", encodeURIComponent(npiNumber));
+            window.open(finalURL, "_blank", "noopener,noreferrer");
+        }
+    } else {
+        // Just open the URL normally
+        window.open(baseURL, "_blank", "noopener,noreferrer");
+    }
+}
+
+document.getElementById("tasksButton").addEventListener("click", function() {
+    let username = prompt("Pilot stores only!! Enter login:");
+
+    if (username === "rx01631") {
+window.open("reminders.html", "_blank", "noopener,noreferrer");
+    } else {
+        alert("Incorrect login. Access denied.");
+    }
+})
+
+document.getElementById("nightscoutButton").addEventListener("click", function() {
+    let password = prompt("Enter password:");
+
+    if (password === "rx01631") {
+        window.open("https://ms-nightscout.azurewebsites.net", "_blank", "noopener,noreferrer");
+    } else {
+        alert("Incorrect login. Access denied.");
+    }
+})
+
+    
+document.getElementById("adminButton").addEventListener("click", function() {
+    let password = prompt("Enter Password:");
+
+    if (password === "rx01631") {
+        window.open("admin.html", "_blank", "noopener,noreferrer");
+    } else {
+        alert("Incorrect login. Access denied.");
+    }
+});
+
+
+
+
+
+
+
+    
+
+
+
+    
   </script>
 
 </body>
