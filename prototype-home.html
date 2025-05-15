@@ -1,125 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <title>RxNet Dock Test</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RxNet Dock Sidebar</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
       display: flex;
       height: 100vh;
+      overflow: hidden;
     }
 
+    /* Sidebar Dock */
     .dock {
-      width: 60px;
-      background-color: #148275;
+      width: 180px;
+      background-color: #1e3f3f;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding: 10px 0;
+      padding-top: 20px;
+      color: white;
     }
 
     .dock-button {
-      background: none;
+      padding: 12px 16px;
       border: none;
+      background: none;
+      text-align: left;
       color: white;
-      margin: 10px 0;
+      font-size: 16px;
       cursor: pointer;
-      font-size: 14px;
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-    }
-
-    .dock-button:hover {
-      color: #ddd;
-    }
-
-    .expansion-panel {
-      flex: 1;
-      background: #f4f4f4;
-      padding: 20px;
-      overflow-y: auto;
-    }
-
-    .category-panel {
-      display: none;
-    }
-
-    .category-panel.active {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 10px;
-    }
-
-    .link-button {
-      background-color: #148275;
-      color: white;
-      padding: 12px;
-      text-align: center;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 1rem;
-      display: block;
+      width: 100%;
       transition: background 0.3s;
     }
 
-    .link-button:hover {
+    .dock-button:hover,
+    .dock-button.active {
+      background-color: #2e5f5f;
+    }
+
+    /* Content Panel */
+    .content {
+      flex-grow: 1;
+      background-color: #f5f5f5;
+      padding: 30px;
+      overflow-y: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .grid a {
+      display: block;
+      background-color: #148275;
+      color: white;
+      text-decoration: none;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .grid a:hover {
       background-color: #0f5d4f;
     }
   </style>
 </head>
 <body>
+
   <div class="dock">
-    <button class="dock-button" onclick="showPanel('operational')">Operational</button>
-    <button class="dock-button" onclick="showPanel('resources')">Resources</button>
-    <button class="dock-button" onclick="showPanel('immunizations')">Immunizations</button>
-    <button class="dock-button" onclick="showPanel('manager')">Manager</button>
-    <!-- Add more dock buttons here -->
+    <button class="dock-button active" onclick="showCategory('filling')">Filling</button>
+    <button class="dock-button" onclick="showCategory('immunizations')">Immunizations</button>
+    <button class="dock-button" onclick="showCategory('training')">Training</button>
+    <button class="dock-button" onclick="showCategory('technology')">Technology</button>
+    <button class="dock-button" onclick="showCategory('manager')">Manager</button>
+    <!-- Add more categories -->
   </div>
 
-  <div class="expansion-panel">
-    <div id="operational" class="category-panel active">
-      <a href="#" class="link-button">TempAlert</a>
-      <a href="#" class="link-button">myWork</a>
-      <a href="#" class="link-button">Queue Depth</a>
-      <!-- Add more operational links -->
+  <div class="content">
+    <div id="filling" class="grid category-panel">
+      <a href="#">Rx Label Reprint</a>
+      <a href="#">Generate New Rx</a>
+      <a href="#">Batch Fill Queue</a>
+      <a href="#">Refill Tool</a>
     </div>
 
-    <div id="resources" class="category-panel">
-      <a href="#" class="link-button">Formulary</a>
-      <a href="#" class="link-button">Billing Help</a>
-      <!-- Add more resources links -->
+    <div id="immunizations" class="grid category-panel" style="display:none;">
+      <a href="#">IMZ SOP</a>
+      <a href="#">Training Resource</a>
+      <a href="#">LumiraDx Log</a>
+      <a href="#">Flu Consent Form</a>
     </div>
 
-    <div id="immunizations" class="category-panel">
-      <a href="#" class="link-button">IMZ Protocols</a>
-      <a href="#" class="link-button">IMZ Reports</a>
-      <!-- Add more immunization links -->
+    <div id="training" class="grid category-panel" style="display:none;">
+      <a href="#">LearningHub</a>
+      <a href="#">MyWork Training</a>
+      <a href="#">Covid Billing Guide</a>
     </div>
 
-    <div id="manager" class="category-panel">
-      <a href="#" class="link-button">Store Digest</a>
-      <a href="#" class="link-button">Staffing Scheduler</a>
-      <!-- Add more manager links -->
+    <div id="technology" class="grid category-panel" style="display:none;">
+      <a href="#">StoreOS Tools</a>
+      <a href="#">Command Center</a>
+      <a href="#">Micromedex</a>
     </div>
 
-    <!-- Add more panels below -->
+    <div id="manager" class="grid category-panel" style="display:none;">
+      <a href="#">Store Reports</a>
+      <a href="#">Manager SOPs</a>
+      <a href="#">Service Channel</a>
+    </div>
   </div>
 
   <script>
-    function showPanel(panelId) {
+    function showCategory(id) {
       document.querySelectorAll('.category-panel').forEach(panel => {
-        panel.classList.remove('active');
+        panel.style.display = 'none';
       });
-      document.getElementById(panelId).classList.add('active');
+      document.querySelectorAll('.dock-button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById(id).style.display = 'grid';
+      event.target.classList.add('active');
     }
   </script>
+
 </body>
 </html>
