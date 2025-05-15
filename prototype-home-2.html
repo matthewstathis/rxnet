@@ -69,6 +69,41 @@
     .grid a:hover {
       background-color: #0f5d4f;
     }
+
+        .search-container {
+      margin-bottom: 20px;
+    }
+
+    #searchBox {
+      padding: 10px;
+      width: 80%;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .search-results {
+      background-color: white;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+      max-height: 200px;
+      overflow-y: auto;
+      position: absolute;
+      z-index: 1000;
+      width: 300px;
+      display: none;
+    }
+
+    .search-result {
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+      display: block;
+    }
+
+    .search-result:hover {
+      background-color: #f1f1f1;
+    }
   </style>
 </head>
 <body>
@@ -83,6 +118,10 @@
   </div>
 
   <div class="content">
+        <div class="search-container">
+      <input type="text" id="searchBox" placeholder="Search for a link..." onkeyup="searchFunction()" />
+      <div id="searchResults" class="search-results"></div>
+    </div>
     <div id="operational" class="grid category-panel">
         <a href="#" onclick="openDynamicURL('https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs'); return false;">myReports (Field)</a>
         <a href="https://app.smartsense.co/" target="_blank" rel="noopener noreferrer">TempAlert</a>
