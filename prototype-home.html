@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RxNet - Prototype</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .nav-buttons button {
+      background-color: #148275;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-left: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .nav-buttons button:hover {
+      background-color: #0f5d4f;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #2d3e50;
+      color: white;
+      height: 100vh;
+      padding-top: 20px;
+      position: fixed;
+    }
+
+    .sidebar h3 {
+      padding: 10px 20px;
+      margin: 0;
+      font-size: 16px;
+      background-color: #1f2a38;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .sidebar li:hover {
+      background-color: #3a4d63;
+    }
+
+    .main-content {
+      margin-left: 240px;
+      padding: 20px;
+      flex-grow: 1;
+    }
+
+    .card {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      padding: 20px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px;
+    }
+
+    .link-button {
+      background-color: #148275;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .link-button:hover {
+      background-color: #0f5d4f;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title">
+      ❤️ RxNet
+    </div>
+    <div class="nav-buttons">
+      <button>Quick Links</button>
+      <button>Tasks</button>
+      <button>Admin</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <h3>Navigation</h3>
+      <ul>
+        <li onclick="scrollToSection('operational')">Operational</li>
+        <li onclick="scrollToSection('training')">Training</li>
+        <li onclick="scrollToSection('immunizations')">Immunizations</li>
+        <li onclick="scrollToSection('testing')">Testing</li>
+        <li onclick="scrollToSection('resources')">Resources</li>
+        <li onclick="scrollToSection('reports')">Reports</li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div id="operational" class="card">
+        <h2>Operational</h2>
+        <div class="button-grid">
+          <a href="#" class="link-button">myReports</a>
+          <a href="#" class="link-button">Queue Depth</a>
+          <a href="#" class="link-button">Service Channel</a>
+        </div>
+      </div>
+
+      <div id="training" class="card">
+        <h2>Training</h2>
+        <div class="button-grid">
+          <a href="#" class="link-button">New Hire SOP</a>
+          <a href="#" class="link-button">SPAR Playbook</a>
+        </div>
+      </div>
+
+      <div id="immunizations" class="card">
+        <h2>Immunizations</h2>
+        <div class="button-grid">
+          <a href="#" class="link-button">COVID Vaccine</a>
+          <a href="#" class="link-button">Flu Vaccine</a>
+        </div>
+      </div>
+
+      <div id="testing" class="card">
+        <h2>COVID/Flu Testing</h2>
+        <div class="button-grid">
+          <a href="#" class="link-button">Testing SOP</a>
+          <a href="#" class="link-button">Billing Guide</a>
+        </div>
+      </div>
+
+      <div id="resources" class="card">
+        <h2>Resources</h2>
+        <div class="button-grid">
+          <a href="#" class="link-button">myDocs</a>
+          <a href="#" class="link-button">Directory</a>
+        </div>
+      </div>
+
+      <div id="reports" class="card">
+        <h2>Reports</h2>
+        <div class="button-grid">
+          <a href="#" class="link-button">MCC</a>
+          <a href="#" class="link-button">Workday</a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
