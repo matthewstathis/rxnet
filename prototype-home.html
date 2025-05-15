@@ -2,120 +2,206 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RxNet Dock View</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RxNet Dock</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
+      font-family: Arial, sans-serif;
       display: flex;
       height: 100vh;
     }
 
     .sidebar {
+      width: 160px;
       background-color: #148275;
-      width: 60px;
+      color: white;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 20px;
+      padding-top: 10px;
     }
 
-    .dock-label {
-      writing-mode: vertical-lr;
-      transform: rotate(180deg);
+    .sidebar button {
+      background: none;
+      border: none;
       color: white;
-      font-weight: bold;
-      margin: 15px 0;
+      padding: 10px;
       cursor: pointer;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      margin: 10px 0;
+      font-size: 1rem;
     }
 
-    .dock-label:hover {
-      background-color: #0f6658;
+    .sidebar button:hover {
+      background-color: #0f5d4f;
     }
 
-    .content {
+    .main-content {
       flex-grow: 1;
       padding: 20px;
+      overflow-y: auto;
       position: relative;
     }
 
-    .dropdown-panel {
+    .category {
       display: none;
-      position: absolute;
-      left: 60px;
-      top: 20px;
-      background-color: #f9f9f9;
-      border: 1px solid #ccc;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      z-index: 100;
-      width: 80%;
-      max-height: 70vh;
-      overflow-y: auto;
+      margin-bottom: 30px;
     }
 
-    .dropdown-panel a {
-      display: inline-block;
-      margin: 8px 12px;
-      text-decoration: none;
+    .category.active {
+      display: block;
+    }
+
+    .category h3 {
       color: #148275;
-      font-weight: 500;
     }
 
-    .dropdown-panel a:hover {
-      text-decoration: underline;
+    .link-button {
+      display: inline-block;
+      background-color: #148275;
+      color: white;
+      padding: 10px 20px;
+      margin: 5px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+
+    .link-button:hover {
+      background-color: #0f5d4f;
+    }
+
+    .search-container {
+      margin-bottom: 20px;
+    }
+
+    #searchBox {
+      padding: 10px;
+      width: 80%;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .search-results {
+      background-color: white;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+      max-height: 200px;
+      overflow-y: auto;
+      position: absolute;
+      z-index: 1000;
+      width: 300px;
+      display: none;
+    }
+
+    .search-result {
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+      display: block;
+    }
+
+    .search-result:hover {
+      background-color: #f1f1f1;
     }
   </style>
 </head>
 <body>
+
   <div class="sidebar">
-    <div class="dock-label" onclick="togglePanel('operational')">Operational</div>
-    <div class="dock-label" onclick="togglePanel('references')">References</div>
-    <div class="dock-label" onclick="togglePanel('manager')">Manager</div>
-    <div class="dock-label" onclick="togglePanel('regulatory')">Regulatory</div>
+    <button onclick="showCategory('pharmacy')">Pharmacy</button>
+    <button onclick="showCategory('corporate')">Corporate</button>
+    <button onclick="showCategory('tools')">Tools</button>
+    <button onclick="showCategory('training')">Training</button>
   </div>
 
-  <div class="content">
-    <div id="operational" class="dropdown-panel">
-      <a href="#">myReports (Field)</a>
-      <a href="#">TempAlert</a>
-      <a href="#">Citrix</a>
-      <a href="#">Command Center</a>
-      <a href="#">Store Supplies</a>
-      <a href="#">Card on File</a>
+  <div class="main-content">
+    <div class="search-container">
+      <input type="text" id="searchBox" placeholder="Search for a link..." onkeyup="searchFunction()" />
+      <div id="searchResults" class="search-results"></div>
     </div>
 
-    <div id="references" class="dropdown-panel">
-      <a href="#">myDocs</a>
-      <a href="#">Clinical Pharm</a>
-      <a href="#">Micromedex</a>
-      <a href="#">UpToDate</a>
-      <a href="#">DailyMed</a>
+    <div id="pharmacy" class="category active">
+      <h3>Pharmacy</h3>
+      <a href="https://app.smartsense.co/" class="link-button">TempAlert</a>
+      <a href="https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" class="link-button">myWork</a>
+      <a href="https://storeresources.cvsapps.com/" class="link-button">myDocs</a>
     </div>
 
-    <div id="manager" class="dropdown-panel">
-      <a href="#">myWork</a>
-      <a href="#">MCC</a>
-      <a href="#">Workbrain</a>
-      <a href="#">Service Channel</a>
+    <div id="corporate" class="category">
+      <h3>Corporate</h3>
+      <a href="https://mail.cvshealth.com/" class="link-button">Outlook</a>
+      <a href="https://www.myworkday.com/cvshealth/d/home.htmld" class="link-button">Workday</a>
     </div>
 
-    <div id="regulatory" class="dropdown-panel">
-      <a href="#">Error Reporting</a>
-      <a href="#">PA PDMP</a>
-      <a href="#">NPI Registry</a>
-      <a href="#">PALS Portal</a>
+    <div id="tools" class="category">
+      <h3>Tools</h3>
+      <a href="https://barcode.tec-it.com/en/GS1QRCode?data=" class="link-button">QR Generator</a>
+      <a href="https://colleaguezone.cvs.com/" class="link-button">ColleagueZone</a>
+    </div>
+
+    <div id="training" class="category">
+      <h3>Training</h3>
+      <a href="https://cvshealth.sabacloud.com/" class="link-button">LearningHub</a>
     </div>
   </div>
 
   <script>
-    function togglePanel(id) {
-      document.querySelectorAll('.dropdown-panel').forEach(panel => {
-        panel.style.display = (panel.id === id && panel.style.display !== 'block') ? 'block' : 'none';
+    const searchItems = [
+      { name: "TempAlert", url: "https://app.smartsense.co/" },
+      { name: "myWork", url: "https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" },
+      { name: "myDocs", url: "https://storeresources.cvsapps.com/" },
+      { name: "Outlook", url: "https://mail.cvshealth.com/" },
+      { name: "Workday", url: "https://www.myworkday.com/cvshealth/d/home.htmld" },
+      { name: "QR Generator", url: "https://barcode.tec-it.com/en/GS1QRCode?data=" },
+      { name: "ColleagueZone", url: "https://colleaguezone.cvs.com/" },
+      { name: "LearningHub", url: "https://cvshealth.sabacloud.com/" }
+    ];
+
+    function showCategory(id) {
+      document.querySelectorAll(".category").forEach(cat => {
+        cat.classList.remove("active");
       });
+      document.getElementById(id).classList.add("active");
     }
+
+    function searchFunction() {
+      let input = document.getElementById("searchBox").value.toLowerCase();
+      let resultsDiv = document.getElementById("searchResults");
+      resultsDiv.innerHTML = "";
+
+      if (input.length === 0) {
+        resultsDiv.style.display = "none";
+        return;
+      }
+
+      const matches = searchItems.filter(item => item.name.toLowerCase().includes(input));
+      if (matches.length > 0) {
+        resultsDiv.style.display = "block";
+        matches.forEach(item => {
+          const link = document.createElement("a");
+          link.innerText = item.name;
+          link.href = item.url;
+          link.className = "search-result";
+          link.target = "_blank";
+          resultsDiv.appendChild(link);
+        });
+      } else {
+        resultsDiv.style.display = "none";
+      }
+    }
+
+    document.addEventListener("click", function(event) {
+      let box = document.getElementById("searchBox");
+      let dropdown = document.getElementById("searchResults");
+      if (!box.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = "none";
+      }
+    });
   </script>
+
 </body>
 </html>
