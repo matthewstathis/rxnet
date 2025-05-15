@@ -1,206 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RxNet Dock</title>
+  <meta charset="UTF-8">
+  <title>RxNet Dock Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       display: flex;
       height: 100vh;
+      overflow: hidden;
     }
 
-    .sidebar {
-      width: 160px;
-      background-color: #148275;
-      color: white;
+    /* Sidebar Dock */
+    .dock {
+      width: 180px;
+      background-color: #1e3f3f;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding-top: 10px;
-    }
-
-    .sidebar button {
-      background: none;
-      border: none;
+      padding-top: 20px;
       color: white;
-      padding: 10px;
+    }
+
+    .dock-button {
+      padding: 12px 16px;
+      border: none;
+      background: none;
+      text-align: left;
+      color: white;
+      font-size: 16px;
       cursor: pointer;
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      margin: 10px 0;
-      font-size: 1rem;
+      width: 100%;
+      transition: background 0.3s;
     }
 
-    .sidebar button:hover {
-      background-color: #0f5d4f;
+    .dock-button:hover,
+    .dock-button.active {
+      background-color: #2e5f5f;
     }
 
-    .main-content {
+    /* Content Panel */
+    .content {
       flex-grow: 1;
-      padding: 20px;
+      background-color: #f5f5f5;
+      padding: 30px;
       overflow-y: auto;
-      position: relative;
     }
 
-    .category {
-      display: none;
-      margin-bottom: 30px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
     }
 
-    .category.active {
+    .grid a {
       display: block;
-    }
-
-    .category h3 {
-      color: #148275;
-    }
-
-    .link-button {
-      display: inline-block;
       background-color: #148275;
       color: white;
-      padding: 10px 20px;
-      margin: 5px;
       text-decoration: none;
-      border-radius: 6px;
-      font-size: 0.9rem;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 14px;
+      transition: background 0.3s;
     }
 
-    .link-button:hover {
+    .grid a:hover {
       background-color: #0f5d4f;
-    }
-
-    .search-container {
-      margin-bottom: 20px;
-    }
-
-    #searchBox {
-      padding: 10px;
-      width: 80%;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .search-results {
-      background-color: white;
-      border: 1px solid #ccc;
-      margin-top: 5px;
-      max-height: 200px;
-      overflow-y: auto;
-      position: absolute;
-      z-index: 1000;
-      width: 300px;
-      display: none;
-    }
-
-    .search-result {
-      padding: 10px;
-      text-decoration: none;
-      color: black;
-      display: block;
-    }
-
-    .search-result:hover {
-      background-color: #f1f1f1;
     }
   </style>
 </head>
 <body>
 
-  <div class="sidebar">
-    <button onclick="showCategory('pharmacy')">Pharmacy</button>
-    <button onclick="showCategory('corporate')">Corporate</button>
-    <button onclick="showCategory('tools')">Tools</button>
-    <button onclick="showCategory('training')">Training</button>
+  <div class="dock">
+    <button class="dock-button active" onclick="showCategory('operational')">Operational</button>
+    <button class="dock-button" onclick="showCategory('immunizations')">Immunizations</button>
+    <button class="dock-button" onclick="showCategory('training')">Training</button>
+    <button class="dock-button" onclick="showCategory('technology')">Technology</button>
+    <button class="dock-button" onclick="showCategory('manager')">Manager</button>
+    <!-- Add more categories -->
   </div>
 
-  <div class="main-content">
-    <div class="search-container">
-      <input type="text" id="searchBox" placeholder="Search for a link..." onkeyup="searchFunction()" />
-      <div id="searchResults" class="search-results"></div>
+  <div class="content">
+    <div id="operational" class="grid category-panel">
+        <a href="#" onclick="openDynamicURL('https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs'); return false;">myReports (Field)</a>
+        <a href="https://app.smartsense.co/" target="_blank" rel="noopener noreferrer">TempAlert</a>
+        <a href="https://appsmcsaml.corp.cvscaremark.com/" target="_blank" rel="noopener noreferrer">Citrix</a>
+        <a href="#" onclick="openDynamicURL('https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000'); return false;">Command Center</a>
+        <a href="https://matthewstathis.github.io/rxnet/storesupplies">Store Supplies</a>
+        <a href="https://www.cvs.com/epp/remote-payment" target="_blank" rel="noopener noreferrer">Card on File</a>
+        <a href="#" onclick="openDynamicURL('https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=YYYYYYYYYY'); return false;">Express Scripts PRC</a>        
     </div>
 
-    <div id="pharmacy" class="category active">
-      <h3>Pharmacy</h3>
-      <a href="https://app.smartsense.co/" class="link-button">TempAlert</a>
-      <a href="https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" class="link-button">myWork</a>
-      <a href="https://storeresources.cvsapps.com/" class="link-button">myDocs</a>
+    <div id="immunizations" class="grid category-panel" style="display:none;">
+      <a href="#">IMZ SOP</a>
+      <a href="#">Training Resource</a>
+      <a href="#">LumiraDx Log</a>
+      <a href="#">Flu Consent Form</a>
     </div>
 
-    <div id="corporate" class="category">
-      <h3>Corporate</h3>
-      <a href="https://mail.cvshealth.com/" class="link-button">Outlook</a>
-      <a href="https://www.myworkday.com/cvshealth/d/home.htmld" class="link-button">Workday</a>
+    <div id="training" class="grid category-panel" style="display:none;">
+      <a href="#">LearningHub</a>
+      <a href="#">MyWork Training</a>
+      <a href="#">Covid Billing Guide</a>
     </div>
 
-    <div id="tools" class="category">
-      <h3>Tools</h3>
-      <a href="https://barcode.tec-it.com/en/GS1QRCode?data=" class="link-button">QR Generator</a>
-      <a href="https://colleaguezone.cvs.com/" class="link-button">ColleagueZone</a>
+    <div id="technology" class="grid category-panel" style="display:none;">
+      <a href="#">StoreOS Tools</a>
+      <a href="#">Command Center</a>
+      <a href="#">Micromedex</a>
     </div>
 
-    <div id="training" class="category">
-      <h3>Training</h3>
-      <a href="https://cvshealth.sabacloud.com/" class="link-button">LearningHub</a>
+    <div id="manager" class="grid category-panel" style="display:none;">
+      <a href="#">Store Reports</a>
+      <a href="#">Manager SOPs</a>
+      <a href="#">Service Channel</a>
     </div>
   </div>
 
   <script>
-    const searchItems = [
-      { name: "TempAlert", url: "https://app.smartsense.co/" },
-      { name: "myWork", url: "https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" },
-      { name: "myDocs", url: "https://storeresources.cvsapps.com/" },
-      { name: "Outlook", url: "https://mail.cvshealth.com/" },
-      { name: "Workday", url: "https://www.myworkday.com/cvshealth/d/home.htmld" },
-      { name: "QR Generator", url: "https://barcode.tec-it.com/en/GS1QRCode?data=" },
-      { name: "ColleagueZone", url: "https://colleaguezone.cvs.com/" },
-      { name: "LearningHub", url: "https://cvshealth.sabacloud.com/" }
-    ];
-
     function showCategory(id) {
-      document.querySelectorAll(".category").forEach(cat => {
-        cat.classList.remove("active");
+      document.querySelectorAll('.category-panel').forEach(panel => {
+        panel.style.display = 'none';
       });
-      document.getElementById(id).classList.add("active");
+      document.querySelectorAll('.dock-button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById(id).style.display = 'grid';
+      event.target.classList.add('active');
     }
 
-    function searchFunction() {
-      let input = document.getElementById("searchBox").value.toLowerCase();
-      let resultsDiv = document.getElementById("searchResults");
-      resultsDiv.innerHTML = "";
 
-      if (input.length === 0) {
-        resultsDiv.style.display = "none";
-        return;
-      }
 
-      const matches = searchItems.filter(item => item.name.toLowerCase().includes(input));
-      if (matches.length > 0) {
-        resultsDiv.style.display = "block";
-        matches.forEach(item => {
-          const link = document.createElement("a");
-          link.innerText = item.name;
-          link.href = item.url;
-          link.className = "search-result";
-          link.target = "_blank";
-          resultsDiv.appendChild(link);
-        });
-      } else {
-        resultsDiv.style.display = "none";
-      }
+
+
+
+
+
+
+
+
+
+
+
+    
+    function toggleDropdown(button) {
+    var dropdown = button.nextElementSibling;
+    dropdown.classList.toggle("show");
+
+    // Reset styles
+    dropdown.style.left = "50%";
+    dropdown.style.transform = "translateX(-50%)";
+
+    var rect = dropdown.getBoundingClientRect();
+    var windowWidth = window.innerWidth;
+
+    // If dropdown goes off-screen, adjust positioning
+    if (rect.left < 0) {
+        dropdown.style.left = "0";
+        dropdown.style.transform = "none";
+    } else if (rect.right > windowWidth) {
+        dropdown.style.left = "auto";
+        dropdown.style.right = "0";
+        dropdown.style.transform = "none";
     }
 
-    document.addEventListener("click", function(event) {
-      let box = document.getElementById("searchBox");
-      let dropdown = document.getElementById("searchResults");
-      if (!box.contains(event.target) && !dropdown.contains(event.target)) {
-        dropdown.style.display = "none";
-      }
-    });
+    // Close the dropdown if clicked outside
+    window.onclick = function(event) {
+        if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+            dropdown.classList.remove("show");
+        }
+    };
+}
+
+    function hideDropdown(dropdownElement) {
+        var dropdown = dropdownElement.querySelector('.dropdown-content');
+        dropdown.classList.remove("show");
+    }
+
+function openDynamicURL(baseURL) {
+    if (baseURL.includes("XXXXX")) {
+        let storeNumber = prompt("Enter your 5-digit store number:");
+        if (storeNumber) {
+            let finalURL = baseURL.replace("XXXXX", encodeURIComponent(storeNumber));
+            window.open(finalURL, "_blank", "noopener,noreferrer");
+        }
+    } else if (baseURL.includes("YYYYYYYYYY")) {
+        let npiNumber = prompt("Enter your NPI number:");
+        if (npiNumber) {
+            let finalURL = baseURL.replace("YYYYYYYYYY", encodeURIComponent(npiNumber));
+            window.open(finalURL, "_blank", "noopener,noreferrer");
+        }
+    } else {
+        // Just open the URL normally
+        window.open(baseURL, "_blank", "noopener,noreferrer");
+    }
+}
+
+document.getElementById("tasksButton").addEventListener("click", function() {
+    let username = prompt("Pilot stores only!! Enter login:");
+
+    if (username === "rx01631") {
+window.open("reminders.html", "_blank", "noopener,noreferrer");
+    } else {
+        alert("Incorrect login. Access denied.");
+    }
+})
+
+document.getElementById("nightscoutButton").addEventListener("click", function() {
+    let password = prompt("Enter password:");
+
+    if (password === "rx01631") {
+        window.open("https://ms-nightscout.azurewebsites.net", "_blank", "noopener,noreferrer");
+    } else {
+        alert("Incorrect login. Access denied.");
+    }
+})
+
+    
+document.getElementById("adminButton").addEventListener("click", function() {
+    let password = prompt("Enter Password:");
+
+    if (password === "rx01631") {
+        window.open("admin.html", "_blank", "noopener,noreferrer");
+    } else {
+        alert("Incorrect login. Access denied.");
+    }
+});
+
+
+
+
+
+
+
+    
+
+
+
+    
   </script>
 
 </body>
