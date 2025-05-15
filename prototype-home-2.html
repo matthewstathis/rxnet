@@ -74,7 +74,7 @@
 <body>
 
   <div class="dock">
-    <button class="dock-button active" onclick="showCategory('filling')">Filling</button>
+    <button class="dock-button active" onclick="showCategory('operational')">Operational</button>
     <button class="dock-button" onclick="showCategory('immunizations')">Immunizations</button>
     <button class="dock-button" onclick="showCategory('training')">Training</button>
     <button class="dock-button" onclick="showCategory('technology')">Technology</button>
@@ -83,11 +83,14 @@
   </div>
 
   <div class="content">
-    <div id="filling" class="grid category-panel">
-      <a href="#">Rx Label Reprint</a>
-      <a href="#">Generate New Rx</a>
-      <a href="#">Batch Fill Queue</a>
-      <a href="#">Refill Tool</a>
+    <div id="operational" class="grid category-panel">
+        <a href="#" onclick="openDynamicURL('https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs'); return false;">myReports (Field)</a>
+        <a href="https://app.smartsense.co/" target="_blank" rel="noopener noreferrer">TempAlert</a>
+        <a href="https://appsmcsaml.corp.cvscaremark.com/" target="_blank" rel="noopener noreferrer">Citrix</a>
+        <a href="#" onclick="openDynamicURL('https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000'); return false;">Command Center</a>
+        <a href="https://matthewstathis.github.io/rxnet/storesupplies">Store Supplies</a>
+        <a href="https://www.cvs.com/epp/remote-payment" target="_blank" rel="noopener noreferrer">Card on File</a>
+        <a href="#" onclick="openDynamicURL('https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=YYYYYYYYYY'); return false;">Express Scripts PRC</a>        
     </div>
 
     <div id="immunizations" class="grid category-panel" style="display:none;">
