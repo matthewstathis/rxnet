@@ -474,6 +474,31 @@
       }
     }
 
+function openDynamicURL(baseURL) {
+  if (baseURL.includes("XXXXX")) {
+    let storeNumber = prompt("Enter your store number:");
+    if (storeNumber) {
+      let finalURL = baseURL.replace("XXXXX", encodeURIComponent(storeNumber));
+      window.open(finalURL, "_blank", "noopener,noreferrer");
+    }
+  } else if (baseURL.includes("YYYYYYYYYY")) {
+    let npi = prompt("Enter your NPI number:");
+    if (npi) {
+      let finalURL = baseURL.replace("YYYYYYYYYY", encodeURIComponent(npi));
+      window.open(finalURL, "_blank", "noopener,noreferrer");
+    }
+  } else {
+    // Default open behavior
+    window.open(baseURL, "_blank", "noopener,noreferrer");
+  }
+}
+
+	  
+
+
+
+
+	  
     document.addEventListener("click", function (event) {
       let searchBox = document.getElementById("searchBox");
       let resultsDiv = document.getElementById("searchResults");
