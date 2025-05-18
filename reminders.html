@@ -6,27 +6,25 @@
     <title>myTasks</title>
     <style>
         /* Style for the Home button */
-        .home-button {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: #148275;
-            color: white;
-            padding: 10px 40px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin-bottom: 30px; /* Adjust value as needed */
+.home-button {
+  position: fixed;       /* 👈 fixed keeps it in place */
+  top: 10px;
+  left: 10px;
+  background-color: #35BF8E;
+  color: white;
+  padding: 10px 40px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  z-index: 1000;         /* 👈 ensure it stays on top */
+}
 
-        }
-
-        /* Hover effect */
-        .home-button:hover {
-            background-color: #0f6658;
-        }
+.home-button:hover {
+  background-color: #0f6658;
+}
     </style>
 </head>
 <body>
