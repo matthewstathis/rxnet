@@ -124,15 +124,15 @@
   <img src="heartlogo.png" alt="CVS Heart" style="height: 24px; margin-right: 8px;">
   RxNet
 </h1>
-    <button class="dock-button" onclick="showCategory('search')">Search</button>
-    <button class="dock-button" onclick="showCategory('operational')">Operational</button>
-    <button class="dock-button" onclick="showCategory('references')">References</button>
-    <button class="dock-button" onclick="showCategory('regulatory')">Regulatory</button>
-    <button class="dock-button" onclick="showCategory('hrtraining')">HR/Training</button>
-    <button class="dock-button" onclick="showCategory('petcfspar')">Pet Meds/CF/SPAR</button>
-    <button class="dock-button" onclick="showCategory('resources')">Resources</button>
-    <button class="dock-button" onclick="showCategory('covid')">COVID</button>
-    <button class="dock-button" onclick="showCategory('miscellaneous')">Miscellaneous</button>
+    <button class="dock-button" onclick="showCategory('search', this)">Search</button>
+    <button class="dock-button" onclick="showCategory('operational', this)">Operational</button>
+    <button class="dock-button" onclick="showCategory('references', this)">References</button>
+    <button class="dock-button" onclick="showCategory('regulatory', this)">Regulatory</button>
+    <button class="dock-button" onclick="showCategory('hrtraining', this)">HR/Training</button>
+    <button class="dock-button" onclick="showCategory('petcfspar', this)">Pet Meds/CF/SPAR</button>
+    <button class="dock-button" onclick="showCategory('resources', this)">Resources</button>
+    <button class="dock-button" onclick="showCategory('covid', this)">COVID</button>
+    <button class="dock-button" onclick="showCategory('miscellaneous', this)">Miscellaneous</button>
 
   </div>
 
@@ -453,121 +453,111 @@
 
     </div>
 
-
-
-
-
-
-
-
-
   </div>
 
   <script src="https://matthewstathis.github.io/rxnet/searchData.js"></script>
 
-  <script>
-    function showCategory(id) {
-      document.querySelectorAll('.category-panel').forEach(panel => {
-        panel.style.display = 'none';
-      });
-
-	    window.onload = function() {
-  showCategory('operational');
-};
-
-      document.getElementById('searchPanel').style.display = 'none';
-      document.getElementById('searchBox').value = '';
-      document.getElementById('searchResults').innerHTML = '';
-      document.getElementById('searchResults').style.display = 'none';
-
-      document.querySelectorAll('.dock-button').forEach(btn => {
-        btn.classList.remove('active');
-      });
-
-      event.target.classList.add('active');
-
-      if (id === 'search') {
-        document.getElementById('searchPanel').style.display = 'block';
-      } else {
-        document.getElementById(id).style.display = 'grid';
-      }
-    }
-
-    function searchFunction() {
-      let input = document.getElementById("searchBox").value.toLowerCase();
-      let resultsDiv = document.getElementById("searchResults");
-      resultsDiv.innerHTML = "";
-
-      if (input.length === 0) {
-        resultsDiv.style.display = "none";
-        return;
-      }
-
-      let matches = searchItems.filter(item => item.name.toLowerCase().includes(input));
-
-      if (matches.length > 0) {
-        resultsDiv.style.display = "block";
-        matches.forEach(item => {
-          let link = document.createElement("a");
-          link.innerText = item.name;
-          link.className = "search-result";
-
-          if (item.url.includes("XXXXX")) {
-            link.href = "#";
-            link.onclick = function () {
-              let store = prompt("Enter your store number:");
-              if (store) window.open(item.url.replace("XXXXX", store), "_blank");
-            };
-          } else if (item.url.includes("YYYYYYYYYY")) {
-            link.href = "#";
-            link.onclick = function () {
-              let npi = prompt("Enter your NPI number:");
-              if (npi) window.open(item.url.replace("YYYYYYYYYY", npi), "_blank");
-            };
-          } else {
-            link.href = item.url;
-            link.target = "_blank";
-          }
-
-          resultsDiv.appendChild(link);
-        });
-      } else {
-        resultsDiv.style.display = "none";
-      }
-    }
-
-function openDynamicURL(baseURL) {
-  if (baseURL.includes("XXXXX")) {
-    let storeNumber = prompt("Enter your store number:");
-    if (storeNumber) {
-      let finalURL = baseURL.replace("XXXXX", encodeURIComponent(storeNumber));
-      window.open(finalURL, "_blank", "noopener,noreferrer");
-    }
-  } else if (baseURL.includes("YYYYYYYYYY")) {
-    let npi = prompt("Enter your NPI number:");
-    if (npi) {
-      let finalURL = baseURL.replace("YYYYYYYYYY", encodeURIComponent(npi));
-      window.open(finalURL, "_blank", "noopener,noreferrer");
-    }
-  } else {
-    // Default open behavior
-    window.open(baseURL, "_blank", "noopener,noreferrer");
-  }
-}
-
-	  
-
-
-
-
-	  
-    document.addEventListener("click", function (event) {
-      let searchBox = document.getElementById("searchBox");
-      let resultsDiv = document.getElementById("searchResults");
-      if (!searchBox.contains(event.target) && !resultsDiv.contains(event.target)) {
-        resultsDiv.style.display = "none";
-      }
+ <script>
+  function showCategory(id, el = null) {
+    document.querySelectorAll('.category-panel').forEach(panel => {
+      panel.style.display = 'none';
     });
-  </script>
+
+    document.getElementById('searchPanel').style.display = 'none';
+    document.getElementById('searchBox').value = '';
+    document.getElementById('searchResults').innerHTML = '';
+    document.getElementById('searchResults').style.display = 'none';
+
+    document.querySelectorAll('.dock-button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    if (el) {
+      el.classList.add('active');
+    }
+
+    if (id === 'search') {
+      document.getElementById('searchPanel').style.display = 'block';
+    } else {
+      document.getElementById(id).style.display = 'grid';
+    }
+  }
+
+  function searchFunction() {
+    let input = document.getElementById("searchBox").value.toLowerCase();
+    let resultsDiv = document.getElementById("searchResults");
+    resultsDiv.innerHTML = "";
+
+    if (input.length === 0) {
+      resultsDiv.style.display = "none";
+      return;
+    }
+
+    let matches = searchItems.filter(item => item.name.toLowerCase().includes(input));
+
+    if (matches.length > 0) {
+      resultsDiv.style.display = "block";
+      matches.forEach(item => {
+        let link = document.createElement("a");
+        link.innerText = item.name;
+        link.className = "search-result";
+
+        if (item.url.includes("XXXXX")) {
+          link.href = "#";
+          link.onclick = function () {
+            let store = prompt("Enter your store number:");
+            if (store) window.open(item.url.replace("XXXXX", store), "_blank");
+          };
+        } else if (item.url.includes("YYYYYYYYYY")) {
+          link.href = "#";
+          link.onclick = function () {
+            let npi = prompt("Enter your NPI number:");
+            if (npi) window.open(item.url.replace("YYYYYYYYYY", npi), "_blank");
+          };
+        } else {
+          link.href = item.url;
+          link.target = "_blank";
+        }
+
+        resultsDiv.appendChild(link);
+      });
+    } else {
+      resultsDiv.style.display = "none";
+    }
+  }
+
+  function openDynamicURL(baseURL) {
+    if (baseURL.includes("XXXXX")) {
+      let storeNumber = prompt("Enter your store number:");
+      if (storeNumber) {
+        let finalURL = baseURL.replace("XXXXX", encodeURIComponent(storeNumber));
+        window.open(finalURL, "_blank", "noopener,noreferrer");
+      }
+    } else if (baseURL.includes("YYYYYYYYYY")) {
+      let npi = prompt("Enter your NPI number:");
+      if (npi) {
+        let finalURL = baseURL.replace("YYYYYYYYYY", encodeURIComponent(npi));
+        window.open(finalURL, "_blank", "noopener,noreferrer");
+      }
+    } else {
+      window.open(baseURL, "_blank", "noopener,noreferrer");
+    }
+  }
+
+  document.addEventListener("click", function (event) {
+    let searchBox = document.getElementById("searchBox");
+    let resultsDiv = document.getElementById("searchResults");
+    if (!searchBox.contains(event.target) && !resultsDiv.contains(event.target)) {
+      resultsDiv.style.display = "none";
+    }
+  });
+
+  window.onload = function () {
+    showCategory('operational');
+    const operationalBtn = Array.from(document.getElementsByClassName('dock-button'))
+      .find(btn => btn.textContent.trim().toLowerCase() === 'operational');
+    if (operationalBtn) operationalBtn.classList.add('active');
+  };
+</script>
 </body>
 </html>
