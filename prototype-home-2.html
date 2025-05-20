@@ -127,13 +127,10 @@
     <button class="dock-button" onclick="showCategory('search')">Search</button>
     <button class="dock-button" onclick="showCategory('operational')">Operational</button>
     <button class="dock-button" onclick="showCategory('references')">References</button>
-    <button class="dock-button" onclick="showCategory('filling')">Filling</button>
-    <button class="dock-button" onclick="showCategory('humanresources')">Human Resources</button>
     <button class="dock-button" onclick="showCategory('regulatory')">Regulatory</button>
-    <button class="dock-button" onclick="showCategory('training')">Training</button>
+    <button class="dock-button" onclick="showCategory('hrtraining')">HR/Training</button>
     <button class="dock-button" onclick="showCategory('petcfspar')">Pet Meds/CF/SPAR</button>
     <button class="dock-button" onclick="showCategory('resources')">Resources</button>
-    <button class="dock-button" onclick="showCategory('reports')">Reports</button>
     <button class="dock-button" onclick="showCategory('covid')">COVID</button>
     <button class="dock-button" onclick="showCategory('miscellaneous')">Miscellaneous</button>
 
@@ -158,7 +155,6 @@
         <a href="https://appsmcsaml.corp.cvscaremark.com/" target="_blank" rel="noopener noreferrer">Citrix</a>
         <a href="#" onclick="openDynamicURL('https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000'); return false;">Command Center</a>
         <a href="https://matthewstathis.github.io/rxnet/storesupplies">Store Supplies</a>
-        <a href="https://www.cvs.com/epp/remote-payment" target="_blank" rel="noopener noreferrer">Card on File</a>
         <a href="#" onclick="openDynamicURL('https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=YYYYYYYYYY'); return false;">Express Scripts PRC</a>   
   <!-- Section Title: Manager -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin: 20px 0 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
@@ -182,9 +178,34 @@
         <a href="https://matthewstathis.github.io/rxnet/transfer">Transfer Directory</a>
         <a href="https://www.cvs.com/store-locator/landing" target="_blank" rel="noopener noreferrer">Store Locator</a>
         <a href="https://matthewstathis.github.io/rxnet/prqrcodes.pdf" target="_blank" rel="noopener noreferrer">PR QR Codes</a>
+<!-- Section Title: Reports -->
+  <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
+    Reports
+  </div>
+	<a href="#" onclick="openDynamicURL('https://portaldoctool.cvs.com/portalDocTool/viewDocuments.do?listingID=dcReportPage&roles=ZGNyZXBvcnRwYWdldXNlcg==&storeNumber=XXXXX'); return false;">Truck Manifests</a>
+        <a href="https://retailspark.cvs.com/rbi/?options-base=on&storeNumber=" target="_blank" rel="noopener noreferrer">Store Digest</a>
+        <a href="https://rxcreports.rxc.cvs.com:31210/airsupport/queuesummary" target="_blank" rel="noopener noreferrer">Queue Depth</a>
+        <a href="https://ciim.cvs.com/ciimappnew/#/login" target="_blank" rel="noopener noreferrer">CIIM</a>
+        <a href="https://matthewstathis.github.io/rxnet/scoreboard.pdf" target="_blank" rel="noopener noreferrer">Rx Scoreboard</a>
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Environmental_Health_%26_Safety_Reports_Portal_Job_Aid.pdf" target="_blank" rel="noopener noreferrer">Evo/Safety Reports</a>
 </div>
 
 <div id="references" class="grid category-panel" style="display: none;">
+<!-- Section Title: Filling -->
+  <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
+    Filling
+  </div>
+	<a href="https://www1.cardinalhealth.com/" target="_blank" rel="noopener noreferrer">Cardinal</a>
+        <a href="https://matthewstathis.github.io/rxnet/rxtelephonev2.pdf" target="_blank" rel="noopener noreferrer">Rx Phone Order</a>
+        <a href="https://matthewstathis.github.io/rxnet/rxtransferv2.pdf" target="_blank" rel="noopener noreferrer">Rx Transfer</a>
+        <a href="https://rxdw-rximageretrieval.rxdw-cld-ap.cvshealthcloud.com/enterStore#no-back-button" target="_blank" onclick="return confirm('Alert: If the image retrieval portal loads to an error page, simply refresh the page (or press Control + R) and it will take you to the store number entry screen.');">Image Retrieval</a>        
+        <a href="https://matthewstathis.github.io/rxnet/formulary">Formulary</a>
+        <a href="https://ipledgeprogram.com/?connection=cvs" target="_blank" rel="noopener noreferrer">iPledge</a>
+        <a href="https://matthewstathis.github.io/rxnet/syringes">Syringes/Needles</a>
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/RxConnect_SIG_Codes_Best_Practices.pdf" target="_blank" rel="noopener noreferrer">SIG Code Sheet</a>
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Naloxone_Program_Support_Page_20240102165341901.pdf" target="_blank" rel="noopener noreferrer">Naloxone</a>
+        <a href="https://connect.mckesson.com/content" target="_blank" rel="noopener noreferrer">McKesson</a>
+        <a href="https://matthewstathis.github.io/rxnet/pegforms">PEG Formulations</a>
   <!-- Section Title: References -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     References
@@ -212,43 +233,6 @@
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Travel_IMZ_Cheat_Sheet_12122024_20241212111427361.docx_2pdf.pdf" target="_blank" rel="noopener noreferrer">Travel IMZ Ref</a>
         <a href="https://wwwnc.cdc.gov/travel/page/yellowbook-home" target="_blank" rel="noopener noreferrer">CDC Yellow Book</a>    
 </div>
-
-
-
-
-<div id="filling" class="grid category-panel" style="display: none;">
-  <!-- Section Title: Filling -->
-  <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
-    Filling
-  </div>
-	<a href="https://www1.cardinalhealth.com/" target="_blank" rel="noopener noreferrer">Cardinal</a>
-        <a href="https://matthewstathis.github.io/rxnet/rxtelephonev2.pdf" target="_blank" rel="noopener noreferrer">Rx Phone Order</a>
-        <a href="https://matthewstathis.github.io/rxnet/rxtransferv2.pdf" target="_blank" rel="noopener noreferrer">Rx Transfer</a>
-        <a href="https://rxdw-rximageretrieval.rxdw-cld-ap.cvshealthcloud.com/enterStore#no-back-button" target="_blank" onclick="return confirm('Alert: If the image retrieval portal loads to an error page, simply refresh the page (or press Control + R) and it will take you to the store number entry screen.');">Image Retrieval</a>        
-        <a href="https://matthewstathis.github.io/rxnet/formulary">Formulary</a>
-        <a href="https://ipledgeprogram.com/?connection=cvs" target="_blank" rel="noopener noreferrer">iPledge</a>
-        <a href="https://matthewstathis.github.io/rxnet/syringes">Syringes/Needles</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/RxConnect_SIG_Codes_Best_Practices.pdf" target="_blank" rel="noopener noreferrer">SIG Code Sheet</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Naloxone_Program_Support_Page_20240102165341901.pdf" target="_blank" rel="noopener noreferrer">Naloxone</a>
-        <a href="https://connect.mckesson.com/content" target="_blank" rel="noopener noreferrer">McKesson</a>
-        <a href="https://matthewstathis.github.io/rxnet/pegforms">PEG Formulations</a>
-    </div>
-
-
-<div id="humanresources" class="grid category-panel" style="display: none;">
-  <!-- Section Title: Human Resources -->
-  <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
-    Human Resources
-  </div>
-	<a href="https://www.myworkday.com/cvshealth/d/home.htmld" target="_blank" rel="noopener noreferrer">Workday</a>
-        <a href="https://colleaguezone.cvs.com" target="_blank" rel="noopener noreferrer">ColleagueZone</a>
-        <a href="https://colleaguezone.cvs.com/cz?id=sc_cat_item&sys_id=2e717ad897225550f665b7c0f053afd5&sysparm_category=2e6609b493f506907fca3d7efaba107e" target="_blank" rel="noopener noreferrer">Hiring Support</a>
-        <a href="https://idmgmt.cvshealth.com/iam-selfserviceportal-oci/home" target="_blank" rel="noopener noreferrer">MFA/2FA Setup</a>
-        <a href="https://colleaguezone.cvs.com/cz?id=kb_article&sysparm_article=KB0058118" target="_blank" rel="noopener noreferrer">Attendance Policy</a>
-        <a href="https://colleaguezone.cvs.com/cz?id=kb_article_view&sysparm_article=KB0061720" target="_blank" rel="noopener noreferrer">Hiring Guide</a>
-        <a href="https://colleaguezone.cvs.com/cz?id=kb_article&sysparm_article=KB0059260" target="_blank" rel="noopener noreferrer">COVID Sick Policy</a>
-        <a href="https://colleaguezone.cvs.com/cz?id=sc_cat_item&sys_id=3a46341d1be5d598f839caae6e4bcbc5" target="_blank" rel="noopener noreferrer">Meal Break Waiver</a>
-    </div>
 
 
 
@@ -304,7 +288,19 @@
 
 	  
 
-<div id="training" class="grid category-panel" style="display: none;">
+<div id="hrtraining" class="grid category-panel" style="display: none;">
+<!-- Section Title: Human Resources -->
+  <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
+    Human Resources
+  </div>
+	<a href="https://www.myworkday.com/cvshealth/d/home.htmld" target="_blank" rel="noopener noreferrer">Workday</a>
+        <a href="https://colleaguezone.cvs.com" target="_blank" rel="noopener noreferrer">ColleagueZone</a>
+        <a href="https://colleaguezone.cvs.com/cz?id=sc_cat_item&sys_id=2e717ad897225550f665b7c0f053afd5&sysparm_category=2e6609b493f506907fca3d7efaba107e" target="_blank" rel="noopener noreferrer">Hiring Support</a>
+        <a href="https://idmgmt.cvshealth.com/iam-selfserviceportal-oci/home" target="_blank" rel="noopener noreferrer">MFA/2FA Setup</a>
+        <a href="https://colleaguezone.cvs.com/cz?id=kb_article&sysparm_article=KB0058118" target="_blank" rel="noopener noreferrer">Attendance Policy</a>
+        <a href="https://colleaguezone.cvs.com/cz?id=kb_article_view&sysparm_article=KB0061720" target="_blank" rel="noopener noreferrer">Hiring Guide</a>
+        <a href="https://colleaguezone.cvs.com/cz?id=kb_article&sysparm_article=KB0059260" target="_blank" rel="noopener noreferrer">COVID Sick Policy</a>
+        <a href="https://colleaguezone.cvs.com/cz?id=sc_cat_item&sys_id=3a46341d1be5d598f839caae6e4bcbc5" target="_blank" rel="noopener noreferrer">Meal Break Waiver</a>
   <!-- Section Title: Training -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Training
@@ -335,7 +331,6 @@
   </div>
 	<a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Central_Fill_Job_Aid_2023041014350208.pdf" target="_blank" rel="noopener noreferrer">CF Reference</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Central_Fill_Prescription_Maintenance_20230410143354198.pdf" target="_blank" rel="noopener noreferrer">CF RTS</a>
-
   <!-- Section Title: Pet Meds -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Pet Meds
@@ -389,23 +384,6 @@
     </div>
 
 
-<div id="reports" class="grid category-panel" style="display: none;">
-  <!-- Section Title: Reports -->
-  <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
-    Reports
-  </div>
-	<a href="#" onclick="openDynamicURL('https://portaldoctool.cvs.com/portalDocTool/viewDocuments.do?listingID=dcReportPage&roles=ZGNyZXBvcnRwYWdldXNlcg==&storeNumber=XXXXX'); return false;">Truck Manifests</a>
-        <a href="https://retailspark.cvs.com/rbi/?options-base=on&storeNumber=" target="_blank" rel="noopener noreferrer">Store Digest</a>
-        <a href="https://rxcreports.rxc.cvs.com:31210/airsupport/queuesummary" target="_blank" rel="noopener noreferrer">Queue Depth</a>
-        <a href="https://ciim.cvs.com/ciimappnew/#/login" target="_blank" rel="noopener noreferrer">CIIM</a>
-        <a href="https://matthewstathis.github.io/rxnet/scoreboard.pdf" target="_blank" rel="noopener noreferrer">Rx Scoreboard</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Environmental_Health_%26_Safety_Reports_Portal_Job_Aid.pdf" target="_blank" rel="noopener noreferrer">Evo/Safety Reports</a>
-    </div>
-
-
-
-
-
 <div id="covid" class="grid category-panel" style="display: none;">
   <!-- Section Title: Paxlovid -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
@@ -446,6 +424,19 @@
 
 
 <div id="miscellaneous" class="grid category-panel" style="display: none;">
+<!-- Section Title: Compounding -->
+  <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
+    Compounding
+  </div>
+	<a href="https://matthewstathis.github.io/rxnet/mmworderset.pdf" target="_blank" rel="noopener noreferrer">Magic Mouthwash</a>
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Beyond_Use_Dating_Guidance_20230308162552228_2023031320045034.pdf" target="_blank" rel="noopener noreferrer">BUD Guide</a>
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Master_Formulation_Landing_Page_20230509133428779.pdf" target="_blank" rel="noopener noreferrer">Master Formulations</a>
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Blank_Compound_Log_20230725121319464.pdf" target="_blank" rel="noopener noreferrer">Blank Log</a>
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Create_Your_Own_Master_Formulation_20230509131316358.pdf" target="_blank" rel="noopener noreferrer">Blank Master Form</a>
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Monthly_FLAVORx_Auto_Maintenance_Guide_%28002%29_20221115143635353.pdf" target="_blank" rel="noopener noreferrer">FillMaster Cleaning</a>
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Dispensing_with_the_FLAVORx_Auto_%28002%29_20240104125806446.pdf" target="_blank" rel="noopener noreferrer">FillMaster Flavoring</a>
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Nonsterile_Compounding_Labels_20230607140522602.pdf" target="_blank" rel="noopener noreferrer">Labeling Guide</a>
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Compounding_Binder_Guidance_Document_20230801144052106.pdf" target="_blank" rel="noopener noreferrer">CMP Binder</a>
   <!-- Section Title: Miscellaneous -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Miscellaneous
@@ -459,19 +450,7 @@
         <a href="https://ms-nightscout.azurewebsites.net" target="_blank" rel="noopener noreferrer">Nightscout</a>
         <a href="https://matthewstathis.github.io/rxnet/reminders.html" target="_blank" rel="noopener noreferrer">myTasks</a>
 	<a href="https://matthewstathis.github.io/rxnet/prototype-home-2" target="_blank" rel="noopener noreferrer">Test Page</a>
-	  <!-- Section Title: Compounding -->
-  <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
-    Compounding
-  </div>
-	<a href="https://matthewstathis.github.io/rxnet/mmworderset.pdf" target="_blank" rel="noopener noreferrer">Magic Mouthwash</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Beyond_Use_Dating_Guidance_20230308162552228_2023031320045034.pdf" target="_blank" rel="noopener noreferrer">BUD Guide</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Master_Formulation_Landing_Page_20230509133428779.pdf" target="_blank" rel="noopener noreferrer">Master Formulations</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Blank_Compound_Log_20230725121319464.pdf" target="_blank" rel="noopener noreferrer">Blank Log</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Create_Your_Own_Master_Formulation_20230509131316358.pdf" target="_blank" rel="noopener noreferrer">Blank Master Form</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Monthly_FLAVORx_Auto_Maintenance_Guide_%28002%29_20221115143635353.pdf" target="_blank" rel="noopener noreferrer">FillMaster Cleaning</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Dispensing_with_the_FLAVORx_Auto_%28002%29_20240104125806446.pdf" target="_blank" rel="noopener noreferrer">FillMaster Flavoring</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Nonsterile_Compounding_Labels_20230607140522602.pdf" target="_blank" rel="noopener noreferrer">Labeling Guide</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Compounding_Binder_Guidance_Document_20230801144052106.pdf" target="_blank" rel="noopener noreferrer">CMP Binder</a>
+
     </div>
 
 
