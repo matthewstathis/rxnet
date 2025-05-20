@@ -471,6 +471,10 @@
         panel.style.display = 'none';
       });
 
+	    window.onload = function() {
+  showCategory('operational');
+};
+
       document.getElementById('searchPanel').style.display = 'none';
       document.getElementById('searchBox').value = '';
       document.getElementById('searchResults').innerHTML = '';
