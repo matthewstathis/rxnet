@@ -476,11 +476,14 @@
       el.classList.add('active');
     }
 
-    if (id === 'search') {
-      document.getElementById('searchPanel').style.display = 'block';
-    } else {
-      document.getElementById(id).style.display = 'grid';
-    }
+if (id === 'search') {
+  document.getElementById('searchPanel').style.display = 'block';
+  setTimeout(() => {
+    document.getElementById('searchBox').focus();
+  }, 50);
+} else {
+  document.getElementById(id).style.display = 'grid';
+}
   }
 
   function searchFunction() {
