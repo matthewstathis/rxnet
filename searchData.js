@@ -63,7 +63,7 @@ const searchItems = [
         { name: "Workday ", url: "https://www.myworkday.com/cvshealth/d/home.htmld" },
         { name: "ColleagueZone ", url: "https://colleaguezone.cvs.com" },
         { name: "Heartbeat ", url: "https://stores.heartbeat.cvshealth.com/" },
-        { name: "Hiring Support ", url: "https://colleaguezone.cvs.com/cz?id=sc_cat_item&sys_id=2e717ad897225550f665b7c0f053afd5&sysparm_category=2e6609b493f506907fca3d7efaba107e" },
+        { name: "Hiring Support ", url: "https://colleaguezone.cvs.com/cz?id=sc_cat_item&table=sc_cat_item&sys_id=ee91566efb81a69026f7f2b455efdc0a&recordUrl=com.glideapp.servicecatalog_cat_item_view.do%3Fv%3D1&sysparm_id=ee91566efb81a69026f7f2b455efdc0a" },
         { name: "Multi-factor authentication  #MFA  #2FA ", url: "https://idmgmt.cvshealth.com/iam-selfserviceportal-oci/home" },
         { name: "Attendance Policy and Logs ", url: "https://colleaguezone.cvs.com/cz?id=kb_article&sysparm_article=KB0058118" },
         { name: "Hiring Guide ", url: "https://colleaguezone.cvs.com/cz?id=kb_article_view&sysparm_article=KB0061720" },
