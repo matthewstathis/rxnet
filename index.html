@@ -131,14 +131,21 @@
 </h1>
     <button class="dock-button" onclick="showCategory('search', this)">Search</button>
     <button class="dock-button" onclick="showCategory('operational', this)">Operational</button>
-    <button class="dock-button" onclick="showCategory('hrmanager', this)">Manager/HR</button>
-    <button class="dock-button" onclick="showCategory('references', this)">References</button>
-    <button class="dock-button" onclick="showCategory('regulatory', this)">Regulatory</button>
+    <button class="dock-button" onclick="showCategory('communications', this)">Communications</button>
+    <button class="dock-button" onclick="showCategory('reports', this)">Reports</button>
+    <button class="dock-button" onclick="showCategory('manager', this)">Manager</button>
+    <button class="dock-button" onclick="showCategory('humanresources', this)">Human Resources</button>
+    <button class="dock-button" onclick="showCategory('filling', this)">Filling</button>
+    <button class="dock-button" onclick="showCategory('clinical', this)">Clinical</button>
+    <button class="dock-button" onclick="showCategory('immunizations', this)">Immunizations</button>
+    <button class="dock-button" onclick="showCategory('regulatoryap', this)">Regulatory/AP</button>
     <button class="dock-button" onclick="showCategory('training', this)">Training</button>
-    <button class="dock-button" onclick="showCategory('resources', this)">Resources</button>
- <button class="dock-button" onclick="showCategory('petcfspar', this)">Vet/CF/SPAR</button>
+    <button class="dock-button" onclick="showCategory('resources', this)">Resources/IT</button>
+    <button class="dock-button" onclick="showCategory('petcfspar', this)">Vet/CF/SPAR</button>
     <button class="dock-button" onclick="showCategory('covid', this)">COVID</button>
-    <button class="dock-button" onclick="showCategory('miscellaneous', this)">Miscellaneous</button>
+    <button class="dock-button" onclick="showCategory('compounding', this)">Compounding</button>
+    <button class="dock-button" onclick="showCategory('admin', this)">Admin</button>
+
 
   </div>
 
@@ -150,6 +157,8 @@
       </div>
     </div>
 
+
+	  
 <div id="operational" class="grid category-panel" style="display: none;"> 
   <!-- Section Title: Operational -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
@@ -157,12 +166,16 @@
   </div>
 	<a href="https://retailspark.cvs.com/spark?view=storeView" target="_blank" rel="noopener noreferrer">myReports</a>
         <a href="#" onclick="openDynamicURL('https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs'); return false;">myReports (Field)</a>
+	<a href="https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" target="_blank" rel="noopener noreferrer">myWork</a>
         <a href="https://app.smartsense.co/" target="_blank" rel="noopener noreferrer">TempAlert</a>
         <a href="https://appsmcsaml.corp.cvscaremark.com/" target="_blank" rel="noopener noreferrer">Citrix</a>
         <a href="#" onclick="openDynamicURL('https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000'); return false;">Command Center</a>
         <a href="https://matthewstathis.github.io/rxnet/storesupplies">Store Supplies</a>
         <a href="#" onclick="openDynamicURL('https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=YYYYYYYYYY'); return false;">Express Scripts PRC</a>   
-	  <!-- Section Title: Communications -->
+  </div>
+
+<div id="communications" class="grid category-panel" style="display: none;"> 
+  <!-- Section Title: Communications -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Communications
   </div>
@@ -172,7 +185,10 @@
         <a href="https://matthewstathis.github.io/rxnet/transfer">Transfer Directory</a>
         <a href="https://www.cvs.com/store-locator/landing" target="_blank" rel="noopener noreferrer">Store Locator</a>
         <a href="https://matthewstathis.github.io/rxnet/prqrcodes.pdf" target="_blank" rel="noopener noreferrer">PR QR Codes</a>
-<!-- Section Title: Reports -->
+</div>
+	  
+<div id="reports" class="grid category-panel" style="display: none;"> 
+  <!-- Section Title: Reports -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Reports
   </div>
@@ -184,6 +200,9 @@
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Environmental_Health_%26_Safety_Reports_Portal_Job_Aid.pdf" target="_blank" rel="noopener noreferrer">Evo/Safety Reports</a>
 </div>
 
+
+
+	  
 <div id="references" class="grid category-panel" style="display: none;">
 <!-- Section Title: Filling -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
@@ -282,10 +301,9 @@
 	
 <div id="hrmanager" class="grid category-panel" style="display: none;">
  <!-- Section Title: Manager -->
-  <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin: 20px 0 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
+  <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Manager
   </div>
-        <a href="https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" target="_blank" rel="noopener noreferrer">myWork</a>
         <a href="https://cvs.medallia.com/sso/cvs" target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer">MCC</a>
         <a href="https://cvs.cloud.infor.com/" target="_blank" rel="noopener noreferrer">Workbrain</a>
         <a href="https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://login.servicechannel.com/saml/acs" target="_blank" rel="noopener noreferrer">Service Channel</a>
