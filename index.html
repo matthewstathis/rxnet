@@ -134,11 +134,12 @@
     <button class="dock-button" onclick="showCategory('communications', this)">Communications</button>
     <button class="dock-button" onclick="showCategory('reports', this)">Reports</button>
     <button class="dock-button" onclick="showCategory('manager', this)">Manager</button>
-    <button class="dock-button" onclick="showCategory('humanresources', this)">Human Resources</button>
+    <button class="dock-button" onclick="showCategory('humanresources', this)">HR</button>
     <button class="dock-button" onclick="showCategory('filling', this)">Filling</button>
     <button class="dock-button" onclick="showCategory('clinical', this)">Clinical</button>
     <button class="dock-button" onclick="showCategory('immunizations', this)">Immunizations</button>
     <button class="dock-button" onclick="showCategory('regulatoryap', this)">Regulatory/AP</button>
+    <button class="dock-button" onclick="showCategory('requireddocs', this)">Required Docs</button>
     <button class="dock-button" onclick="showCategory('training', this)">Training</button>
     <button class="dock-button" onclick="showCategory('resources', this)">Resources/IT</button>
     <button class="dock-button" onclick="showCategory('petcfspar', this)">Vet/CF/SPAR</button>
@@ -219,7 +220,10 @@
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Naloxone_Program_Support_Page_20240102165341901.pdf" target="_blank" rel="noopener noreferrer">Naloxone</a>
         <a href="https://connect.mckesson.com/content" target="_blank" rel="noopener noreferrer">McKesson</a>
         <a href="https://matthewstathis.github.io/rxnet/pegforms">PEG Formulations</a>
-  <!-- Section Title: Clinical -->
+</div>
+	  
+<div id="clinical" class="grid category-panel" style="display: none;">
+<!-- Section Title: Clinical -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Clinical
   </div>
@@ -232,7 +236,10 @@
         <a href="https://matthewstathis.github.io/rxnet/insurancetips2.pdf" target="_blank" rel="noopener noreferrer">Insurance Tips</a>
         <a href="https://pharmacist.therapeuticresearch.com/Content/Segments/PRL/2015/Jul/Comparison-of-Oral-Contraceptives-and-Non-Oral-Alternatives-United-States-8631" target="_blank" rel="noopener noreferrer">Contraceptive Sub</a>
         <a href="https://pharmacist.therapeuticresearch.com/api/sitecore/FileGuard/GetFile?id=af2e7118-447c-45d0-a48e-0341198b8ba0" target="_blank" rel="noopener noreferrer">Do Not Crush List</a>   
-  <!-- Section Title: Immunizations -->
+</div>
+	
+<div id="immunizations" class="grid category-panel" style="display: none;">
+<!-- Section Title: Immunizations -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Immunizations
   </div>
@@ -249,7 +256,7 @@
 
 
 
-<div id="regulatory" class="grid category-panel" style="display: none;">
+<div id="regulatoryap" class="grid category-panel" style="display: none;">
   <!-- Section Title: Regulatory -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Regulatory
@@ -279,9 +286,12 @@
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/rpt/mySafetyHub.pdf" target="_blank" rel="noopener noreferrer">SafetyHub</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/CardinalHealthDeliveryIssue_SOP_20241007185146443.pdf" target="_blank" rel="noopener noreferrer">Cardinal Issues</a>
         <a href="https://cvsthinklp.my.salesforce.com/sfc/p/36000001HXbW/a/Kf000000QBkY/VX87Io7HdgsVvwbiHOyuh9.yS8XvYoDLN9yg2aniEbI" target="_blank" rel="noopener noreferrer">eBOH Job Aid</a>
-	<!-- Section Title: Required Documents -->
-  <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin: 20px 0 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
-    Required Documents
+</div>
+	  
+<div id="requireddocs" class="grid category-panel" style="display: none;">
+  <!-- Section Title: Required Docs -->
+  <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
+    Required Docs
   </div>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/PA_Pharmacy_Technician_Protocol_Sign_Off_20180730151841166_20221118092028383.pdf" target="_blank" rel="noopener noreferrer">Technician Protocol</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/NondiscriminationandAccessibilityNotice_CVSPharmacy_Final_Final_20170110140230949.pdf" target="_blank" rel="noopener noreferrer">Nondiscrimination</a>
@@ -299,7 +309,7 @@
 </div>
 
 	
-<div id="hrmanager" class="grid category-panel" style="display: none;">
+<div id="manager" class="grid category-panel" style="display: none;">
  <!-- Section Title: Manager -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Manager
@@ -311,7 +321,10 @@
         <a href="https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=SP_SuperiorUGroup&RelayState=MTYzMQ==" target="_blank" rel="noopener noreferrer">Uniform Ordering</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Attendance_Tracker_7.2018__20180731161449175.pdf">Attendance</a>
         <a href="https://nametagger.cvs.com" target="_blank" rel="noopener noreferrer">Name Tag Labels</a>
-<!-- Section Title: Human Resources -->
+</div>
+	  
+<div id="humanresources" class="grid category-panel" style="display: none;">
+ <!-- Section Title: Human Resources -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Human Resources
   </div>
@@ -449,7 +462,7 @@
 
 
 
-<div id="miscellaneous" class="grid category-panel" style="display: none;">
+<div id="compounding" class="grid category-panel" style="display: none;">
 <!-- Section Title: Compounding -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Compounding
@@ -463,7 +476,10 @@
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Dispensing_with_the_FLAVORx_Auto_%28002%29_20240104125806446.pdf" target="_blank" rel="noopener noreferrer">FillMaster Flavoring</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Nonsterile_Compounding_Labels_20230607140522602.pdf" target="_blank" rel="noopener noreferrer">Labeling Guide</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Compounding_Binder_Guidance_Document_20230801144052106.pdf" target="_blank" rel="noopener noreferrer">CMP Binder</a>
-  <!-- Section Title: Miscellaneous -->
+</div>
+	  
+	<div id="admin" class="grid category-panel" style="display: none;">
+	<!-- Section Title: Admin -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Admin
   </div>
