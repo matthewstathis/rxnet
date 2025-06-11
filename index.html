@@ -130,14 +130,12 @@
   RxNet
 </h1>
     <button class="dock-button" onclick="showCategory('search', this)">Search</button>
-    <button class="dock-button" onclick="showCategory('operational', this)">Operational</button>
+    <button class="dock-button" onclick="showCategory('operational', this)">Ops/Manager</button>
     <button class="dock-button" onclick="showCategory('communications', this)">Communications</button>
     <button class="dock-button" onclick="showCategory('reports', this)">Reports</button>
-    <button class="dock-button" onclick="showCategory('manager', this)">Manager</button>
     <button class="dock-button" onclick="showCategory('humanresources', this)">HR</button>
     <button class="dock-button" onclick="showCategory('filling', this)">Filling</button>
-    <button class="dock-button" onclick="showCategory('clinical', this)">Clinical</button>
-    <button class="dock-button" onclick="showCategory('immunizations', this)">Immunizations</button>
+    <button class="dock-button" onclick="showCategory('clinical', this)">References</button>
     <button class="dock-button" onclick="showCategory('regulatoryap', this)">Regulatory/AP</button>
     <button class="dock-button" onclick="showCategory('requireddocs', this)">Required Docs</button>
     <button class="dock-button" onclick="showCategory('training', this)">Training</button>
@@ -173,7 +171,17 @@
         <a href="#" onclick="openDynamicURL('https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000'); return false;">Command Center</a>
         <a href="https://matthewstathis.github.io/rxnet/storesupplies">Store Supplies</a>
         <a href="#" onclick="openDynamicURL('https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=YYYYYYYYYY'); return false;">Express Scripts PRC</a>   
+  <!-- Section Title: Manager -->
+  <div style="grid-column: 1 / -1; font-size: 16px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
+    Manager
   </div>
+        <a href="https://cvs.cloud.infor.com/" target="_blank" rel="noopener noreferrer">Workbrain</a>
+        <a href="https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://login.servicechannel.com/saml/acs" target="_blank" rel="noopener noreferrer">Service Channel</a>
+        <a href="https://svt.cvsapps.com/sso" target="_blank" rel="noopener noreferrer">Store Visit Tool</a>
+        <a href="https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=SP_SuperiorUGroup&RelayState=MTYzMQ==" target="_blank" rel="noopener noreferrer">Uniform Ordering</a>
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Attendance_Tracker_7.2018__20180731161449175.pdf">Attendance</a>
+        <a href="https://nametagger.cvs.com" target="_blank" rel="noopener noreferrer">Name Tag Labels</a>
+</div>
 
 <div id="communications" class="grid category-panel" style="display: none;"> 
   <!-- Section Title: Communications -->
@@ -181,6 +189,7 @@
     Communications
   </div>
 	<a href="https://mail.cvshealth.com/" target="_blank" rel="noopener noreferrer">Outlook</a>
+	<a href="https://cvs.medallia.com/sso/cvs" target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer">MCC</a>
         <a href="https://storepcc.rxc.cvs.com:30491/pccui/v1/#/OpportunitiesList/" target="_blank" rel="noopener noreferrer">Patient Care Central</a>
         <a href="https://matthewstathis.github.io/rxnet/directory">Main Directory</a>
         <a href="https://matthewstathis.github.io/rxnet/transfer">Transfer Directory</a>
@@ -222,7 +231,7 @@
         <a href="https://matthewstathis.github.io/rxnet/pegforms">PEG Formulations</a>
 </div>
 	  
-<div id="clinical" class="grid category-panel" style="display: none;">
+<div id="references" class="grid category-panel" style="display: none;">
 <!-- Section Title: Clinical -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Clinical
@@ -236,9 +245,6 @@
         <a href="https://matthewstathis.github.io/rxnet/insurancetips2.pdf" target="_blank" rel="noopener noreferrer">Insurance Tips</a>
         <a href="https://pharmacist.therapeuticresearch.com/Content/Segments/PRL/2015/Jul/Comparison-of-Oral-Contraceptives-and-Non-Oral-Alternatives-United-States-8631" target="_blank" rel="noopener noreferrer">Contraceptive Sub</a>
         <a href="https://pharmacist.therapeuticresearch.com/api/sitecore/FileGuard/GetFile?id=af2e7118-447c-45d0-a48e-0341198b8ba0" target="_blank" rel="noopener noreferrer">Do Not Crush List</a>   
-</div>
-	
-<div id="immunizations" class="grid category-panel" style="display: none;">
 <!-- Section Title: Immunizations -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Immunizations
@@ -253,7 +259,6 @@
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Travel_IMZ_Cheat_Sheet_12122024_20241212111427361.docx_2pdf.pdf" target="_blank" rel="noopener noreferrer">Travel IMZ Ref</a>
         <a href="https://wwwnc.cdc.gov/travel/page/yellowbook-home" target="_blank" rel="noopener noreferrer">CDC Yellow Book</a>    
 </div>
-
 
 
 <div id="regulatoryap" class="grid category-panel" style="display: none;">
@@ -308,20 +313,6 @@
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/CVS_Health_Corporation_COI_2025_20241230114942787.pdf" target="_blank" rel="noopener noreferrer">Liability Ins</a>
 </div>
 
-	
-<div id="manager" class="grid category-panel" style="display: none;">
- <!-- Section Title: Manager -->
-  <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
-    Manager
-  </div>
-        <a href="https://cvs.medallia.com/sso/cvs" target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer">MCC</a>
-        <a href="https://cvs.cloud.infor.com/" target="_blank" rel="noopener noreferrer">Workbrain</a>
-        <a href="https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://login.servicechannel.com/saml/acs" target="_blank" rel="noopener noreferrer">Service Channel</a>
-        <a href="https://svt.cvsapps.com/sso" target="_blank" rel="noopener noreferrer">Store Visit Tool</a>
-        <a href="https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=SP_SuperiorUGroup&RelayState=MTYzMQ==" target="_blank" rel="noopener noreferrer">Uniform Ordering</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Attendance_Tracker_7.2018__20180731161449175.pdf">Attendance</a>
-        <a href="https://nametagger.cvs.com" target="_blank" rel="noopener noreferrer">Name Tag Labels</a>
-</div>
 	  
 <div id="humanresources" class="grid category-panel" style="display: none;">
  <!-- Section Title: Human Resources -->
