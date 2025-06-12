@@ -595,7 +595,7 @@ if (id === 'search') {
   window.onload = function () {
     showCategory('operational');
     const operationalBtn = Array.from(document.getElementsByClassName('dock-button'))
-      .find(btn => btn.textContent.trim().toLowerCase() === 'operational');
+      .find(btn => btn.textContent.trim().toLowerCase() === 'ops/manager');
     if (operationalBtn) operationalBtn.classList.add('active');
   };
 </script>
