@@ -279,7 +279,7 @@ const searchItems = [
         { name: "Compounding Competency Evaluation ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Nonsterile_Compounding_Competency_Evaluation_20230608160950128.pdf" },
         { name: "Mini Game  #Easter egg ", url: "https://colleaguezone.cvs.com/cz?id=34534" },
         { name: "Immunization Training and Protocol Homepage   #IMZ ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/IMZ_Training_Resource_20240829_20240830093611879.pdf" },
-        { name: "Compounding Workflow Guide ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Compounding_Workflow_20230811154151986.pdf" }
+        { name: "Compounding Workflow Guide ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Compounding_Workflow_20230811154151986.pdf" },
 
         { name: "Pet med list and indication guide   #Vet ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Quick_Med_List_and_Indication_Guide_.pdf" },
         { name: "Auxillary Service Notice ACA 1557 ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Auxiliary_Service_Notice_ACA_1557_VF_2025061111454668.pdf" },
