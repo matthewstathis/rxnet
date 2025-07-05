@@ -52,7 +52,7 @@ const searchItems = [
         { name: "myWork ", url: "https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" },
         { name: "My Customer Connection  #MCC ", url: "https://cvs.medallia.com/sso/cvs" },
         { name: "LearningHub ", url: "https://cvshealth.sabacloud.com/" },
-        { name: "RRT Approval  #Remote Training ", url: "https://tms.cvs.com/apps_dir_sm/restAPIs/adminApps/rrtmanagement/index.html" },
+        { name: "RRT Approval  #Remote Training ", url: "https://app-corp-rewrite-prod-use2-web.azurewebsites.net/rrtAccessManagement" },
         { name: "Workbrain ", url: "https://cvs.cloud.infor.com/" },
         { name: "Service Channel ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://login.servicechannel.com/saml/acs" },
         { name: "Store Visit Tool ", url: "https://svt.cvsapps.com/sso" },
@@ -280,18 +280,19 @@ const searchItems = [
         { name: "Mini Game  #Easter egg ", url: "https://colleaguezone.cvs.com/cz?id=34534" },
         { name: "Immunization Training and Protocol Homepage   #IMZ ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/IMZ_Training_Resource_20240829_20240830093611879.pdf" },
         { name: "Compounding Workflow Guide ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Compounding_Workflow_20230811154151986.pdf" },
-
         { name: "Pet med list and indication guide   #Vet ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Quick_Med_List_and_Indication_Guide_.pdf" },
         { name: "Auxillary Service Notice ACA 1557 ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Auxiliary_Service_Notice_ACA_1557_VF_2025061111454668.pdf" },
         { name: "Store Supply Barcode Quick Reference ", url: "https://matthewstathis.github.io/rxnet/store%20supply%20barcodes%20for%20backroom%20posting.pdf" },
         { name: "Chain Launcher (Legacy - Edge or Internet Explorer browser required) ", url: "https://chainlauncher.rxc.cvs.com:7188/Launcher/Chain.do" },
-        { name: "Citrix (local MinuteClinical environment only) ", url: "https://appsmc.minclinic.local/Citrix/appsmcWeb/" },
-
-        
+        { name: "Citrix (local MinuteClinical environment only) ", url: "https://appsmc.minclinic.local/Citrix/appsmcWeb/" },        
         { name: "MCP Spotlight ", url: "https://portaldoctool.cvs.com/retailbireports/msh/mcp/mSH_MCP_Spotlight_SXXXXX.pdf" },
         { name: "MPC Weekly Scorecard ", url: "https://portaldoctool.cvs.com/rxreports/mpc/weekly/mPC_Scorecard_SXXXXX.pdf" },
         { name: "OPI ", url: "https://portaldoctool.cvs.com/portalDocTool/viewDocuments.do?listingID=complianceModReports&roles=myReports&deptType=RX&metricID=storeXXXXX" },
-        { name: "IER Monthly Scorecard ", url: "https://portaldoctool.cvs.com/retailportalfiles/business/iermonthlyscorecards/IER_Monthly_Scorecard_SXXXXX.pdf" }
+        { name: "IER Monthly Scorecard ", url: "https://portaldoctool.cvs.com/retailportalfiles/business/iermonthlyscorecards/IER_Monthly_Scorecard_SXXXXX.pdf" },
+
+        { name: "Corp\Domain Apps Portal (Citrix) ", url: "https://remote.cvscaremark.com/Citrix/remotecorpWeb/" },
+        { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
+
 
         
 ];
