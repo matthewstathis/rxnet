@@ -289,7 +289,9 @@ const searchItems = [
         { name: "MPC Weekly Scorecard ", url: "https://portaldoctool.cvs.com/rxreports/mpc/weekly/mPC_Scorecard_SXXXXX.pdf" },
         { name: "OPI ", url: "https://portaldoctool.cvs.com/portalDocTool/viewDocuments.do?listingID=complianceModReports&roles=myReports&deptType=RX&metricID=storeXXXXX" },
         { name: "IER Monthly Scorecard ", url: "https://portaldoctool.cvs.com/retailportalfiles/business/iermonthlyscorecards/IER_Monthly_Scorecard_SXXXXX.pdf" },
-
+        { name: "Central Fill Homepage ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Central_Fill_Homepage_20240206170244882.pdf" },
+        { name: "POS/Register Update ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/POS_MOD_etc_Landing_Page_20250523125032244.pdf" },
+        { name: "RxOS Update Homepage ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/RxOS_Homepage_20250610161035278.pdf" },
         { name: "Corp\Domain Apps Portal (Citrix) ", url: "https://remote.cvscaremark.com/Citrix/remotecorpWeb/" },
         { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
 
