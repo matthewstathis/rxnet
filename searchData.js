@@ -188,7 +188,7 @@ const searchItems = [
         { name: "Office Hours ", url: "https://outlook.office365.com/owa/calendar/COVID19POCTOfficeHours@bookings.cvshealth.com/bookings/" },
         { name: "OTC COVID Test Kits ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/COVID_OTC_Test_RxNet_Page.pdf" },
         { name: "OTC COVID Kit Template with QR Codes ", url: "https://matthewstathis.github.io/rxnet/otckitqrtemplate.pdf" },
-        { name: "Returns Job Aid ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/COVID-19_Monovalent_Product_Damage_Guide_20231003143049173.pdf" },
+        { name: "COVID Vaccine Returns Job Aid ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/COVID-19_Monovalent_Product_Damage_Guide_20231003143049173.pdf" },
         { name: "Comirnaty (24-25) ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Package-Insert-and-FDA-Approved-Patient-Labeling-COMIRNATY_20240822152801600.pdf" },
         { name: "Pfizer Pediatric ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Pfizer-BioNTech_COVID-19_Vaccine_Fact_Sheet_August_2024_20240822154547539.pdf" },
         { name: "SpikeVax (24-25) ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Spikevax-24-25-Formula-PI-12y%2B-Final_8.22.24_20240822145855118.pdf" },
