@@ -84,7 +84,7 @@ const searchItems = [
         { name: "Transfer Directory ", url: "https://matthewstathis.github.io/rxnet/transfer" },
         { name: "Store Locator ", url: "https://www.cvs.com/store-locator/landing" },
         { name: "Prescriber Request QR Codes ", url: "https://matthewstathis.github.io/rxnet/prqrcodes.pdf" },
-        { name: "ThinkLP  #Loss Prevention #Asset Protection #My Professional Practice ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://cvsthinklp.my.salesforce.com" },
+        { name: "ThinkLP  #Loss Prevention #Asset Protection #My Professional Practice ", url: "https://cvsthinklp.lightning.force.com" },
         { name: "Operational Excellence Playbook ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/2023_RX_AP_Operational_Excellence_Playbook_20230620135623197.pdf" },
         { name: "Operational Risk ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/myShrink_Responsibility_Operational_Risk_Guide_-_Feb_2023_20230223095053563.pdf" },
         { name: "High Risk Drugs ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/High_Risk_Drug_Profiles_-_Q4_FINAL_%28updated_Nov_2022%29_20230320171225743.pdf" },
