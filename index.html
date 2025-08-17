@@ -121,6 +121,50 @@
 .site-title {
   color: white;
 }
+
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.popup-box h3 {
+  margin-bottom: 15px;
+}
+
+.popup-box button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background: #148275;
+  color: white;
+}
+
+.popup-box button:hover {
+  background: #0f5d4f;
+}
+
+
+	  
   </style>
 </head>
 <body>
@@ -170,7 +214,7 @@
         <a href="https://appsmcsaml.corp.cvscaremark.com/" target="_blank" rel="noopener noreferrer">Epic</a>
 	    <a href="https://apps.cvshealth.com/logon/LogonPoint/tmindex.html" target="_blank" rel="noopener noreferrer">Apps Portal</a>
 		<a href="#" onclick="chooseCitrix(); return false;">Citrix (External)</a>
-        <a href="#" onclick="openDynamicURL('https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000'); return false;">Command Center</a>
+		<a href="#" onclick="openDynamicURL('https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000'); return false;">Command Center</a>
         <a href="https://matthewstathis.github.io/rxnet/storesupplies">Store Supplies</a>
         <a href="#" onclick="openDynamicURL('https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=YYYYYYYYYY'); return false;">Express Scripts PRC</a>   
   <!-- Section Title: Manager -->
@@ -624,6 +668,30 @@ function chooseCitrix() {
     alert("Invalid choice. Please enter CORP or CVS.");
   }
 }
+
+
+function chooseCitrix() {
+  document.getElementById("citrixPopup").style.display = "flex";
+}
+
+function openCitrix(choice) {
+  if (choice === "corp") {
+    window.open("https://remote.cvscaremark.com/Citrix/remotecorpWeb/", "_blank", "noopener,noreferrer");
+  } else if (choice === "cvs") {
+    window.open("https://remote.cvshealth.com/Citrix/remotecvsWeb/", "_blank", "noopener,noreferrer");
+  }
+  closeCitrixPopup();
+}
+
+function closeCitrixPopup() {
+  document.getElementById("citrixPopup").style.display = "none";
+}
+
+
+
+
+
+
 	 
   document.addEventListener("click", function (event) {
     let searchBox = document.getElementById("searchBox");
@@ -640,6 +708,18 @@ function chooseCitrix() {
     if (operationalBtn) operationalBtn.classList.add('active');
   };
 </script>
+
+	
+<div id="citrixPopup" class="popup-overlay" style="display:none;">
+  <div class="popup-box">
+    <h3>Select Citrix Domain</h3>
+    <button onclick="openCitrix('corp')">CORP</button>
+    <button onclick="openCitrix('cvs')">CVS</button>
+    <button onclick="closeCitrixPopup()">Cancel</button>
+  </div>
+</div>
+
+	
 </body>
 </html>
 
