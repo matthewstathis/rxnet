@@ -162,7 +162,12 @@
 .popup-box button:hover {
   background: #0f5d4f;
 }
-
+	  
+#inputModalField {
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 
 	  
   </style>
@@ -209,6 +214,9 @@
   </div>
 	<a href="https://retailspark.cvs.com/spark?view=storeView" target="_blank" rel="noopener noreferrer">myReports</a>
         <a href="#" onclick="openDynamicURL('https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs'); return false;">myReports (Field)</a>
+<a href="#" onclick="openDynamicURL('https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs'); return false;">
+  myReports (test)
+</a>
 	<a href="https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" target="_blank" rel="noopener noreferrer">myWork</a>
         <a href="https://app.smartsense.co/" target="_blank" rel="noopener noreferrer">TempAlert</a>
 		<a href="#" onclick="chooseCitrix(); return false;">Citrix</a>
@@ -677,7 +685,67 @@ function closeCitrixPopup() {
 
 
 
+function openDynamicURL(baseURL) {
+  if (baseURL.includes("XXXXX")) {
+    // Store number input modal
+    openInputModal("Enter Store Number:", (value) => {
+      if (value) {
+        let finalURL = baseURL.replace("XXXXX", encodeURIComponent(value));
+        window.open(finalURL, "_blank", "noopener,noreferrer");
+      }
+    });
+  } else if (baseURL.includes("YYYYYYYYYY")) {
+    // NPI input modal
+    openInputModal("Enter NPI Number:", (value) => {
+      if (value) {
+        let finalURL = baseURL.replace("YYYYYYYYYY", encodeURIComponent(value));
+        window.open(finalURL, "_blank", "noopener,noreferrer");
+      }
+    });
+  } else {
+    // Normal links
+    window.open(baseURL, "_blank", "noopener,noreferrer");
+  }
+}
+
+// Reusable modal-based input
+function openInputModal(title, callback) {
+  document.getElementById("inputModalTitle").textContent = title;
+  let inputField = document.getElementById("inputModalField");
+  inputField.value = ""; // clear
+  document.getElementById("inputModal").style.display = "block";
+
+  // Confirm handler
+  let confirmBtn = document.getElementById("inputModalConfirm");
+  confirmBtn.onclick = function() {
+    closeInputModal();
+    callback(inputField.value.trim());
+  };
+}
+
+function closeInputModal() {
+  document.getElementById("inputModal").style.display = "none";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	 
+
+
+// THE FOLLOWING IS NOT BEING USED CURRENTLY, IN PROGRESS CODE FOR NEW POPUP SYSTEM 
 function chooseFromOptions(title, options) {
   // Remove old popup if it exists
   const existing = document.getElementById("customPopup");
@@ -806,6 +874,18 @@ function chooseFromOptions(title, options) {
 	  <button onclick="openCitrix('corp')">CORP (external)</button>
     <button onclick="openCitrix('cvs')">CVS (external)</button>
     <button onclick="closeCitrixPopup()">Cancel</button>
+  </div>
+</div>
+
+<!-- Input Modal -->
+<div id="inputModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h3 id="inputModalTitle"></h3>
+    <input type="text" id="inputModalField" style="width:100%; padding:8px; margin:10px 0;" />
+    <div style="text-align:right;">
+      <button onclick="closeInputModal()">Cancel</button>
+      <button id="inputModalConfirm">OK</button>
+    </div>
   </div>
 </div>
 
