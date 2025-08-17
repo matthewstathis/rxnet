@@ -651,22 +651,6 @@ if (id === 'search') {
   }
 
 
-function chooseCitrix() {
-  let choice = prompt("Which Citrix domain do you want to use? Type CORP or CVS:");
-
-  if (!choice) return; // cancel if user presses ESC or empty
-
-  choice = choice.trim().toLowerCase();
-
-  if (choice === "corp") {
-    window.open("https://remote.cvscaremark.com/Citrix/remotecorpWeb/", "_blank", "noopener,noreferrer");
-  } else if (choice === "cvs") {
-    window.open("https://remote.cvshealth.com/Citrix/remotecvsWeb/", "_blank", "noopener,noreferrer");
-  } else {
-    alert("Invalid choice. Please enter CORP or CVS.");
-  }
-}
-
 
 function chooseCitrix() {
   document.getElementById("citrixPopup").style.display = "flex";
@@ -688,9 +672,6 @@ function openCitrix(choice) {
 function closeCitrixPopup() {
   document.getElementById("citrixPopup").style.display = "none";
 }
-
-
-
 
 
 
