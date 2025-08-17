@@ -162,12 +162,7 @@
 .popup-box button:hover {
   background: #0f5d4f;
 }
-	  
-#inputModalField {
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+
 
 	  
   </style>
@@ -214,9 +209,6 @@
   </div>
 	<a href="https://retailspark.cvs.com/spark?view=storeView" target="_blank" rel="noopener noreferrer">myReports</a>
         <a href="#" onclick="openDynamicURL('https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs'); return false;">myReports (Field)</a>
-<a href="#" onclick="openDynamicURL('https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs'); return false;">
-  myReports (test)
-</a>
 	<a href="https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" target="_blank" rel="noopener noreferrer">myWork</a>
         <a href="https://app.smartsense.co/" target="_blank" rel="noopener noreferrer">TempAlert</a>
 		<a href="#" onclick="chooseCitrix(); return false;">Citrix</a>
@@ -659,6 +651,22 @@ if (id === 'search') {
   }
 
 
+function chooseCitrix() {
+  let choice = prompt("Which Citrix domain do you want to use? Type CORP or CVS:");
+
+  if (!choice) return; // cancel if user presses ESC or empty
+
+  choice = choice.trim().toLowerCase();
+
+  if (choice === "corp") {
+    window.open("https://remote.cvscaremark.com/Citrix/remotecorpWeb/", "_blank", "noopener,noreferrer");
+  } else if (choice === "cvs") {
+    window.open("https://remote.cvshealth.com/Citrix/remotecvsWeb/", "_blank", "noopener,noreferrer");
+  } else {
+    alert("Invalid choice. Please enter CORP or CVS.");
+  }
+}
+
 
 function chooseCitrix() {
   document.getElementById("citrixPopup").style.display = "flex";
@@ -683,168 +691,6 @@ function closeCitrixPopup() {
 
 
 
-
-
-function openDynamicURL(baseURL) {
-  if (baseURL.includes("XXXXX")) {
-    // Store number input modal
-    openInputModal("Enter Store Number:", (value) => {
-      if (value) {
-        let finalURL = baseURL.replace("XXXXX", encodeURIComponent(value));
-        window.open(finalURL, "_blank", "noopener,noreferrer");
-      }
-    });
-  } else if (baseURL.includes("YYYYYYYYYY")) {
-    // NPI input modal
-    openInputModal("Enter NPI Number:", (value) => {
-      if (value) {
-        let finalURL = baseURL.replace("YYYYYYYYYY", encodeURIComponent(value));
-        window.open(finalURL, "_blank", "noopener,noreferrer");
-      }
-    });
-  } else {
-    // Normal links
-    window.open(baseURL, "_blank", "noopener,noreferrer");
-  }
-}
-
-// Reusable modal-based input
-function openInputModal(title, callback) {
-  document.getElementById("inputModalTitle").textContent = title;
-  let inputField = document.getElementById("inputModalField");
-  inputField.value = ""; // clear
-  document.getElementById("inputModal").style.display = "block";
-
-  // Confirm handler
-  let confirmBtn = document.getElementById("inputModalConfirm");
-  confirmBtn.onclick = function() {
-    closeInputModal();
-    callback(inputField.value.trim());
-  };
-}
-
-function closeInputModal() {
-  document.getElementById("inputModal").style.display = "none";
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	 
-
-
-// THE FOLLOWING IS NOT BEING USED CURRENTLY, IN PROGRESS CODE FOR NEW POPUP SYSTEM 
-function chooseFromOptions(title, options) {
-  // Remove old popup if it exists
-  const existing = document.getElementById("customPopup");
-  if (existing) existing.remove();
-
-  // Overlay
-  const overlay = document.createElement("div");
-  overlay.id = "customPopup";
-  overlay.style.position = "fixed";
-  overlay.style.top = "0";
-  overlay.style.left = "0";
-  overlay.style.width = "100%";
-  overlay.style.height = "100%";
-  overlay.style.backgroundColor = "rgba(0,0,0,0.5)";
-  overlay.style.display = "flex";
-  overlay.style.justifyContent = "center";
-  overlay.style.alignItems = "center";
-  overlay.style.zIndex = "2000";
-
-  // Popup box
-  const box = document.createElement("div");
-  box.style.background = "white";
-  box.style.padding = "20px";
-  box.style.borderRadius = "8px";
-  box.style.boxShadow = "0 4px 10px rgba(0,0,0,0.3)";
-  box.style.textAlign = "center";
-  box.style.minWidth = "280px";
-
-  // Title
-  const h2 = document.createElement("h2");
-  h2.textContent = title;
-  h2.style.marginBottom = "15px";
-  box.appendChild(h2);
-
-  // Option buttons
-  options.forEach(opt => {
-    const btn = document.createElement("button");
-    btn.textContent = opt.label;
-    btn.style.margin = "6px";
-    btn.style.padding = "10px 18px";
-    btn.style.fontSize = "15px";
-    btn.style.cursor = "pointer";
-    btn.style.border = "none";
-    btn.style.borderRadius = "6px";
-    btn.style.background = "#148275";
-    btn.style.color = "white";
-    btn.onmouseover = () => btn.style.background = "#0f5d4f";
-    btn.onmouseout = () => btn.style.background = "#148275";
-
-    btn.onclick = () => {
-      let finalURL = opt.url;
-
-      // Handle store number (with prefilled prompt)
-      if (finalURL.includes("XXXXX")) {
-        let stored = localStorage.getItem("rxnet_storeNumber") || "";
-        let store = prompt("Enter your store number:", stored);
-        if (!store) return;
-        localStorage.setItem("rxnet_storeNumber", store);
-        finalURL = finalURL.replace("XXXXX", encodeURIComponent(store));
-      }
-
-      // Handle NPI (with prefilled prompt)
-      if (finalURL.includes("YYYYYYYYYY")) {
-        let stored = localStorage.getItem("rxnet_npi") || "";
-        let npi = prompt("Enter your NPI number:", stored);
-        if (!npi) return;
-        localStorage.setItem("rxnet_npi", npi);
-        finalURL = finalURL.replace("YYYYYYYYYY", encodeURIComponent(npi));
-      }
-
-      window.open(finalURL, "_blank", "noopener,noreferrer");
-      overlay.remove();
-    };
-
-    box.appendChild(btn);
-  });
-
-  // Cancel button
-  const cancel = document.createElement("button");
-  cancel.textContent = "Cancel";
-  cancel.style.marginTop = "15px";
-  cancel.style.padding = "8px 16px";
-  cancel.style.fontSize = "14px";
-  cancel.style.cursor = "pointer";
-  cancel.style.border = "1px solid #aaa";
-  cancel.style.borderRadius = "6px";
-  cancel.style.background = "#f5f5f5";
-  cancel.onclick = () => overlay.remove();
-  box.appendChild(document.createElement("br"));
-  box.appendChild(cancel);
-
-  overlay.appendChild(box);
-  document.body.appendChild(overlay);
-}
-
-
-
-
-	 
 
 
 
@@ -877,19 +723,6 @@ function chooseFromOptions(title, options) {
   </div>
 </div>
 
-<!-- Input Modal -->
-<div id="inputModal" class="modal" style="display:none;">
-  <div class="modal-content">
-    <h3 id="inputModalTitle"></h3>
-    <input type="text" id="inputModalField" style="width:100%; padding:8px; margin:10px 0;" />
-    <div style="text-align:right;">
-      <button onclick="closeInputModal()">Cancel</button>
-      <button id="inputModalConfirm">OK</button>
-    </div>
-  </div>
-</div>
-
 	
 </body>
 </html>
-
