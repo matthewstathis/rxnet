@@ -213,7 +213,7 @@
         <a href="https://app.smartsense.co/" target="_blank" rel="noopener noreferrer">TempAlert</a>
         <a href="https://appsmcsaml.corp.cvscaremark.com/" target="_blank" rel="noopener noreferrer">Epic</a>
 	    <a href="https://apps.cvshealth.com/logon/LogonPoint/tmindex.html" target="_blank" rel="noopener noreferrer">Apps Portal</a>
-		<a href="#" onclick="chooseCitrix(); return false;">Citrix (External)</a>
+		<a href="#" onclick="chooseCitrix(); return false;">Citrix</a>
 		<a href="#" onclick="openDynamicURL('https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000'); return false;">Command Center</a>
         <a href="https://matthewstathis.github.io/rxnet/storesupplies">Store Supplies</a>
         <a href="#" onclick="openDynamicURL('https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=YYYYYYYYYY'); return false;">Express Scripts PRC</a>   
@@ -679,6 +679,10 @@ function openCitrix(choice) {
     window.open("https://remote.cvscaremark.com/Citrix/remotecorpWeb/", "_blank", "noopener,noreferrer");
   } else if (choice === "cvs") {
     window.open("https://remote.cvshealth.com/Citrix/remotecvsWeb/", "_blank", "noopener,noreferrer");
+  } else if (choice === "epic") {
+    window.open("https://appsmcsaml.corp.cvscaremark.com/", "_blank", "noopener,noreferrer");
+  } else if (choice === "appsportal") {
+    window.open("https://apps.cvshealth.com/logon/LogonPoint/tmindex.html/", "_blank", "noopener,noreferrer");
   }
   closeCitrixPopup();
 }
@@ -713,8 +717,10 @@ function closeCitrixPopup() {
 <div id="citrixPopup" class="popup-overlay" style="display:none;">
   <div class="popup-box">
     <h3>Select Citrix Domain</h3>
-    <button onclick="openCitrix('corp')">CORP</button>
-    <button onclick="openCitrix('cvs')">CVS</button>
+     <button onclick="openCitrix('epic')">EPIC</button>
+    <button onclick="openCitrix('appsportal')">Apps Portal</button>
+	  <button onclick="openCitrix('corp')">CORP (external)</button>
+    <button onclick="openCitrix('cvs')">CVS (external)</button>
     <button onclick="closeCitrixPopup()">Cancel</button>
   </div>
 </div>
