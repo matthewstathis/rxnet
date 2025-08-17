@@ -167,7 +167,9 @@
         <a href="#" onclick="openDynamicURL('https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs'); return false;">myReports (Field)</a>
 	<a href="https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" target="_blank" rel="noopener noreferrer">myWork</a>
         <a href="https://app.smartsense.co/" target="_blank" rel="noopener noreferrer">TempAlert</a>
-        <a href="https://appsmcsaml.corp.cvscaremark.com/" target="_blank" rel="noopener noreferrer">Citrix</a>
+        <a href="https://appsmcsaml.corp.cvscaremark.com/" target="_blank" rel="noopener noreferrer">Epic</a>
+	    <a href="https://apps.cvshealth.com/logon/LogonPoint/tmindex.html" target="_blank" rel="noopener noreferrer">Apps Portal</a>
+		<a href="#" onclick="chooseCitrix(); return false;">Citrix (External)</a>
         <a href="#" onclick="openDynamicURL('https://storeui.rxc.cvs.com:31212/command-center/?hostname=localhost&facilityId=XXXXX&port=30000'); return false;">Command Center</a>
         <a href="https://matthewstathis.github.io/rxnet/storesupplies">Store Supplies</a>
         <a href="#" onclick="openDynamicURL('https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://prc.express-scripts.com&RelayState=YYYYYYYYYY'); return false;">Express Scripts PRC</a>   
@@ -606,6 +608,23 @@ if (id === 'search') {
     }
   }
 
+
+function chooseCitrix() {
+  let choice = prompt("Which Citrix domain do you want to use? Type CORP or CVS:");
+
+  if (!choice) return; // cancel if user presses ESC or empty
+
+  choice = choice.trim().toLowerCase();
+
+  if (choice === "corp") {
+    window.open("https://remote.cvscaremark.com/Citrix/remotecorpWeb/", "_blank", "noopener,noreferrer");
+  } else if (choice === "cvs") {
+    window.open("https://remote.cvshealth.com/Citrix/remotecvsWeb/", "_blank", "noopener,noreferrer");
+  } else {
+    alert("Invalid choice. Please enter CORP or CVS.");
+  }
+}
+	 
   document.addEventListener("click", function (event) {
     let searchBox = document.getElementById("searchBox");
     let resultsDiv = document.getElementById("searchResults");
