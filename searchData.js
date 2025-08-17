@@ -294,7 +294,7 @@ const searchItems = [
         { name: "RxOS Update Homepage ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/RxOS_Homepage_20250610161035278.pdf" },
         { name: "Virtual Verification Homepage ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Virtual_Verification_RxNet_Landing_Page.pdf" },
         { name: "Corp\Domain Apps Portal (Citrix) ", url: "https://remote.cvscaremark.com/Citrix/remotecorpWeb/" },
-        { name: "Print CSOS POA   #power of attorney ", url: "https://portaldoctool.cvs.com/retailportalfiles/business/rx/POA_XXXXX.pdf" },
+        { name: "Print non-CSOS POA   #power of attorney ", url: "https://portaldoctool.cvs.com/retailportalfiles/business/rx/POA_XXXXX.pdf" },
         { name: "Print PA Pharmacy Permit/License    #Pennsylvania #Board of Pharmacy #Licensure ", url: "https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/RX_LICENSE_XXXXX.pdf" },
 
         { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
