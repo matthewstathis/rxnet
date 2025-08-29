@@ -190,7 +190,7 @@ const searchItems = [
         { name: "OTC COVID Kit Template with QR Codes ", url: "https://matthewstathis.github.io/rxnet/otckitqrtemplate.pdf" },
         { name: "COVID Vaccine Returns Job Aid ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/COVID-19_Monovalent_Product_Damage_Guide_20231003143049173.pdf" },
         { name: "Pfizer Comirnaty Adult (25-26) Quick Reference ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Pfizer_Quick_Reference_09132023_final_clean_20230913145929105.docx_2pdf.pdf" },
-        { name: "Pfizer Pediatric (25-26) Quick Reference ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/PEDI_Pfizer_Quick_Reference_09132023_final_clean_20230913143821964.docx_2pdf.pdf" },
+        { name: "Pfizer Comirnaty Pediatric (25-26) Quick Reference ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/PEDI_Pfizer_Quick_Reference_09132023_final_clean_20230913143821964.docx_2pdf.pdf" },
         { name: "Pfizer COVID vaccine (Comirnaty) package insert ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/COMIRNATY_-_Clean_USPI-PPI_COVID-19_Vaccine_mRNA_-_Tris_30_mcg_-_suspension_for_injection_2025082714180642.pdf" },
         { name: "COVID Vaccine Screening Questions/Guide ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/COVID_2025-26_Health_Screener_RPh_Answer_Guide_20250820170919183.docx_2pdf.pdf" },
         { name: "COVID Vaccine CDC Guidelines", url: "https://www.cdc.gov/vaccines/covid-19/clinical-considerations/interim-considerations-us.html" },
