@@ -297,6 +297,8 @@ const searchItems = [
         { name: "CSOS POA   #power of attorney ", url: "https://matthewstathis.github.io/rxnet/csospoas.pdf" },
         { name: "Print PIC POAs (Non-CSOS)   #power of attorney ", url: "https://portaldoctool.cvs.com/retailportalfiles/business/rx/POA_XXXXX.pdf" },
         { name: "Print PA Pharmacy Permit/License    #Pennsylvania #Board of Pharmacy #Licensure ", url: "https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/RX_LICENSE_XXXXX.pdf" },
+        { name: "SpokenRx ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/store/oth/SpokenRx_myDocs_LandingePage.pptx_2pdf.pdf" },
+        { name: "LearnRx Tracking ", url: "https://aetna.quickbase.com/nav/app/bstr5x75e/action/appoverview" },
 
         { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
 
