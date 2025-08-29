@@ -299,6 +299,7 @@ const searchItems = [
         { name: "Print PA Pharmacy Permit/License    #Pennsylvania #Board of Pharmacy #Licensure ", url: "https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/RX_LICENSE_XXXXX.pdf" },
         { name: "SpokenRx ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/store/oth/SpokenRx_myDocs_LandingePage.pptx_2pdf.pdf" },
         { name: "LearnRx Tracking ", url: "https://aetna.quickbase.com/nav/app/bstr5x75e/action/appoverview" },
+        { name: "New Hire Password Setup Job Aid ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Retail_New_Colleague_Password_Guide_20250820162352262.pdf" },
 
         { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
 
