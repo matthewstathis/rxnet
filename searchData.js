@@ -189,11 +189,10 @@ const searchItems = [
         { name: "OTC COVID Test Kits ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/COVID_OTC_Test_RxNet_Page.pdf" },
         { name: "OTC COVID Kit Template with QR Codes ", url: "https://matthewstathis.github.io/rxnet/otckitqrtemplate.pdf" },
         { name: "COVID Vaccine Returns Job Aid ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/COVID-19_Monovalent_Product_Damage_Guide_20231003143049173.pdf" },
-        { name: "Comirnaty (24-25) ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Package-Insert-and-FDA-Approved-Patient-Labeling-COMIRNATY_20240822152801600.pdf" },
-        { name: "Pfizer Pediatric ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Pfizer-BioNTech_COVID-19_Vaccine_Fact_Sheet_August_2024_20240822154547539.pdf" },
-        { name: "SpikeVax (24-25) ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Spikevax-24-25-Formula-PI-12y%2B-Final_8.22.24_20240822145855118.pdf" },
-        { name: "Moderna Pediatric ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/MCV-FS-Providers-24-25-Formula-6m-11y-Final_8.22.24_20240822145951207.pdf" },
-        { name: "NovaVax PI ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/FS-HCP-Administering-VaccineNovavax-Aug-2024_20240903092828399.pdf" },
+        { name: "Pfizer Comirnaty Adult (25-26) Quick Reference ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Pfizer_Quick_Reference_09132023_final_clean_20230913145929105.docx_2pdf.pdf" },
+        { name: "Pfizer Pediatric (25-26) Quick Reference ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/PEDI_Pfizer_Quick_Reference_09132023_final_clean_20230913143821964.docx_2pdf.pdf" },
+        { name: "Pfizer COVID vaccine (Comirnaty) package insert ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/COMIRNATY_-_Clean_USPI-PPI_COVID-19_Vaccine_mRNA_-_Tris_30_mcg_-_suspension_for_injection_2025082714180642.pdf" },
+        { name: "COVID Vaccine Screening Questions/Guide ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/COVID_2025-26_Health_Screener_RPh_Answer_Guide_20250820170919183.docx_2pdf.pdf" },
         { name: "COVID Vaccine CDC Guidelines", url: "https://www.cdc.gov/vaccines/covid-19/clinical-considerations/interim-considerations-us.html" },
         { name: "Magic Mouthwash Order Set ", url: "https://matthewstathis.github.io/rxnet/mmworderset.pdf" },
         { name: "Beyond Use Date (BUD) Guide ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Beyond_Use_Dating_Guidance_20230308162552228_2023031320045034.pdf" },
@@ -301,7 +300,10 @@ const searchItems = [
         { name: "LearnRx Tracking ", url: "https://aetna.quickbase.com/nav/app/bstr5x75e/action/appoverview" },
         { name: "New Hire Password Setup Job Aid ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Retail_New_Colleague_Password_Guide_20250820162352262.pdf" },
 
+
         { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
 
+
+        
         
 ];
