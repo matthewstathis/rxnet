@@ -56,7 +56,6 @@ const searchItems = [
         { name: "Workbrain ", url: "https://cvs.cloud.infor.com/" },
         { name: "Service Channel ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://login.servicechannel.com/saml/acs" },
         { name: "Store Visit Tool ", url: "https://svt.cvsapps.com/sso" },
-        { name: "Uniform Ordering ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=SP_SuperiorUGroup&RelayState=MTYzMQ==" },
         { name: "Attendance Tracker ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Attendance_Tracker_7.2018__20180731161449175.pdf" },
         { name: "Name Tag Labels ", url: "https://nametagger.cvs.com" },
         { name: "Payroll/Timekeeping ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Store_Leader_Payroll_SOP_Feb_2025_vF_20250214120945448.pdf" },
