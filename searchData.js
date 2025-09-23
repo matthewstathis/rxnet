@@ -242,7 +242,7 @@ const searchItems = [
         { name: "Drug Disposal ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Drug_Disposal_ERecord_Keeping_FINAL_20230818130247663.pdf" },
         { name: "Emergency Procedure Packet ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Retail_EPP_Printable_English.pdf" },
         { name: "Immunization Patient Considerations  #IMZ ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Beyond_the_Basics_Expanded_Vaccine_Topics_for_Pharmacists_20240911154235709.pdf" },
-        { name: "Immunization Registry   #IMZ ", url: "https://cvs.poct.stchome.net/" },
+        { name: "Immunization Registry   #IMZ ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://poct-sso.stchome.net/auth/realms/immslink" },
         { name: "Warehouse Backorders ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Back_Order_Rpt.pdf" },
         { name: "WeCare Weekly ", url: "https://portaldoctool.cvs.com/rxreports/wecare/weekly/WeCare_Scorecard_SXXXXX.pdf" },
         { name: "WeCare Hourly ", url: "https://dashboard.rxc.cvs.com:33210/WeCare/?store_id=Y3Zzd2VibWFzdGVy&roleType=Y29ycA%3D%3D" },
@@ -298,7 +298,8 @@ const searchItems = [
         { name: "LearnRx Tracking ", url: "https://aetna.quickbase.com/nav/app/bstr5x75e/action/appoverview" },
         { name: "New Hire Password Setup Job Aid ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Retail_New_Colleague_Password_Guide_20250820162352262.pdf" },
         { name: "Calculator ", url: "https://matthewstathis.github.io/rxnet/calculator" },
-
+        { name: "Novavax ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/COVID_Novavax_Quick_Reference_9.17_FINAL_20250919151950379.pdf" },
+        { name: "IMZ Ordering Portal   #IMZ ", url: "https://ciim.rx.cvs.com/rx-coa/#/iit/login?store=FACILITY_ID" },
         { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
 
 
