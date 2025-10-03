@@ -12,7 +12,7 @@ const searchItems = [
         { name: "myReports/Spark (store) ", url: "https://retailspark.cvs.com/spark?view=storeView" },
         { name: "Environmental Health and Safety Reports Portal ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Environmental_Health_%26_Safety_Reports_Portal_Job_Aid.pdf" },
         { name: "Controlled Substance Inventory ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Controlled_Substance_Inventory_Annual_PIC_Change_20230308132257348.pdf" },
-        { name: "TempAlert ", url: "https://app.smartsense.co/" },
+        { name: "TempAlert ", url: "https://app.smartsense.co/api/Saml/InitiateSingleSignOn/CVS?returnUrl=https://app.smartsense.co/start/XXXXX" },
         { name: "Pet Med Formulary ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Did_you_know_20250310152951196.pdf" },
         { name: "Pet Med Indications for Preventatives ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Preventives_Indications_Chart_20250311122103610.pdf" },
         { name: "Pet Med Rebates ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Pet_Med_Rebate_20250317085858808.pdf" },
@@ -287,7 +287,7 @@ const searchItems = [
         { name: "OPI ", url: "https://portaldoctool.cvs.com/portalDocTool/viewDocuments.do?listingID=complianceModReports&roles=myReports&deptType=RX&metricID=storeXXXXX" },
         { name: "IER Monthly Scorecard ", url: "https://portaldoctool.cvs.com/retailportalfiles/business/iermonthlyscorecards/IER_Monthly_Scorecard_SXXXXX.pdf" },
         { name: "Central Fill Homepage ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Central_Fill_Homepage_20240206170244882.pdf" },
-        { name: "POS/Register Update ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/POS_MOD_etc_Landing_Page_20250523125032244.pdf" },
+        { name: "POS Modernization/Register Update ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Improving_the_tools_you_use-_POS_Modernization_and_Self_Check-In_at_Pharmacy_Pickup.pdf" },
         { name: "Rx/iO Update Homepage   #RxOS  #Rx/iO", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/RxOS_Homepage_20250610161035278.pdf" },
         { name: "Virtual Verification Homepage ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Virtual_Verification_RxNet_Landing_Page.pdf" },
         { name: "Corp\Domain Apps Portal (Citrix) ", url: "https://remote.cvscaremark.com/Citrix/remotecorpWeb/" },
@@ -300,6 +300,8 @@ const searchItems = [
         { name: "Calculator ", url: "https://matthewstathis.github.io/rxnet/calculator" },
         { name: "Novavax ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/COVID_Novavax_Quick_Reference_9.17_FINAL_20250919151950379.pdf" },
         { name: "IMZ Ordering Portal   #IMZ ", url: "https://ciim.rx.cvs.com/rx-coa/#/iit/login?store=FACILITY_ID" },
+        { name: "Compliance Signage #Required Docs", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/Compliance_Sustainability_RX_Signage_Review_File.pdf" },
+
         { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
 
 
