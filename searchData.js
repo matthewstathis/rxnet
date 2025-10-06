@@ -301,6 +301,10 @@ const searchItems = [
         { name: "Novavax ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/COVID_Novavax_Quick_Reference_9.17_FINAL_20250919151950379.pdf" },
         { name: "IMZ Ordering Portal   #IMZ ", url: "https://ciim.rx.cvs.com/rx-coa/#/iit/login?store=FACILITY_ID" },
         { name: "Compliance Signage #Required Docs", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/Compliance_Sustainability_RX_Signage_Review_File.pdf" },
+        { name: "Yahoo #Google alternative", url: "https://yahoo.com" },
+        { name: "DuckDuckGo #Google alternative", url: "https://duckduckgo.com" },
+        { name: "Calculator", url: "https://matthewstathis.github.io/rxnet/calculator" },
+        { name: "Calendar", url: "https://matthewstathis.github.io/rxnet/calendar" },
 
         { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
 
