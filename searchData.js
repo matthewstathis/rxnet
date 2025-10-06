@@ -111,7 +111,7 @@ const searchItems = [
         { name: "Rx Scoreboard ", url: "https://matthewstathis.github.io/rxnet/scoreboard.pdf" },
         { name: "Profit & Loss ", url: "https://enterpriseportalreporting-prd2.corp.cvscaremark.com:8443/enterprisePortalReporting/viewDocuments.do?listingID=storeProfitLoss&roles=c3RvcmVwbHVzZXI=&storeNumber=XXXXX" },
         { name: "Green Sheets ", url: "https://enterpriseportalreporting-prd2.corp.cvscaremark.com:8443/enterprisePortalReporting/viewDocuments.do?listingID=fmsGreenSheetsReportLandingPage&roles=Zm1zcG9ydHBhZ2V1c2Vy&storeNumber=XXXXX" },
-        { name: "Compliance Report ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/LearningHub_Analytics_MyTeam_Compliance_Reporting_2023062113415949.pdf" },
+        { name: "Compliance Report Job Aid ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/LearningHub_Analytics_MyTeam_Compliance_Reporting_2023062113415949.pdf" },
         { name: "To-Do List Report ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/LearningHub_Analytics_MyTeam_To-Do_List_Reporting.pptx_2pdf.pdf" },
         { name: "OA Audit Appeals Portal ", url: "https://www.cvsreports.com/RXRC/CorporateHome" },
         { name: "Onboarding #Orientation ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/New_Colleague_Onboarding_Welcome_Guide.pdf" },
@@ -305,6 +305,8 @@ const searchItems = [
         { name: "DuckDuckGo #Google alternative", url: "https://duckduckgo.com" },
         { name: "Calculator", url: "https://matthewstathis.github.io/rxnet/calculator" },
         { name: "Calendar", url: "https://matthewstathis.github.io/rxnet/calendar" },
+        { name: "Compliance and RxC Shutoff Reporting (Field)", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/R%26C_Training_Resource_Page.pptx_2pdf.pdf" },
+
 
         { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
 
