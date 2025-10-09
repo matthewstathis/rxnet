@@ -306,6 +306,9 @@ const searchItems = [
         { name: "Calculator", url: "https://matthewstathis.github.io/rxnet/calculator" },
         { name: "Calendar", url: "https://matthewstathis.github.io/rxnet/calendar" },
         { name: "Compliance and RxC Shutoff Reporting (Field)", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/R%26C_Training_Resource_Page.pptx_2pdf.pdf" },
+        { name: "Calendar", url: "https://matthewstathis.github.io/rxnet/calendar" },
+        { name: "FS @ Rx Attestation", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/FS_at_Rx_POS_Attestation_Tracker_20250930135204234.pdf" },
+        { name: "COVID Vaccine Master Reference", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/COVID-19_Vaccine_State_Guideline_and_Talking_Points_Job_Aid_20250827185139490.pdf" },
 
 
         { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
