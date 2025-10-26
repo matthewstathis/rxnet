@@ -49,7 +49,7 @@ const searchItems = [
         { name: "Naloxone ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Naloxone_Program_Support_Page_20240102165341901.pdf" },
         { name: "McKesson ", url: "https://connect.mckesson.com/content" },
         { name: "PEG Formulations ", url: "https://matthewstathis.github.io/rxnet/pegforms" },
-        { name: "myWork ", url: "https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" },
+        { name: "mySchedule (formerly myWork -- search Zipline for new task management portal) ", url: "https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" },
         { name: "My Customer Connection  #MCC ", url: "https://cvs.medallia.com/sso/cvs" },
         { name: "LearningHub ", url: "https://cvshealth.sabacloud.com/" },
         { name: "RRT Approval  #Remote Training ", url: "https://app-corp-rewrite-prod-use2-web.azurewebsites.net/rrtAccessManagement" },
@@ -309,6 +309,8 @@ const searchItems = [
         { name: "Calendar", url: "https://matthewstathis.github.io/rxnet/calendar" },
         { name: "FS @ Rx Attestation", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/FS_at_Rx_POS_Attestation_Tracker_20250930135204234.pdf" },
         { name: "COVID Vaccine Master Reference", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/COVID-19_Vaccine_State_Guideline_and_Talking_Points_Job_Aid_20250827185139490.pdf" },
+        { name: "Zipline", url: "https://cvs.retailzipline.com/" },
+        { name: "PA Clinical Labratory License/Certificate Reprint   #COVID Testing", url: "https://www.palabsbillpayment.health.pa.gov/Home.aspx" },
 
 
         { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
