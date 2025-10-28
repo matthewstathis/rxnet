@@ -309,7 +309,7 @@ const searchItems = [
         { name: "Calendar", url: "https://matthewstathis.github.io/rxnet/calendar" },
         { name: "FS @ Rx Attestation", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/FS_at_Rx_POS_Attestation_Tracker_20250930135204234.pdf" },
         { name: "COVID Vaccine Master Reference", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/COVID-19_Vaccine_State_Guideline_and_Talking_Points_Job_Aid_20250827185139490.pdf" },
-        { name: "Zipline", url: "https://cvs.retailzipline.com/" },
+        { name: "Zipline", url: "https://cvs.retailzipline.com/field/dashboard" },
         { name: "PA Clinical Labratory License/Certificate Reprint   #COVID Testing", url: "https://www.palabsbillpayment.health.pa.gov/Home.aspx" },
         { name: "Zipline (Field) ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=cvshealthsp_png_cvscom&RelayState=https://authsvc.cvshealth.com/idp/startSSO.ping?PartnerSpId=https://cvs.retailzipline.com/sso/saml/metadata/?SUBSTITUTE_STORE_NUMBER=XXXXX" },
 
