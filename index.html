@@ -183,6 +183,7 @@
     <button class="dock-button" onclick="showCategory('training', this)">Training</button>
     <button class="dock-button" onclick="showCategory('resources', this)">IT/Misc</button>
     <button class="dock-button" onclick="showCategory('reports', this)">Reports</button>
+    <button class="dock-button" onclick="showCategory('field', this)">Field Leaders</button>
     <button class="dock-button" onclick="showCategory('requireddocs', this)">Required Docs</button>
     <button class="dock-button" onclick="showCategory('petcfspar', this)">Vet/CF/SPAR</button>
     <button class="dock-button" onclick="showCategory('covid', this)">COVID</button>
@@ -208,9 +209,7 @@
     Operational
   </div>
 	<a href="https://retailspark.cvs.com/spark?view=storeView" target="_blank" rel="noopener noreferrer">myReports</a>
-        <a href="#" onclick="openDynamicURL('https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs'); return false;">myReports (Field)</a>
 		<a href="https://cvs.retailzipline.com/field/dashboard" target="_blank" rel="noopener noreferrer">Zipline</a>
-        <a href="#" onclick="openDynamicURL('https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=cvshealthsp_png_cvscom&RelayState=https://authsvc.cvshealth.com/idp/startSSO.ping?PartnerSpId=https://cvs.retailzipline.com/sso/saml/metadata/?SUBSTITUTE_STORE_NUMBER=XXXXX'); return false;">Zipline (Field)</a>
 		<a href="https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" target="_blank" rel="noopener noreferrer">mySchedule</a>
         <a href="#" onclick="openDynamicURL('https://app.smartsense.co/api/Saml/InitiateSingleSignOn/CVS?returnUrl=https://app.smartsense.co/start/XXXXX'); return false;">TempAlert</a>
 		<a href="#" onclick="chooseCitrix(); return false;">Citrix</a>
@@ -263,6 +262,26 @@
 
 </div>
 
+
+
+
+
+
+
+<div id="field" class="grid category-panel" style="display: none;"> 
+  <!-- Section Title: Field Leaders -->
+  <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
+    Field Leaders
+  </div>
+        <a href="#" onclick="openDynamicURL('https://retailspark.cvs.com/spark?view=storeView&storeName=sXXXXXrxs'); return false;">myReports</a>
+        <a href="#" onclick="openDynamicURL('https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=cvshealthsp_png_cvscom&RelayState=https://authsvc.cvshealth.com/idp/startSSO.ping?PartnerSpId=https://cvs.retailzipline.com/sso/saml/metadata/?SUBSTITUTE_STORE_NUMBER=XXXXX'); return false;">Zipline (Field)</a>
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/R%26C_Training_Resource_Page.pptx_2pdf.pdf" target="_blank" rel="noopener noreferrer">Shut Off Report</a>
+
+</div>
+
+
+
+	  
 
 
 	  
@@ -410,7 +429,6 @@
   </div>
         <a href="https://cvshealth.sabacloud.com/" target="_blank" rel="noopener noreferrer">LearningHub</a>
         <a href="https://app-corp-rewrite-prod-use2-web.azurewebsites.net/rrtAccessManagement" target="_blank" rel="noopener noreferrer">RRT Approval</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/R%26C_Training_Resource_Page.pptx_2pdf.pdf" target="_blank" rel="noopener noreferrer">Field Reporting</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/LearningHub_Analytics_MyTeam_Compliance_Reporting_2023062113415949.pdf" target="_blank" rel="noopener noreferrer">Report Job Aid</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/RPh_Letter_Updated.pptx_2pdf.pdf" target="_blank" rel="noopener noreferrer">CE Tracking</a>
         <a href="https://cvshealth.sabacloud.com/Saba/Web_spf/NA10P1PRD006/app/shared;spf-url=pages%2Fpagelistview%2Fpgcnt000000000537180" target="_blank" rel="noopener noreferrer">PTCB Workspace</a>
