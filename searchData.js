@@ -312,11 +312,11 @@ const searchItems = [
         { name: "Zipline", url: "https://cvs.retailzipline.com/field/dashboard" },
         { name: "PA Clinical Labratory License/Certificate Reprint   #COVID Testing", url: "https://www.palabsbillpayment.health.pa.gov/Home.aspx" },
         { name: "Zipline (Field) ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=cvshealthsp_png_cvscom&RelayState=https://authsvc.cvshealth.com/idp/startSSO.ping?PartnerSpId=https://cvs.retailzipline.com/sso/saml/metadata/?SUBSTITUTE_STORE_NUMBER=XXXXX" },
-        { name: “Fax Transfer Request Job Aid ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/RxTransfer_Fax_Functionality_Job_Aid_20251103091345116.pptx_2pdf.pdf" },
-        { name: “MTC - Roster Readiness/Guidelines “, url: “https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/rpt/RGLandingPage.pdf” },
-        { name: “MTC - Weekly Report ", url: “https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/mTC_Weekly_STORE.xlsx_2pdf.pdf” },
-        { name: “Weekly TempAlert Compliance Report ", url: “https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/rpt/Store_Chainwide_TempAlert_Engagement_Reporting.xlsx_2pdf.pdf” },
-        { name: “MPC Colleague Level Report ", url: “https://portaldoctool.cvs.com/rxreports/mpc/weekly/CLR_Weekly/Colleague_Level_Reporting_Weekly_SXXXXX.pdf” },
+        { name: "Fax Transfer Request Job Aid ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/RxTransfer_Fax_Functionality_Job_Aid_20251103091345116.pptx_2pdf.pdf" },
+        { name: "MTC - Roster Readiness/Guidelines ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/rpt/RGLandingPage.pdf” },
+        { name: "MTC - Weekly Report ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/mTC_Weekly_STORE.xlsx_2pdf.pdf” },
+        { name: "Weekly TempAlert Compliance Report ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/rpt/Store_Chainwide_TempAlert_Engagement_Reporting.xlsx_2pdf.pdf” },
+        { name: "MPC Colleague Level Report ", url: "https://portaldoctool.cvs.com/rxreports/mpc/weekly/CLR_Weekly/Colleague_Level_Reporting_Weekly_SXXXXX.pdf” },
 
         { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
 
