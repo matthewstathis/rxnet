@@ -45,7 +45,7 @@ const searchItems = [
         { name: "Uniform Sizing Guide ", url: "https://cvstracking.hpidirectstore.net/images/store_images/Uniform_Sizing_Guide.pdf" },
         { name: "Syringes/Needles ", url: "https://matthewstathis.github.io/rxnet/syringes" },
         { name: "SIG Code Sheet ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/RxConnect_SIG_Codes_Best_Practices.pdf" },
-        { name: "Nebulizers/Spacers (alt) ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Nebulizer_and_Spacer_Support_RxNet_Page_KP_20210618153949167.pptx_2pdf.pdf" },
+        { name: "Nebulizers/Spacers (Legacy - alt) ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Nebulizer_and_Spacer_Support_RxNet_Page_KP_20210618153949167.pptx_2pdf.pdf" },
         { name: "Naloxone ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Naloxone_Program_Support_Page_20240102165341901.pdf" },
         { name: "McKesson ", url: "https://connect.mckesson.com/content" },
         { name: "PEG Formulations ", url: "https://matthewstathis.github.io/rxnet/pegforms" },
@@ -209,7 +209,7 @@ const searchItems = [
         { name: "Clinical Key (MSU Students)", url: "https://auth.elsevier.com/ShibAuth/institutionLogin?appReturnURL=https%3A%2F%2Fwww.clinicalkey.com%2Fshibboleth%2F&entityID=urn%3Amace%3Aincommon%3Amsu.edu" },
         { name: "Pharmacist Letter ", url: "https://pharmacist.therapeuticresearch.com/en/Home/PL" },
         { name: "Plumbs Veterinary ", url: "https://www.plumbsveterinarydrugs.com/" },
-        { name: "Nebulizers/Spacers ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Nebulizer_and_Spacer_Support_JobAid_20240822_20240909140443539.pdf" },
+        { name: "Nebulizers/Spacers (Legacy) ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Nebulizer_and_Spacer_Support_JobAid_20240822_20240909140443539.pdf" },
         { name: "McKesson ", url: "https://connect.mckesson.com/content" },
         { name: "ColleagueZone ", url: "https://colleaguezone.cvs.com/cz?id=favorites_list" },
         { name: "Meal Break Waiver Job Aid ", url: "https://colleaguezone.cvs.com/cz?id=kb_article&sysparm_article=KB0061084" },
@@ -318,6 +318,8 @@ const searchItems = [
         { name: "Weekly TempAlert Compliance Report ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/rpt/Store_Chainwide_TempAlert_Engagement_Reporting.xlsx_2pdf.pdf" },
         { name: "MPC Colleague Level Report ", url: "https://portaldoctool.cvs.com/rxreports/mpc/weekly/CLR_Weekly/Colleague_Level_Reporting_Weekly_SXXXXX.pdf" },
         { name: "Multi-factor authentication (NEW)  #MFA  #2FA ", url: "https://mfa.cvshealth.com/myaccount/" },
+        { name: "Nebulizers/Spacers (NEW) ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Nebulizer_Dispensing_Job_Aid_2025_10_29_20251110134417326.pdf" },
+
 
 
         { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
