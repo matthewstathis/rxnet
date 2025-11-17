@@ -319,6 +319,7 @@ const searchItems = [
         { name: "MPC Colleague Level Report ", url: "https://portaldoctool.cvs.com/rxreports/mpc/weekly/CLR_Weekly/Colleague_Level_Reporting_Weekly_SXXXXX.pdf" },
         { name: "Multi-factor authentication (NEW)  #MFA  #2FA ", url: "https://mfa.cvshealth.com/myaccount/" },
         { name: "Nebulizers/Spacers (NEW) ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Nebulizer_Dispensing_Job_Aid_2025_10_29_20251110134417326.pdf" },
+        { name: "PingID Setup   #MFA  #2FA ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/Ping_Mobile_Registration_External_Network_from_Personal_Device.pdf" },
 
 
 
