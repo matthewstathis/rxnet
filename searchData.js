@@ -63,7 +63,7 @@ const searchItems = [
         { name: "ColleagueZone ", url: "https://colleaguezone.cvs.com" },
         { name: "Heartbeat ", url: "https://stores.heartbeat.cvshealth.com/" },
         { name: "Hiring Support ", url: "https://colleaguezone.cvs.com/cz?id=sc_cat_item&table=sc_cat_item&sys_id=ee91566efb81a69026f7f2b455efdc0a&recordUrl=com.glideapp.servicecatalog_cat_item_view.do%3Fv%3D1&sysparm_id=ee91566efb81a69026f7f2b455efdc0a" },
-        { name: "Multi-factor authentication  #MFA  #2FA ", url: "https://idmgmt.cvshealth.com/iam-selfserviceportal-oci/home" },
+        { name: "Multi-factor authentication (Legacy link)  #MFA  #2FA ", url: "https://idmgmt.cvshealth.com/iam-selfserviceportal-oci/home" },
         { name: "Attendance Policy and Logs ", url: "https://colleaguezone.cvs.com/cz?id=kb_article&sysparm_article=KB0058118" },
         { name: "Hiring Guide ", url: "https://colleaguezone.cvs.com/cz?id=kb_article_view&sysparm_article=KB0061720" },
         { name: "COVID Sick Policy ", url: "https://colleaguezone.cvs.com/cz?id=kb_article&sysparm_article=KB0059260" },
@@ -100,7 +100,7 @@ const searchItems = [
         { name: "Immunization Pharmacist Curriculum  #IMZ ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Pharmacist_and_Intern_Immunization_Curriculum_20220720144842710.pdf" },
         { name: "Immunization Technician Curriculum  #IMZ ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Pharmacy_Technician_Immunization_Curriculum_2022062814253156.pdf" },
         { name: "Uploading Certifications  #IMZ ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Colleague_Self_Entry_of_Required_Immunization_Certificates_and_CPR_2023072713230237.pdf" },
-        { name: "NABP CE ID ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Obtaining_a_NABP_Continuing_Education_ID_Job_Aid_20250115131819988.pptx_2pdf.pdf" },
+        { name: "NABP CE ID ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/NABP_e-Profile_ID__20251031144708533.pdf" },
         { name: "CPR Scheduling #IMZ  ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/CPR_Job_Aid_for_Store_Colleagues_20240223155128952.pptx_2pdf.pdf" },
         { name: "Travel Immunization NDCs #IMZ  ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/TravelVaccineDetails_20241106120156848.pdf" },
         { name: "Travel Immunization Reference  #IMZ ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Travel_IMZ_Cheat_Sheet_12122024_20241212111427361.docx_2pdf.pdf" },
@@ -317,6 +317,8 @@ const searchItems = [
         { name: "MTC - Weekly Report ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/mTC_Weekly_STORE.xlsx_2pdf.pdf" },
         { name: "Weekly TempAlert Compliance Report ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/rpt/Store_Chainwide_TempAlert_Engagement_Reporting.xlsx_2pdf.pdf" },
         { name: "MPC Colleague Level Report ", url: "https://portaldoctool.cvs.com/rxreports/mpc/weekly/CLR_Weekly/Colleague_Level_Reporting_Weekly_SXXXXX.pdf" },
+        { name: "Multi-factor authentication (NEW)  #MFA  #2FA ", url: "https://mfa.cvshealth.com/myaccount/" },
+
 
         { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
 
