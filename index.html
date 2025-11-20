@@ -174,6 +174,7 @@
   RxNet
 </h1>
     <button class="dock-button" onclick="showCategory('search', this)">Search</button>
+    <button class="dock-button" onclick="showCategory('favorites', this)">Favorites</button>
     <button class="dock-button" onclick="showCategory('operational', this)">Ops/Manager</button>
     <button class="dock-button" onclick="showCategory('filling', this)">Filling</button>
     <button class="dock-button" onclick="showCategory('references', this)">References</button>
@@ -202,13 +203,44 @@
     </div>
 
 
+
+
+
+
+
+
+<div id="favorites" class="grid category-panel" style="display: none;"> 
+  <!-- Section Title: Favorites -->
+  <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
+    Favorites
+  </div>
+		<a href="https://www1.cardinalhealth.com/" target="_blank" rel="noopener noreferrer">Cardinal</a>
+        <a href="https://matthewstathis.github.io/rxnet/rxtelephonev2.pdf" target="_blank" rel="noopener noreferrer">Rx Phone Order</a>
+		<a href="https://mail.cvshealth.com/" target="_blank" rel="noopener noreferrer">Outlook</a>
+		<a href="https://cvs.retailzipline.com/field/dashboard" target="_blank" rel="noopener noreferrer">Zipline</a>
+		<a href="https://retailspark.cvs.com/spark?view=storeView" target="_blank" rel="noopener noreferrer">myReports</a>
+		<a href="https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" target="_blank" rel="noopener noreferrer">mySchedule</a>
+        <a href="#" onclick="openDynamicURL('https://app.smartsense.co/api/Saml/InitiateSingleSignOn/CVS?returnUrl=https://app.smartsense.co/start/XXXXX'); return false;">TempAlert</a>
+        <a href="https://cvs.cloud.infor.com/" target="_blank" rel="noopener noreferrer">Workbrain</a>
+        <a href="https://www.clinicalkey.com/pharmacology/" target="_blank" rel="noopener noreferrer">Clinical Pharmacology</a>
+        <a href="https://rxdw-rximageretrieval.rxdw-cld-ap.cvshealthcloud.com/enterStore#no-back-button" target="_blank" onclick="return confirm('Alert: If the image retrieval portal loads to an error page, simply refresh the page (or press Control + R) and it will take you to the store number entry screen.');">Image Retrieval</a>        
+		<a href="https://www.myworkday.com/cvshealth/d/home.htmld" target="_blank" rel="noopener noreferrer">Workday</a>
+		<a href="https://cvs.medallia.com/sso/cvs" target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer">MCC</a>
+		<a href="#" onclick="chooseCitrix(); return false;">Citrix</a>
+        <a href="https://chainlauncher.rxc.cvs.com:7188/Launcher/AppLauncher.jnlp" target="_blank" rel="noopener noreferrer">RxC Launcher</a>
+        <a href="https://rxcreports.rxc.cvs.com:31210/airsupport/queuesummary" target="_blank" rel="noopener noreferrer">Queue Depth</a>
+		<a href="https://imzdash.rxc.cvs.com:31213/immunization/" target="_blank" rel="noopener noreferrer">IMZ Dashboard</a>
+</div>
+
+
+	  
 	  
 <div id="operational" class="grid category-panel" style="display: none;"> 
   <!-- Section Title: Operational -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Operational
   </div>
-	<a href="https://retailspark.cvs.com/spark?view=storeView" target="_blank" rel="noopener noreferrer">myReports</a>
+		<a href="https://retailspark.cvs.com/spark?view=storeView" target="_blank" rel="noopener noreferrer">myReports</a>
 		<a href="https://cvs.retailzipline.com/field/dashboard" target="_blank" rel="noopener noreferrer">Zipline</a>
 		<a href="https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" target="_blank" rel="noopener noreferrer">mySchedule</a>
         <a href="#" onclick="openDynamicURL('https://app.smartsense.co/api/Saml/InitiateSingleSignOn/CVS?returnUrl=https://app.smartsense.co/start/XXXXX'); return false;">TempAlert</a>
@@ -234,8 +266,8 @@
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Communications
   </div>
-	<a href="https://mail.cvshealth.com/" target="_blank" rel="noopener noreferrer">Outlook</a>
-	<a href="https://cvs.medallia.com/sso/cvs" target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer">MCC</a>
+		<a href="https://mail.cvshealth.com/" target="_blank" rel="noopener noreferrer">Outlook</a>
+		<a href="https://cvs.medallia.com/sso/cvs" target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer">MCC</a>
         <a href="https://storepcc.rxc.cvs.com:30491/pccui/v1/#/OpportunitiesList/" target="_blank" rel="noopener noreferrer">Patient Care Central</a>
         <a href="https://matthewstathis.github.io/rxnet/directory">Main Directory</a>
         <a href="https://matthewstathis.github.io/rxnet/transfer">Transfer Directory</a>
@@ -248,25 +280,22 @@
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Reports
   </div>
-	<a href="#" onclick="openDynamicURL('https://portaldoctool.cvs.com/portalDocTool/viewDocuments.do?listingID=dcReportPage&roles=ZGNyZXBvcnRwYWdldXNlcg==&storeNumber=XXXXX'); return false;">Truck Manifests</a>
+		<a href="#" onclick="openDynamicURL('https://portaldoctool.cvs.com/portalDocTool/viewDocuments.do?listingID=dcReportPage&roles=ZGNyZXBvcnRwYWdldXNlcg==&storeNumber=XXXXX'); return false;">Truck Manifests</a>
         <a href="https://retailspark.cvs.com/rbi/?options-base=on&storeNumber=" target="_blank" rel="noopener noreferrer">Store Digest</a>
         <a href="https://rxcreports.rxc.cvs.com:31210/airsupport/queuesummary" target="_blank" rel="noopener noreferrer">Queue Depth</a>
-	<a href="https://imzdash.rxc.cvs.com:31213/immunization/" target="_blank" rel="noopener noreferrer">IMZ Dashboard</a>
+		<a href="https://imzdash.rxc.cvs.com:31213/immunization/" target="_blank" rel="noopener noreferrer">IMZ Dashboard</a>
         <a href="https://ciim.cvs.com/ciimappnew/#/login" target="_blank" rel="noopener noreferrer">CIIM</a>
         <a href="https://matthewstathis.github.io/rxnet/scoreboard.pdf" target="_blank" rel="noopener noreferrer">Rx Scoreboard</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Environmental_Health_%26_Safety_Reports_Portal_Job_Aid.pdf" target="_blank" rel="noopener noreferrer">Evo/Safety Reports</a>
-	<a href="#" onclick="openDynamicURL('https://portaldoctool.cvs.com/retailbireports/msh/mcp/mSH_MCP_Spotlight_SXXXXX.pdf'); return false;">MCP Spotlight</a>
-	<a href="#" onclick="openDynamicURL('https://portaldoctool.cvs.com/rxreports/mpc/weekly/mPC_Scorecard_SXXXXX.pdf'); return false;">MPC Scorecard</a>
-	<a href="#" onclick="openDynamicURL('https://portaldoctool.cvs.com/retailportalfiles/business/iermonthlyscorecards/IER_Monthly_Scorecard_SXXXXX.pdf'); return false;">IER Scorecard</a>
-	<a href="#" onclick="openDynamicURL('https://portaldoctool.cvs.com/portalDocTool/viewDocuments.do?listingID=complianceModReports&roles=myReports&deptType=RX&metricID=storeXXXXX'); return false;">OPI</a>
+		<a href="#" onclick="openDynamicURL('https://portaldoctool.cvs.com/retailbireports/msh/mcp/mSH_MCP_Spotlight_SXXXXX.pdf'); return false;">MCP Spotlight</a>
+		<a href="#" onclick="openDynamicURL('https://portaldoctool.cvs.com/rxreports/mpc/weekly/mPC_Scorecard_SXXXXX.pdf'); return false;">MPC Scorecard</a>
+		<a href="#" onclick="openDynamicURL('https://portaldoctool.cvs.com/retailportalfiles/business/iermonthlyscorecards/IER_Monthly_Scorecard_SXXXXX.pdf'); return false;">IER Scorecard</a>
+		<a href="#" onclick="openDynamicURL('https://portaldoctool.cvs.com/portalDocTool/viewDocuments.do?listingID=complianceModReports&roles=myReports&deptType=RX&metricID=storeXXXXX'); return false;">OPI</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/rpt/RGLandingPage.pdf" target="_blank" rel="noopener noreferrer">Roster Readiness</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/mTC_Weekly_STORE.xlsx_2pdf.pdf" target="_blank" rel="noopener noreferrer">MTC Weekly</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/rpt/Store_Chainwide_TempAlert_Engagement_Reporting.xlsx_2pdf.pdf" target="_blank" rel="noopener noreferrer">Weekly TempAlert</a>
 	<a href="#" onclick="openDynamicURL('https://portaldoctool.cvs.com/rxreports/mpc/weekly/CLR_Weekly/Colleague_Level_Reporting_Weekly_SXXXXX.pdf'); return false;">MPC Colleague Lvl</a>
 </div>
-
-
-
 
 
 
@@ -285,9 +314,6 @@
 
 
 	  
-
-
-	  
 <div id="filling" class="grid category-panel" style="display: none;">
 <!-- Section Title: Filling -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
@@ -300,7 +326,7 @@
         <a href="https://matthewstathis.github.io/rxnet/pegforms">PEG Formulations</a>
 		<a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/DRAFT_DSCSA_Full_Functionality_Job_Aid_for_Pilot_Stores_20251522163222156.pdf" target="_blank" rel="noopener noreferrer">DSCA Intro</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/CFRx_DSCSA_Quarantine_Delivery_Check-In_Workflow_10302025_20251030153056926.pdf" target="_blank" rel="noopener noreferrer">DSCA Quarantine</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Delivery_CheckIn_Standalone_06282022_20230110190051769.pdf" target="_blank" rel="noopener noreferrer">DSCA Check-in/a>
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Delivery_CheckIn_Standalone_06282022_20230110190051769.pdf" target="_blank" rel="noopener noreferrer">DSCA Check-in</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Delivery_Check-In_Expectations_Quick_Guide_20230113165419628.pdf" target="_blank" rel="noopener noreferrer">DSCA FAQ</a>
 
 <!-- Section Title: Filling -->
@@ -501,7 +527,7 @@
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Technology
   </div>
-	<a href="https://barcode.tec-it.com/en/GS1QRCode?data=" target="_blank" rel="noopener noreferrer">Barcode Generator</a>
+		<a href="https://barcode.tec-it.com/en/GS1QRCode?data=" target="_blank" rel="noopener noreferrer">Barcode Generator</a>
         <a href="https://chainlauncher.rxc.cvs.com:7188/Launcher/AppLauncher.jnlp" target="_blank" rel="noopener noreferrer">RxC Launcher</a>
         <a href="https://supportlink.stores.cvs.com/" target="_blank" rel="noopener noreferrer">Device Management</a>
         <a href="https://cvshealth.sabacloud.com/Saba/Web_spf/NA10P1PRD006/app/me/myfiles;spf-url=common%2Fprofile%2Fmyfiles%2Femplo000000000082945" target="_blank" rel="noopener noreferrer">SabaCloud</a>
@@ -519,7 +545,7 @@
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin: 20px 0 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
     Miscellaneous
   </div>
- 	 <a href="https://www.cvs.com/epp/remote-payment" target="_blank" rel="noopener noreferrer">Card on File</a>
+ 		 <a href="https://www.cvs.com/epp/remote-payment" target="_blank" rel="noopener noreferrer">Card on File</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/RTS_on_Ironman_Job_Aid.pdf" target="_blank" rel="noopener noreferrer">Ironman RTS</a>
         <a href="https://www.calculator.net/date-calculator.html" target="_blank" rel="noopener noreferrer">Date Calculator</a>
         <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/RxDelivery_Resource_Center.pdf" target="_blank" rel="noopener noreferrer">RxDelivery Home</a>
@@ -747,10 +773,10 @@ function closeCitrixPopup() {
   });
 
   window.onload = function () {
-    showCategory('operational');
-    const operationalBtn = Array.from(document.getElementsByClassName('dock-button'))
+    showCategory('favorites');
+    const favoritesBtn = Array.from(document.getElementsByClassName('dock-button'))
       .find(btn => btn.textContent.trim().toLowerCase() === 'ops/manager');
-    if (operationalBtn) operationalBtn.classList.add('active');
+    if (favoritesBtn) favoritesBtn.classList.add('active');
   };
 </script>
 
