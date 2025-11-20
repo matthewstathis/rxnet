@@ -222,7 +222,7 @@
 		<a href="https://cvs.reflexisinc.com/kernel/views/authenticate/web/CVS.view" target="_blank" rel="noopener noreferrer">mySchedule</a>
         <a href="#" onclick="openDynamicURL('https://app.smartsense.co/api/Saml/InitiateSingleSignOn/CVS?returnUrl=https://app.smartsense.co/start/XXXXX'); return false;">TempAlert</a>
         <a href="https://cvs.cloud.infor.com/" target="_blank" rel="noopener noreferrer">Workbrain</a>
-        <a href="https://www.clinicalkey.com/pharmacology/" target="_blank" rel="noopener noreferrer">Clinical Pharmacology</a>
+        <a href="https://www.clinicalkey.com/pharmacology/" target="_blank" rel="noopener noreferrer">Clinical Pharm</a>
         <a href="https://rxdw-rximageretrieval.rxdw-cld-ap.cvshealthcloud.com/enterStore#no-back-button" target="_blank" onclick="return confirm('Alert: If the image retrieval portal loads to an error page, simply refresh the page (or press Control + R) and it will take you to the store number entry screen.');">Image Retrieval</a>        
 		<a href="https://www.myworkday.com/cvshealth/d/home.htmld" target="_blank" rel="noopener noreferrer">Workday</a>
 		<a href="https://cvs.medallia.com/sso/cvs" target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer">MCC</a>
@@ -324,10 +324,10 @@
         <a href="https://matthewstathis.github.io/rxnet/syringes">Syringes/Needles</a>
         <a href="https://connect.mckesson.com/content" target="_blank" rel="noopener noreferrer">McKesson</a>
         <a href="https://matthewstathis.github.io/rxnet/pegforms">PEG Formulations</a>
-		<a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/DRAFT_DSCSA_Full_Functionality_Job_Aid_for_Pilot_Stores_20251522163222156.pdf" target="_blank" rel="noopener noreferrer">DSCA Intro</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/CFRx_DSCSA_Quarantine_Delivery_Check-In_Workflow_10302025_20251030153056926.pdf" target="_blank" rel="noopener noreferrer">DSCA Quarantine</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Delivery_CheckIn_Standalone_06282022_20230110190051769.pdf" target="_blank" rel="noopener noreferrer">DSCA Check-in</a>
-        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Delivery_Check-In_Expectations_Quick_Guide_20230113165419628.pdf" target="_blank" rel="noopener noreferrer">DSCA FAQ</a>
+		<a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/DRAFT_DSCSA_Full_Functionality_Job_Aid_for_Pilot_Stores_20251522163222156.pdf" target="_blank" rel="noopener noreferrer">DSCSA Intro</a>
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/CFRx_DSCSA_Quarantine_Delivery_Check-In_Workflow_10302025_20251030153056926.pdf" target="_blank" rel="noopener noreferrer">DSCSA Quarantine</a>
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Delivery_CheckIn_Standalone_06282022_20230110190051769.pdf" target="_blank" rel="noopener noreferrer">DSCSA Check-in</a>
+        <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Delivery_Check-In_Expectations_Quick_Guide_20230113165419628.pdf" target="_blank" rel="noopener noreferrer">DSCSA FAQ</a>
 
 <!-- Section Title: Filling -->
   <div style="grid-column: 1 / -1; font-weight: bold; font-size: 18px; margin: 20px 0 5px; border-bottom: 2px solid #ccc; padding-bottom: 5px;">
@@ -775,7 +775,7 @@ function closeCitrixPopup() {
   window.onload = function () {
     showCategory('favorites');
     const favoritesBtn = Array.from(document.getElementsByClassName('dock-button'))
-      .find(btn => btn.textContent.trim().toLowerCase() === 'ops/manager');
+      .find(btn => btn.textContent.trim().toLowerCase() === 'favorites');
     if (favoritesBtn) favoritesBtn.classList.add('active');
   };
 </script>
