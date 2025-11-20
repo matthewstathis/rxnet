@@ -320,6 +320,15 @@ const searchItems = [
         { name: "Multi-factor authentication (NEW)  #MFA  #2FA ", url: "https://mfa.cvshealth.com/myaccount/" },
         { name: "Nebulizers/Spacers (NEW) ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Nebulizer_Dispensing_Job_Aid_2025_10_29_20251110134417326.pdf" },
         { name: "PingID Setup   #MFA  #2FA ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/Ping_Mobile_Registration_External_Network_from_Personal_Device.pdf" },
+        { name: "DSCSA Full Functionality Job Aid", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/DRAFT_DSCSA_Full_Functionality_Job_Aid_for_Pilot_Stores_20251522163222156.pdf" },
+        { name: "DSCA Quarantine Job Aid", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/CFRx_DSCSA_Quarantine_Delivery_Check-In_Workflow_10302025_20251030153056926.pdf" },
+        { name: "DSCA Delivery Check-in Job Aid", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Delivery_CheckIn_Standalone_06282022_20230110190051769.pdf" },
+        { name: "DSCA Quick Guide", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Delivery_Check-In_Expectations_Quick_Guide_20230113165419628.pdf" },
+        { name: "StartSmart Facilitator Guide", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/SmartStart_Facilitator_Guide_20250808150140318.pdf" },
+        { name: "StartSmart FAQs", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/StartSmart_FAQ_20250917112917976.pdf" },
+        { name: "StartSmart Job Aid", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/StartSmart_Job_Aid_20250922145418800.pdf" },
+        { name: "StartSmart Participant Guide", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/SmartStart_Participant_Guide_20250808144624526.pdf" },
+        { name: "Electronic Signature Portal", url: "https://rxdw-esignature-store.rxdw-cld-ap.cvshealthcloud.com/GetSMEsigStore.do?method=perform&StoreNum=XXXXX" },
 
 
 
