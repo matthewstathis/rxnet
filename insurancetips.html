@@ -1,0 +1,150 @@
+<div class="insurance-tips">
+
+  <h2>RxNet v4 – Alpha Build – CVS #01631</h2>
+
+  <!-- Workers Comp -->
+  <h3>Worker’s Comp</h3>
+  <ul>
+    <li><strong>Condor code:</strong> /1427</li>
+    <li><strong>ID number:</strong> Usually patient’s SSN</li>
+    <li><strong>Group:</strong> Usually not required</li>
+  </ul>
+  <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/ProcessingWorkersCompClaims.pdf" target="_blank">Full job aid</a>
+
+  <!-- Car Insurance -->
+  <h3>Car Insurance / AutoRx</h3>
+  <ul>
+    <li><strong>Condor code:</strong> /38635</li>
+    <li><strong>ID number:</strong> Claim # from the insurance</li>
+    <li><strong>Group:</strong> Carrier name (e.g., “erie”)</li>
+  </ul>
+
+  <!-- Savings Finder -->
+  <h3>CVS Savings Finder Universal Code</h3>
+  <ul>
+    <li><strong>Condor code:</strong> /4444</li>
+    <li><strong>ID number:</strong> 4444</li>
+    <li><strong>Relationship:</strong> Cardholder</li>
+  </ul>
+
+  <!-- Employee Flu -->
+  <h3>Employee Flu Vaccine</h3>
+  <ul>
+    <li><strong>Condor code:</strong> /26725</li>
+    <li><strong>ID number:</strong> Employee ID</li>
+    <li><strong>Group:</strong> RX0601</li>
+  </ul>
+
+  <!-- Medco Routing Trick -->
+  <h3>If Eligibility Check Returns “MEDCO BIN 610014 PCN COBSEG”</h3>
+  <ol>
+    <li>Write down the member ID from the eligibility result.</li>
+    <li>Exit results, return to 3rd party plan popup.</li>
+    <li>Enter Condor <strong>/4000</strong> and select <em>Medco Express Scripts 610014</em>.</li>
+    <li>Use group: <strong>HMRK001</strong></li>
+  </ol>
+
+  <!-- Narcan -->
+  <h3>Narcan</h3>
+  <ul>
+    <li><strong>Condor code:</strong> /40885</li>
+    <li><strong>ID number:</strong> Naloxone</li>
+    <li><strong>Group:</strong> Naloxone</li>
+    <li><strong>Patient residence:</strong> 1 (home)</li>
+    <li><strong>Relationship:</strong> Cardholder</li>
+  </ul>
+
+  <p>Enter appropriate line numbers to override COB sequence.  
+  After PA Naloxone Copay Assistance Program plan is added, <strong>$75</strong> should deduct from copay.</p>
+
+  <!-- Medicare B -->
+  <h2>Medicare Part B (Red, White & Blue Card)</h2>
+
+  <ul>
+    <li><strong>Condor code:</strong> /22345</li>
+    <li><strong>Diagnosis code:</strong> Z23 (Encounter for immunization)</li>
+  </ul>
+
+  <p><strong>Billable items:</strong></p>
+  <ul>
+    <li>Blood glucose meter, strips, lancets  
+      <em>(must bill meter first sometimes)</em></li>
+    <li>CGMs — must bill reader before sensors</li>
+    <li>Nebulizer solution (not devices)</li>
+    <li>Anti-organ transplant rejection drugs</li>
+    <li>Insulin for insulin pumps</li>
+  </ul>
+
+  <p>Running eligibility with patient’s SSN may return Med A/B ID.</p>
+
+  <p>Some Medicare Part D plans show the Med B ID when processing test strips/lancets and viewing the TP popup.</p>
+
+  <p>
+    <a href="https://matthewstathis.github.io/rxnet/librebilling.pdf" target="_blank">Billing Freestyle Libre</a><br>
+    <a href="https://matthewstathis.github.io/rxnet/nebsolutionbilling.pdf" target="_blank">Nebulizer solution billing</a><br>
+    <a href="https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/ABN_Job_Aid_20240108092619633.pdf" target="_blank">ABN Job Aid</a>
+  </p>
+
+  <!-- Paxcess Program -->
+  <h2>Paxcess Patient Assistance Program</h2>
+
+  <p><strong>Only for:</strong>  
+    Medicare, Medicaid, Uninsured  
+    <br>Only while AssistRx cannot process TPPC 41395 claims.
+  </p>
+
+  <h3>What pharmacy teams need to know</h3>
+  <ol>
+    <li>Always bill patient’s primary insurance first.</li>
+    <li>If not covered or high copay → explain Paxcess program.</li>
+    <li>Patients can enroll online or by phone.</li>
+    <li>Bill Paxcess PAP using the provided ID after enrollment.</li>
+  </ol>
+
+  <p><strong>If AssistRx is unable to process:</strong><br>
+    <em>Reject code 92 – Host Processing Error</em><br>
+    Message: <strong>*CVS* PHARMACY MUST call PAXCESS</strong>
+  </p>
+
+  <p>Obtain patient consent and mailing address → call Paxcess → prescription is mailed to patient at $0.</p>
+
+  <!-- Checks -->
+  <h3>Receiving Checks From 3rd Party Payers</h3>
+  <p>Forward checks to:</p>
+
+  <p>
+    CVS PHARMACY, INC.<br>
+    83649 Collection Center Dr<br>
+    Chicago, IL 60693-0836
+  </p>
+
+</div>
+
+<style>
+  .insurance-tips {
+    max-width: 900px;
+    padding: 10px 20px;
+    line-height: 1.45;
+    font-size: 16px;
+  }
+  .insurance-tips h2 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-bottom: 3px solid #ccc;
+    padding-bottom: 5px;
+  }
+  .insurance-tips h3 {
+    margin-top: 18px;
+    margin-bottom: 6px;
+    font-weight: bold;
+  }
+  .insurance-tips ul, .insurance-tips ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-left: 20px;
+  }
+  .insurance-tips a {
+    color: #0055aa;
+    text-decoration: underline;
+  }
+</style>
