@@ -150,23 +150,24 @@
     text-decoration: underline;
   }
 
-
-
+        /* Style for the Home button */
 .home-button {
-  position: fixed;
+  position: fixed;       /* 👈 fixed keeps it in place */
   top: 10px;
-  right: 10px;
-  background: #d40000;
+  left: 10px;
+  background-color: #35BF8E;
   color: white;
-  padding: 10px 16px;
-  border-radius: 8px;
+  padding: 10px 40px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   text-decoration: none;
-  font-weight: bold;
-  z-index: 9999;
-  box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
+  display: inline-block;
+  z-index: 1000;         /* 👈 ensure it stays on top */
 }
 
 .home-button:hover {
-  background: #b30000;
+  background-color: #0f6658;
 }
 </style>
