@@ -331,6 +331,7 @@ const searchItems = [
         { name: "Electronic Signature Portal", url: "https://rxdw-esignature-store.rxdw-cld-ap.cvshealthcloud.com/GetSMEsigStore.do?method=perform&StoreNum=XXXXX" },
         { name: "Clinical Pharmacology Remote Access Setup Link", url: "https://www.clinicalkey.com/pharmacology/login?promoCodeGroup=DID416516&promoCode=416516&associatingWith=CVS%20Co,%20General%20Access" },
         { name: "Zipline - myTasks View", url: "https://cvs.retailzipline.com/field/my_tasks" },
+        { name: "Bowel Prep Billing Tips", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Proper_Billing_of_Bowel_Preps_2025_%282%29_20251126141806523.pdf" },
 
 
         { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
