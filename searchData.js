@@ -29,7 +29,7 @@ const searchItems = [
         { name: "Ariba ", url: "https://s1.ariba.com/Buyer/Main/aw?awh=r&awssk=zzWQVycDkiqf98cE&realm=CVS-P2P&awrdt=1" },
         { name: "UpToDate ", url: "https://www.uptodate.com/contents/search" },
         { name: "Clinical Pharm ", url: "https://www.clinicalkey.com/pharmacology/" },
-        { name: "Micromedex ", url: "https://www.micromedexsolutions.com/home/dispatch" },
+        { name: "Micromedex ", url: "https://www.micromedexsolutions.com/micromedex2/librarian/" },
         { name: "DailyMed ", url: "https://dailymed.nlm.nih.gov/dailymed/" },
         { name: "DynaMed ", url: "https://www.dynamed.com" },
         { name: "Pharmacist Letter Access Job Aid ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Pharmacists_Letter_access_jobaid_20220415095427755.pdf" },
