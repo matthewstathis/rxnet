@@ -426,10 +426,10 @@ function closeCitrixPopup() {
   });
 
   window.onload = function () {
-    showCategory('favorites');
-    const favoritesBtn = Array.from(document.getElementsByClassName('dock-button'))
-      .find(btn => btn.textContent.trim().toLowerCase() === 'favorites');
-    if (favoritesBtn) favoritesBtn.classList.add('active');
+    showCategory('operational');
+    const operationalBtn = Array.from(document.getElementsByClassName('dock-button'))
+      .find(btn => btn.textContent.trim().toLowerCase() === 'operational');
+    if (operationalBtn) operationalBtn.classList.add('active');
   };
 </script>
 
