@@ -163,7 +163,15 @@
   background: #0f5d4f;
 }
 
-
+.section-description {
+  grid-column: 1 / -1;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
 	  
   </style>
 </head>
@@ -261,18 +269,10 @@
     Apps
   </div>
 
-  <!-- Section Description -->
-  <div style="
-    grid-column: 1 / -1;
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 15px;
-    margin-right: 150px;
-    line-height: 1.4;
-  ">
-    These are App Store links to various apps that are either required to access on mobile,
-    or simply work better than loading in your phone’s browser.
-  </div>
+<div class="section-description">
+  These are App Store links to various apps that are either required to access on mobile,
+  or simply work better than loading in your phone’s browser.
+</div>
 
   <a href="https://apps.apple.com/app/id1221555019" target="_blank" rel="noopener noreferrer">Zipline</a>
   <a href="https://apps.apple.com/app/id1496727910" target="_blank" rel="noopener noreferrer">mySchedule</a>
