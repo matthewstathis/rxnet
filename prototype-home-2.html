@@ -94,9 +94,9 @@ body {
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .grid a {
@@ -104,11 +104,12 @@ body {
   background-color: #148275;
   color: white;
   text-decoration: none;
-  padding: 12px;
+  padding: 16px;
   border-radius: 8px;
   text-align: center;
-  font-size: 14px;
+  font-size: 15px;
   transition: background 0.3s;
+  width: 100%;
 }
 
 .grid a:hover {
