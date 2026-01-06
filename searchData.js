@@ -54,7 +54,7 @@ const searchItems = [
         { name: "LearningHub ", url: "https://cvshealth.sabacloud.com/" },
         { name: "RRT Approval  #Remote Training ", url: "https://app-corp-rewrite-prod-use2-web.azurewebsites.net/rrtAccessManagement" },
         { name: "Workbrain ", url: "https://cvs.cloud.infor.com/" },
-        { name: "Service Channel ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=https://login.servicechannel.com/saml/acs" },
+        { name: "Service Channel ", url: "https://authsvc.cvshealth.com/idp/startSSO.ping?PartnerSpId=https://login.servicechannel.com" },
         { name: "Store Visit Tool ", url: "https://svt.cvsapps.com/sso" },
         { name: "Attendance Tracker ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Attendance_Tracker_7.2018__20180731161449175.pdf" },
         { name: "Name Tag Labels ", url: "https://nametagger.cvs.com" },
