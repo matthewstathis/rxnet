@@ -101,7 +101,7 @@ const searchItems = [
         { name: "Immunization Technician Curriculum  #IMZ ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Pharmacy_Technician_Immunization_Curriculum_2022062814253156.pdf" },
         { name: "Uploading Certifications  #IMZ ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Colleague_Self_Entry_of_Required_Immunization_Certificates_and_CPR_2023072713230237.pdf" },
         { name: "NABP CE ID ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/NABP_e-Profile_ID__20251031144708533.pdf" },
-        { name: "CPR Scheduling #IMZ  ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/CPR_Job_Aid_for_Store_Colleagues_20240223155128952.pptx_2pdf.pdf" },
+        { name: "CPR Scheduling Job Aid #IMZ  ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/CPR_Job_Aid_for_Store_Colleagues_20240223155128952.pptx_2pdf.pdf" },
         { name: "Travel Immunization NDCs #IMZ  ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/TravelVaccineDetails_20241106120156848.pdf" },
         { name: "Travel Immunization Reference  #IMZ ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Travel_IMZ_Cheat_Sheet_12122024_20241212111427361.docx_2pdf.pdf" },
         { name: "CDC Yellow Book  #IMZ ", url: "https://wwwnc.cdc.gov/travel/page/yellowbook-home" },    
@@ -335,7 +335,7 @@ const searchItems = [
         { name: "PA Technician Licensure", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/Pennsylvania_Incumbent_Pharmacy_Technician_Application_Checklist_2025120917021865.pdf" },
         { name: "Print Pharmacy DEA License ", url: "https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/RX_LICENSE_XXXXX.pdf" },
         { name: "AP Store Visit Tool (SVT)  ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/AP_SVT_-_FS_and_RX_Store_Leader_Dashboards_Guide_20260107141856115.pptx_2pdf.pdf" },
-        { name: "CPR Class Scheduling ", url: "https://c0axa109.caspio.com/dp/731b1000a87a77ff9fd24b08b4ac" },
+        { name: "CPR Class Scheduling #IMZ", url: "https://c0axa109.caspio.com/dp/731b1000a87a77ff9fd24b08b4ac" },
 
 
         { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
