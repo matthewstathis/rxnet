@@ -89,7 +89,7 @@ const searchItems = [
         { name: "High Risk Drugs ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/High_Risk_Drug_Profiles_-_Q4_FINAL_%28updated_Nov_2022%29_20230320171225743.pdf" },
         { name: "ICAP Job Aid ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/ThinkLP_ICAPs_Guide_20241009105750305.docx_2pdf.pdf" },
         { name: "SafetyHub ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/rpt/mySafetyHub.pdf" },
-        { name: "Cardinal Issues ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/store/CardinalHealthDeliveryIssue_SOP_20241007185146443.pdf" },
+        { name: "OV Order Issues ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/Delivery_Check-In_Expectations_Quick_Guide_1122_20250702130337426.docx_2pdf.pdf" },
         { name: "eBOH Job Aid ", url: "https://cvsthinklp.my.salesforce.com/sfc/p/36000001HXbW/a/Kf000000QBkY/VX87Io7HdgsVvwbiHOyuh9.yS8XvYoDLN9yg2aniEbI" },
         { name: "Immunization Dashboard #IMZ  ", url: "https://imzdash.rxc.cvs.com:31213/immunization/" },
         { name: "CDC Vaccine Schedules ", url: "https://www.cdc.gov/vaccines/imz-schedules/index.html" },
@@ -312,7 +312,7 @@ const searchItems = [
         { name: "Zipline", url: "https://cvs.retailzipline.com/field/dashboard" },
         { name: "PA Clinical Labratory License/Certificate Reprint   #COVID Testing", url: "https://www.palabsbillpayment.health.pa.gov/Home.aspx" },
         { name: "Zipline (Field) ", url: "https://federatione.cvs.com/affwebservices/public/saml2sso?SPID=cvshealthsp_png_cvscom&RelayState=https://authsvc.cvshealth.com/idp/startSSO.ping?PartnerSpId=https://cvs.retailzipline.com/sso/saml/metadata/?SUBSTITUTE_STORE_NUMBER=XXXXX" },
-        { name: "Fax Transfer Request Job Aid ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/RxTransfer_Fax_Functionality_Job_Aid_20251103091345116.pptx_2pdf.pdf" },
+        { name: "Rx Transfer Request Job Aid ", url: "hhttps://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/RxTransferJobAid_20251216160319603.pdf" },
         { name: "MTC - Roster Readiness/Guidelines ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/rpt/RGLandingPage.pdf" },
         { name: "MTC - Weekly Report ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/oth/mTC_Weekly_STORE.xlsx_2pdf.pdf" },
         { name: "Weekly TempAlert Compliance Report ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/perm/fm/rpt/Store_Chainwide_TempAlert_Engagement_Reporting.xlsx_2pdf.pdf" },
@@ -336,7 +336,9 @@ const searchItems = [
         { name: "Print Pharmacy DEA License ", url: "https://portaldoctool.cvs.com/retailportalfiles/wlm_task_reports/RX_LICENSE_XXXXX.pdf" },
         { name: "AP Store Visit Tool (SVT)  ", url: "https://portaldoctool.cvs.com/retailportalfiles/radar_store/temp/fm/AP_SVT_-_FS_and_RX_Store_Leader_Dashboards_Guide_20260107141856115.pptx_2pdf.pdf" },
         { name: "CPR Class Scheduling #IMZ", url: "https://c0axa109.caspio.com/dp/731b1000a87a77ff9fd24b08b4ac" },
-
+        { name: "Training Managment System (TMS)", url: "https://tms.cvs.com/apps_dir_sm/tms2/index.cfm" },
+        { name: "New LP Store Visit Tool #AP #LP #SVT", url: "https://ldp.cvsapps.com/sso" },
+        { name: "Former Colleagues   #HR", url: "https://alumnizone.cvs.com/alumnizone" },
 
         { name: "CVS\Domain Apps Portal (Citrix) ", url: "https://remote.cvshealth.com/Citrix/remotecvsWeb/" }
 
